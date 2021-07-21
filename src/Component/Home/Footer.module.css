@@ -11,13 +11,27 @@
   height: auto;
   box-sizing: border-box;
   background-color: rgb(97, 136, 255);
-  display: grid;
-  grid-gap: 35px;
+  display: flex;
+  /* grid-gap: 35px; */
   padding-top: 40px;
   padding-bottom: 80px;
-  grid-template-columns: 22% 21% 21% 28%;
+  /* grid-template-columns: 22% 21% 21% 28%; */
   margin: auto;
   /* align-items: center; */
+  justify-content: space-around;
+}
+.footer > div {
+  height: 240px;
+  width: 270px;
+  box-sizing: border-box;
+}
+.footer > div:nth-child(4) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer > div:nth-child(n + 2) {
+  margin-top: 10px;
 }
 
 .two > div > img {
@@ -55,7 +69,7 @@ a {
   font-family: "Poppins", sans-serif;
   width: 200px;
   height: 55px;
-  margin-bottom: 20px;
+  margin-bottom: 27px;
   border-radius: 5px;
   background-color: rgb(113, 148, 255);
   color: white;
@@ -66,7 +80,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0px 10px;
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -137,4 +151,38 @@ a {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0px);
+}
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+  .footer > div {
+    width: 100%;
+  }
+  .two > div {
+    align-items: center;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+  }
+  .footer > div > div {
+    /* width: 100%; */
+    align-items: center;
+    justify-content: center;
+  }
+  .button {
+    width: 100%;
+    max-width: 400px;
+  }
+  .footer > div:nth-child(1) {
+    align-items: center;
+    /* outline: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+  }
+  .footer > div:nth-child(1) > div {
+    width: 100%;
+    max-width: 400px;
+  }
 }

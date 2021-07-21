@@ -181,6 +181,8 @@
   position: relative;
   z-index: 2;
   background: rgb(98, 137, 255);
+  position: sticky;
+  top: -20px;
 }
 .smallNav > div:nth-child(1) {
   width: 120px;

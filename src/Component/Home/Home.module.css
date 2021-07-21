@@ -287,6 +287,19 @@
   height: 100%;
 }
 @media (max-width: 600px) {
+  .afterNav {
+    margin-top: 100px !important;
+  }
+
+  .afterNav > div > h1 {
+    font-size: 25px !important;
+  }
+  .getDemo {
+    width: 100% !important;
+    max-width: 216px;
+    font-size: 19px !important;
+    box-sizing: border-box;
+  }
   .middle h2 {
     font-size: 26px !important;
   }
