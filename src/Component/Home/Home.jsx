@@ -14,7 +14,7 @@ function Home() {
             Mightycause is a modern, all-in-one platform for nonprofit fundraising, donor
             management, marketing, peer-to-peer fundraising and more.
           </p>
-          <div className={styles.getDemo}>Get A Demo</div>
+          <div className={styles.getDemo}>Get a Demo</div>
         </div>
       </div>
       <div className={styles.middle}>

@@ -17,6 +17,8 @@
 
   background-position-y: -100px;
   /* background-position: 50%; */
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header::before {
   content: "";
@@ -66,7 +68,15 @@
   padding: 10px;
   cursor: pointer;
   margin: 32px 0px;
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 20%), 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.afterNav .getDemo:hover {
+  color: #808491 !important;
+  background-color: #fff;
+}
+
 .middle {
   background-color: rgb(98, 137, 255);
   width: 100%;
@@ -127,7 +137,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-image: ;
+  /* background-image: ; */
 }
 .heading {
   margin-bottom: 3rem !important;
@@ -151,6 +161,7 @@
 }
 .con > div {
   /* flex-wrap: wrap; */
+
   display: flex;
   align-items: center;
   width: 30%;
@@ -164,6 +175,10 @@
   cursor: pointer;
   box-shadow: 0 1px 8px 0 rgb(139 144 158 / 20%);
 }
+/* .con > div:hover {
+  box-shadow: 0px 10px 30px 0px rgb(97 136 255 / 20%) !important;
+  width: 28%;
+} */
 .con > div > div:nth-child(1) {
   width: 78px;
   height: 74px;
@@ -203,7 +218,7 @@
   color: #6188ff;
 }
 .manageButton {
-  background: rgb(97, 136, 255);
+  background-color: #6188ff;
   padding: 17px;
   width: 533px;
   margin-top: 60px;
@@ -211,6 +226,12 @@
   border: none;
   color: #fff;
   font-size: 27px;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.manageButton:hover {
+  background-color: #003efa;
+  box-shadow: 0 2px 16px 0 rgb(0 0 0 / 24%);
 }
 .last {
   max-width: 1140px;
