@@ -1,8 +1,11 @@
 
-import React from 'react'
-import styles from './Contactus.module.css'
+import React from 'react';
+import styles from './Contactus.module.css';
 import Card1 from "./Card1";
 import Cardfunctional from "./Cardfunctional";
+import { Nav } from './Nav';
+import Footer  from "./Footer";
+
 
 export default function Contactus(props) {
 
@@ -16,14 +19,22 @@ export default function Contactus(props) {
 
     // cardfunctionality
     const func_head_data = ["I want to start a fundraiser.","I'm an existing customer looking for help."];
-    const func_body_data = ["Create a crowdfunding page. You can raise money for anything; whether it’s a charitable cause, your own goals and needs, or raising money on behalf of someone in need.","To get help or troubleshoot, find answers in our support center."];
+    const func_body_data = ["Create a crowdfunding page. You can raise money for anything whether it’s a charitable cause, your own goals and needs, or raising money on behalf of someone in need.","To get help or troubleshoot, find answers in our support center."];
     const func_button_data = ["Start fundraising ","Get support"]
     return (
         <>
             
+             <div className={styles["navbar"]}>
+                <Nav />
+            </div>
+            
             <div className={styles["main-div"]}>
 
-                <div className={ styles["top-main-div"]}>
+                
+
+                <div className={styles["top-main-div"]}>
+                    
+                   
 
                     <div className={ styles["top-heading"]}>
                         <p>Learn about our products.</p>
@@ -40,6 +51,10 @@ export default function Contactus(props) {
                 
             </div>
 
+            
+            
+
+
             <div className={ styles["middle-main-div"]}>
                 
                     
@@ -54,8 +69,15 @@ export default function Contactus(props) {
                     <Cardfunctional titlefnc={func_head_data[1]} descriptionfnc={func_body_data[1]} btnfnc={func_button_data[1]}/>
                 </div>
                 
-
+               
+                
             </div>
+
+            <div className={styles["footercontactus"]}>
+                <Footer/>
+            </div>
+
+            
 
         </>
     )
