@@ -16,9 +16,8 @@ position:absolute;
  display: flex;
  height: 100px;
 align-items: center;
-border-bottom: 1px solid black;
-border-top: 1px solid black;
 
+box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
 @media only screen and (max-width: 720px) {
  width:100%;
@@ -107,11 +106,50 @@ right:30px;
 
 
 `
+const Outer = styled.div`
+position:fixed;
+top:60px;
+left:30px;
+width:15%;
+height:25vh;
 
 
-const Navbar = () => {
+/* justify-content: center;
+align-items: center; */
+
+
+`
+
+const Inner = styled.div`
+position:relative;
+
+background-color: white;
+
+ul{
+    list-style: none;
+  
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 32px;
+}
+li{
+ 
+    font-size: 25px;
+margin-top:10px;
+}
+
+li:hover{
+    background-color: #6188FF;
+    color:white;
+}
+
+`
+
+
+const Navbarch = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const [search, setSearch] = useState(false)
+    const [explore, setExplore] = useState(false)
+    const [add, setAdd] = useState(false)
 
     window.addEventListener("resize", handleResize);
     function handleResize() {
@@ -127,14 +165,44 @@ const Navbar = () => {
             <Nav>
                 <Icons>
 
-                    <ExploreIcon className="icon_d" />
+                    <ExploreIcon onMouseOver={() => setExplore(!explore)} className="icon_d" />
+                    {explore && (
+                    
+                        <Outer>
+                            <Inner>
+                                <ul>
+                                    <li>Fundraisers</li>
+                                    <li>Teams and Events</li>
+                                    <li>Organizations</li>
+                                </ul>
+                            </Inner>
+                    </Outer>
 
+                     
+                    )}
 
                 </Icons>
 
 
                 <Icons>
-                    <AddCircleOutlineIcon className="icon_d" />
+                    <AddCircleOutlineIcon onMouseOver={() => setAdd(!add)} className="icon_d" />
+                    {add && (
+
+                        <Outer>
+                            <Inner>
+                                <ul>
+                                    <li>Start a fundraiser</li>
+                                    <li>Start a teams</li>
+                                    <li>Start a events</li>
+                                    <li>Claim your nonprofit</li>
+                                    <li>All fundraising solutoions</li>
+                               
+                                </ul>
+                            </Inner>
+                        </Outer>
+
+
+                    )}
                 </Icons>
 
 
@@ -270,4 +338,4 @@ const Navbar = () => {
     );
 }
 
-export { Navbar }
+export { Navbarch }
