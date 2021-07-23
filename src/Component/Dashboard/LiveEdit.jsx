@@ -1,11 +1,12 @@
-import styles from "./LiveEdit.module.css";
-import styled from "styled-components";
-import { Nav } from "../Home/Nav";
-import { useEffect, useState } from "react";
+import styles from './LiveEdit.module.css';
+import styled from 'styled-components';
+import { Nav } from '../Home/Nav';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function LiveEdit({ data }) {
   const [width, setWidth] = useState(window.innerWidth);
-  window.addEventListener("resize", handleResize);
+  window.addEventListener('resize', handleResize);
   function handleResize() {
     setWidth(window.innerWidth);
     // console.log("no");
@@ -26,19 +27,20 @@ function LiveEdit({ data }) {
           <div className={styles.account}></div>
           <div>
             <button className={styles.category}>{data.category}</button>
-            <span class="material-icons-outlined">mode_edit</span>
+            <span class='material-icons-outlined'>mode_edit</span>
           </div>
           <div>
             <div className={styles.imgDiv}>
               <div className={styles.pic}>
-                <img src={data.img} alt="" />
+                <img src={data.img} alt='' />
               </div>
-              <span class=" material-icons-outlined ">mode_edit</span>
+              <span class=' material-icons-outlined '>mode_edit</span>
             </div>
             <div className={styles.title}>
               <div>
                 <h1>
-                  {data.title} <span class="material-icons-outlined">mode_edit</span>
+                  {data.title}{' '}
+                  <span class='material-icons-outlined'>mode_edit</span>
                 </h1>
               </div>
             </div>
@@ -48,7 +50,7 @@ function LiveEdit({ data }) {
           </div>
           <div>
             <button className={styles.editTheme}>
-              <span class=" material-icons-outlined ">mode_edit</span>Edit Theme
+              <span class=' material-icons-outlined '>mode_edit</span>Edit Theme
             </button>
           </div>
         </div>
@@ -56,7 +58,8 @@ function LiveEdit({ data }) {
           <div>
             <h1>{`$ ${data.raised} raised`}</h1>
             <p>
-              FUNDRAISING DEADLINE <span class="material-icons-outlined">mode_edit</span>
+              FUNDRAISING DEADLINE{' '}
+              <span class='material-icons-outlined'>mode_edit</span>
             </p>
           </div>
           <div>
@@ -64,10 +67,12 @@ function LiveEdit({ data }) {
               <Progress />
               <p>{`$ ${data.donationTarget} GOAL`}</p>
             </div>
-            <span class="material-icons-outlined">mode_edit</span>
+            <span class='material-icons-outlined'>mode_edit</span>
           </div>
           <div className={styles.lastbutton}>
-            <button className={styles.donate}>DONATE</button>
+            <Link to='/Donation'>
+              <button className={styles.donate}>DONATE</button>
+            </Link>
             <button>JOIN THIS EVENT</button>
           </div>
         </div>
