@@ -110,6 +110,8 @@ width: 80%;
 .Down_panel{
 
     margin-top: 50px;
+    margin-left: 20px;
+    padding: 0 2%;
 
 }
 .Down_panel>ul>li{
@@ -122,6 +124,7 @@ width: 80%;
   padding: 3% 18%;
   border: none;
   cursor: pointer;
+   margin-top: 40px;
 }
 
 @media only screen and (max-width: 720px) {

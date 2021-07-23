@@ -19,13 +19,13 @@
             "city": "neemuch",
             "pin": "123456",
             "donation": true,
-            "id":1
+            "id": 1
           }
         ]
+      },
+      "animal": {
+        "hidename": false
       }
-     
-        
-      }
+    }
   ]
-  
 }

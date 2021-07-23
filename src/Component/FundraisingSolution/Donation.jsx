@@ -123,7 +123,7 @@ margin-left: 20px;
 const Logo = styled.div`
 
 margin-left: 750px;
-margin-top: 10px;
+margin-top: 20px;
 
 `
 
@@ -187,7 +187,7 @@ button:hover{
 `
 
 const Input = styled.div`
-margin-top: 20px;
+margin-top: 25px;
 input{
 width:50%;
 border: none;
@@ -196,9 +196,10 @@ border-bottom:2px solid black;
 }
 
 
+
 `
 const CHECKBOX = styled.div`
-margin-top:5px;
+margin-top:20px;
 `
 
 const FormMiddle = styled.div`
@@ -231,6 +232,7 @@ input{
     border: none;
     outline: none;
     border-bottom: 2px solid grey;
+    margin-top:20px;
 }
 
 span{
@@ -470,14 +472,14 @@ const Donation = () => {
                     <span>
                         <div>
                             <label>Payment Method</label><br />
-                            <input name="card" onChange={handleOnchange} type="text" />
+                            <input name="card" onChange={handleOnchange} type="text" placeholder="Please enter card name" />
                         </div>
 
                         <div>
                             <Wrapper2>
                                 <Credential>
                                     <label >Card Number</label><br />
-                                    <input onChange={handleOnchange} type="number" name="cardnumber" placeholder="Card Number" />
+                                    <input onChange={handleOnchange} type="number" name="cardnumber" placeholder="Card Number"  />
                                 </Credential>
                                 <Credential>
                                     <label >MM/YY</label><br />
@@ -527,16 +529,18 @@ const Donation = () => {
                     </span>
                 </FormLast>
 
-                <h1>Total</h1>
-                <h1>$0.00</h1>
-                <CHECKBOX>
-                    <input onChange={handleOnchange} name="donation" type="checkbox" />   <span>Cover fees so Anima Christi Retreats Inc gets my full donation</span>
+                <div>
+                    <h1>Total</h1>
+                    <h1>$0.00</h1>
+                    <CHECKBOX>
+                        <input onChange={handleOnchange} name="donation" type="checkbox" />   <span>Cover fees so Anima Christi Retreats Inc gets my full donation</span>
 
-                </CHECKBOX>
-                <BUTTON>
-                    <input type="submit" value="Pay" />
-                </BUTTON>
+                    </CHECKBOX>
+                    <BUTTON>
+                        <input type="submit" value="Pay" />
+                    </BUTTON>
 
+         </div>
             </Form>
         </Wrapper>
     )
