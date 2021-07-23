@@ -32,7 +32,7 @@ const Form = () => {
           <Email style={iconStyles} />
           <input type='email' name='' id='input' placeholder='Email' />
           <div>
-            <Link to='/dashboard'>
+            <Link to='/dashboard/live'>
               <input type='submit' value='Continue' />
             </Link>
           </div>

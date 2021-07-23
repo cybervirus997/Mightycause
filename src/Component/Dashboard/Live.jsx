@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './Live.module.css';
 import { LiveEdit } from './LiveEdit';
+import SideNavbar from './Navbar';
 
 function Live() {
   const initial = {
@@ -18,6 +19,7 @@ function Live() {
   };
   return (
     <div className={styles.Con}>
+      <SideNavbar />
       <LiveEdit data={data} />
     </div>
   );

@@ -2,6 +2,7 @@ import styles from './LiveEdit.module.css';
 import styled from 'styled-components';
 import { Nav } from '../Home/Nav';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function LiveEdit({ data }) {
   const [width, setWidth] = useState(window.innerWidth);
@@ -69,7 +70,9 @@ function LiveEdit({ data }) {
             <span class='material-icons-outlined'>mode_edit</span>
           </div>
           <div className={styles.lastbutton}>
-            <button className={styles.donate}>DONATE</button>
+            <Link to='/Donation'>
+              <button className={styles.donate}>DONATE</button>
+            </Link>
             <button>JOIN THIS EVENT</button>
           </div>
         </div>
