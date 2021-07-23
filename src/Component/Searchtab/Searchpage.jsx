@@ -17,12 +17,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import InputWithIcon from "./Fancysearch";
-import ControlledOpenSelect from "./Dropdown"
+import InputWithIcon from './Fancysearch';
+import ControlledOpenSelect from './Dropdown';
+import { Link } from 'react-router-dom';
 
-
-
-import styles from "./Searchpage.module.css"
+import styles from './Searchpage.module.css';
 
 const drawerWidth = 240;
 
@@ -83,7 +82,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function PersistentDrawerRight(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -97,110 +95,107 @@ export default function PersistentDrawerRight(props) {
     setOpen(false);
   };
 
-    return (
-     
-    
-
+  return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        position='fixed'
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar style={{backgroundColor: "white"}}>
-          <Typography variant="h6" noWrap className={classes.title} >
-            
-            <div className={styles["search-navbar"]}>
-                            
-                            <span class="material-icons-outlined" style={{ color: "rgb(97,136,255)" }} >explore</span>
-                        
-                        <div className={styles["search-photo"]}>
-                            <img src=" https://ucarecdn.com/224a0727-0e6b-4f9f-b324-427c3f58bf5b/" alt="logo" />
-                            </div>
-                            
-                            
-                            <div style={{color:"rgb(97,136,255)"}}>
-                                <span class="material-icons-outlined">search</span>
-                            </div>
-            </div>
-                        
-                        
-            
+        })}>
+        <Toolbar style={{ backgroundColor: 'white' }}>
+          <Typography variant='h6' noWrap className={classes.title}>
+            <div className={styles['search-navbar']}>
+              <span
+                class='material-icons-outlined'
+                style={{ color: 'rgb(97,136,255)' }}>
+                explore
+              </span>
 
+              <Link to='/'>
+                <div className={styles['search-photo']}>
+                  <img
+                    src=' https://ucarecdn.com/224a0727-0e6b-4f9f-b324-427c3f58bf5b/'
+                    alt='logo'
+                  />
+                </div>
+              </Link>
+
+              <div style={{ color: 'rgb(97,136,255)' }}>
+                <span class='material-icons-outlined'>search</span>
+              </div>
+            </div>
           </Typography>
-          
         </Toolbar>
       </AppBar>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
-        })}
-      >
+        })}>
         <div className={classes.drawerHeader} />
         <Typography paragraph>
-                    <div className={ styles["menu-option"]}>
-                        <p>Search</p>
-                        <div className={ styles["menu-options-icons"]}>
-                            
-                            <InputWithIcon />
-                            <div className={ styles["menu-layout-setting"]}>
-                                <span class="material-icons-outlined">track_changes</span> <p>153 results found</p>
-                            </div>
+          <div className={styles['menu-option']}>
+            <p>Search</p>
+            <div className={styles['menu-options-icons']}>
+              <InputWithIcon />
+              <div className={styles['menu-layout-setting']}>
+                <span class='material-icons-outlined'>track_changes</span>{' '}
+                <p>153 results found</p>
+              </div>
 
-                            <div className={styles["menu-layout-changer"]}>
-                                <span class="material-icons-outlined">grid_view</span>
-                                <span class="material-icons-outlined">format_list_bulleted</span>
-                                <button onClick={handleDrawerOpen}>
-                                     <p> <span class="material-icons-outlined">filter_alt</span> Filters</p> 
-                                </button>
-                                
-                                
-                            </div>
-
-                        </div>
-                    </div>
+              <div className={styles['menu-layout-changer']}>
+                <span class='material-icons-outlined'>grid_view</span>
+                <span class='material-icons-outlined'>
+                  format_list_bulleted
+                </span>
+                <button onClick={handleDrawerOpen}>
+                  <p>
+                    {' '}
+                    <span class='material-icons-outlined'>filter_alt</span>{' '}
+                    Filters
+                  </p>
+                </button>
+              </div>
+            </div>
+          </div>
         </Typography>
         <Typography paragraph>
-                    <div className={styles["mapping-section"]}>
-                        
-                    </div>
+          <div className={styles['mapping-section']}></div>
         </Typography>
       </main>
       <Drawer
         className={classes.drawer}
-        variant="persistent"
-        anchor="right"
+        variant='persistent'
+        anchor='right'
         open={open}
         classes={{
           paper: classes.drawerPaper,
-        }}
-      >
+        }}>
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'rtl' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
         <List>
-                    <p style={{ fontSize: "calc(1.0rem + 1.8vw)" }}>Filters</p>
-                    <ControlledOpenSelect />
-                    <ControlledOpenSelect />
-                    <ControlledOpenSelect  />
-                    <input type="checkbox" />Covid-19 <br />
-                    <input type="checkbox" />Donations matched <br />
-                    <input type="checkbox" />Volunteer opportunities <br />
-
-                    
+          <p style={{ fontSize: 'calc(1.0rem + 1.8vw)' }}>Filters</p>
+          <ControlledOpenSelect />
+          <ControlledOpenSelect />
+          <ControlledOpenSelect />
+          <input type='checkbox' />
+          Covid-19 <br />
+          <input type='checkbox' />
+          Donations matched <br />
+          <input type='checkbox' />
+          Volunteer opportunities <br />
         </List>
         <Divider />
-        <List> 
-          
-        </List>
+        <List></List>
       </Drawer>
-            </div>
-            
-           
+    </div>
   );
 }

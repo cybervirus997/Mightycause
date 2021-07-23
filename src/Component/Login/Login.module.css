@@ -4,17 +4,18 @@
 }
 
 .navbar {
-  box-shadow: 2px 2px 2px 2px rgb(228, 225, 225);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   display: flex;
   justify-content: space-between;
-  /* padding-top: 15px; */
   position: fixed;
   background-color: white;
   z-index: 5;
+  padding: 5px;
+  padding-bottom: 10px;
   top: 0;
-  width: 100vw;
-  /* padding-left: 30px;
-  padding-right: 30px; */
+  width: 94vw;
+  padding-left: 30px;
+  padding-right: 40px;
 }
 .logo {
   display: grid;
@@ -30,16 +31,18 @@
   padding: 0;
   color: rgb(97, 136, 253);
 }
-.right-link {
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: auto auto;
-}
 
-.left-link > button,
-.right-link > button {
-  margin-top: 5px;
+.leftlink > button,
+.rightlink > button {
+  margin-top: 15px;
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+  .navbar {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
