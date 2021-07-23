@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './Contactus.module.css';
 import Card1 from './Card1';
 import Cardfunctional from './Cardfunctional';
-import { Nav } from './Nav';
+
+import {Nav} from '../Home/Nav'
 import Footer from './Footer';
 
 export default function Contactus(props) {
@@ -50,7 +51,7 @@ export default function Contactus(props) {
       </div>
 
       <div className={styles['middle-main-div']}>
-        <div></div>
+        <div className={styles['miracle']}></div>
         <div className={styles['bck-img']}></div>
 
         <div>
