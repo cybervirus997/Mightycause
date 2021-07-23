@@ -19,6 +19,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import InputWithIcon from './Fancysearch';
 import ControlledOpenSelect from './Dropdown';
+import CheckboxLabels from "./Checkbox"
+
 import { Link } from 'react-router-dom';
 
 import styles from './Searchpage.module.css';
@@ -82,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function PersistentDrawerRight(props) {
   const classes = useStyles();
   const theme = useTheme();
@@ -134,30 +137,9 @@ export default function PersistentDrawerRight(props) {
         })}>
         <div className={classes.drawerHeader} />
         <Typography paragraph>
-          <div className={styles['menu-option']}>
-            <p>Search</p>
-            <div className={styles['menu-options-icons']}>
-              <InputWithIcon />
-              <div className={styles['menu-layout-setting']}>
-                <span class='material-icons-outlined'>track_changes</span>{' '}
-                <p>153 results found</p>
-              </div>
-
-              <div className={styles['menu-layout-changer']}>
-                <span class='material-icons-outlined'>grid_view</span>
-                <span class='material-icons-outlined'>
-                  format_list_bulleted
-                </span>
-                <button onClick={handleDrawerOpen}>
-                  <p>
-                    {' '}
-                    <span class='material-icons-outlined'>filter_alt</span>{' '}
-                    Filters
-                  </p>
-                </button>
-              </div>
-            </div>
-          </div>
+          
+                <button onClick={handleDrawerOpen}>alpha</button>
+                  
         </Typography>
         <Typography paragraph>
           <div className={styles['mapping-section']}></div>
@@ -182,19 +164,33 @@ export default function PersistentDrawerRight(props) {
         </div>
         <Divider />
         <List>
-          <p style={{ fontSize: 'calc(1.0rem + 1.8vw)' }}>Filters</p>
-          <ControlledOpenSelect />
-          <ControlledOpenSelect />
-          <ControlledOpenSelect />
-          <input type='checkbox' />
-          Covid-19 <br />
-          <input type='checkbox' />
-          Donations matched <br />
-          <input type='checkbox' />
-          Volunteer opportunities <br />
+          
+          <div className={ styles["drawer"]}>
+
+            <p style={{ fontSize: 'calc(1.0rem + 1.8vw)' }}>Filters</p>
+
+            <div className={ styles["inputs-box"]}>
+              <ControlledOpenSelect filter1={"Cause type"} first={"Organisations"} secound={"Fundraisers"} third={"Teams"}/>
+              <ControlledOpenSelect filter1={"Location"} />   
+              <ControlledOpenSelect filter1={"Category"} first={"All"} secound={"Medical/economical"} third={"Enviroment"} />
+            </div>
+            
+          </div>
+         
         </List>
         <Divider />
-        <List></List>
+        <List>
+
+          <div className={ styles["drawer-checkbox"]}>
+              
+            <CheckboxLabels checkboxhead={"Covid-19"} />
+            <CheckboxLabels checkboxhead={"Donations"} />
+            <CheckboxLabels checkboxhead={"Volunteerings"} />
+            
+          </div>
+
+
+        </List>
       </Drawer>
     </div>
   );

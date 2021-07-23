@@ -39,7 +39,7 @@ export default function ControlledOpenSelect(props) {
       <Button className={classes.button} onClick={handleOpen}>
       </Button>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Age</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">{props.filter1}</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
@@ -50,11 +50,15 @@ export default function ControlledOpenSelect(props) {
           onChange={handleChange}
         >
           <MenuItem value="">
-            <em>None</em>
+            
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>{props.first}</MenuItem>
+          <MenuItem value={20}>{props.secound}</MenuItem>
+          <MenuItem value={30}>{props.third}</MenuItem>
+
+          
+          
+
         </Select>
       </FormControl>
     </div>
