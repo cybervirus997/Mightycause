@@ -132,7 +132,7 @@
 }
 .eventProgress {
   width: 79%;
-  height: 200px;
+  height: max-content;
   box-sizing: border-box;
   /* max-width: 1200px; */
   margin-top: 80px;
@@ -182,7 +182,8 @@
   font-size: 18px;
   justify-content: space-evenly !important;
 }
-.lastbutton > button {
+.lastbutton > button,
+.donate {
   border-radius: 36px;
   border: none;
   width: 35%;
@@ -195,10 +196,12 @@
   letter-spacing: 2px;
   font-weight: 600;
 }
-.lastbutton > button:nth-child(1) {
+.lastbutton > button:nth-child(1),
+.donate {
   background: rgb(97, 136, 255);
 }
-.lastbutton > button:nth-child(1):hover {
+.lastbutton > button:nth-child(1):hover,
+.donate:hover {
   background: rgb(112, 151, 255);
 }
 .lastbutton > button:nth-child(2) {
@@ -208,6 +211,58 @@
   background: #fff;
   color: rgb(93 99 109);
 }
+.lastInfor {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid red;
+  padding-left: 70px;
+  box-sizing: border-box;
+  margin-top: 80px;
+}
+.one,
+.user {
+  max-width: 1170px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+  margin: auto;
+}
+.support {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  letter-spacing: 0.12em;
+  color: #8b909e;
+  font-weight: 700;
+}
+.support h2,
+.user h1 {
+  color: rgb(97, 136, 255);
+  font-weight: 700;
+  font-size: 45px;
+}
+.support p,
+.user p {
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+.user p {
+  text-align: left;
+  letter-spacing: 0.12em;
+  color: #8b909e;
+  font-weight: 700;
+}
+.user {
+  width: 80%;
+  box-sizing: border-box;
+}
+.userDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 600px) {
   .Con {
     height: 1030px;
@@ -247,7 +302,8 @@
   .lastbutton {
     flex-direction: column;
   }
-  .lastbutton button {
+  .lastbutton button,
+  .donate {
     width: 100%;
     margin-top: 20px;
     font-size: 16px;
