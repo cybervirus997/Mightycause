@@ -1,0 +1,66 @@
+.search-navbar
+{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-photo
+{
+    height: 100%; 
+}
+.search-photo > img
+{
+    width: 180px;
+    
+}
+.menu-option
+{
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+.menu-option > p
+{
+    margin-left: -80%;
+    font-size: calc(1.4875rem + 2.85vw);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: .5rem !important;
+    margin-top: 2rem !important;
+            color: #494d59;
+        font-family: Lexend Deca,sans-serif;
+}
+.menu-options-icons
+{
+    display: flex;
+    flex-flow: row;
+    margin-left: 1.8%;
+}
+
+.mapping-section
+{
+    width: 100%;
+    height: 50vh;
+    border: 1px solid black;
+}
+.menu-layout-setting,
+.menu-layout-changer
+{
+    display: flex;
+    flex-flow:row;
+    margin-left:22%;
+    margin-top:1.8%;
+}
+.menu-layout-changer > span
+{
+    margin-right: 40%;
+}
+
+.menu-layout-changer>button 
+{
+    margin-top:-17%;
+    border: 3px solid rgb(128, 132, 145);
+    background-color:transparent;
+}

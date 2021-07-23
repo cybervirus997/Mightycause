@@ -1,176 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden !important;
+}
+.top-main-div {
+  background-image: url('https://imagecdn.mightycause.com/603e62c7-2568-4eb8-a603-8a1b4a613078/');
 
-*
-{
-    margin: 0;
-    padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-body
-{
-    overflow-x: hidden !important;
+.top-heading > p:nth-child(1) {
+  padding-top: 12%;
+  font-size: calc(1.4875rem + 2.85vw);
+  margin-bottom: 1.5rem !important;
+  font-weight: 300;
+  line-height: 1.1;
+  font-family: Lexend Deca, sans-serif;
+  color: rgb(73, 77, 89);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.top-main-div
-{
-    background-image:url("https://imagecdn.mightycause.com/603e62c7-2568-4eb8-a603-8a1b4a613078/");
-    
-    background-repeat:no-repeat;
-    background-size: cover;
-      
-}
-.top-heading > p:nth-child(1)
-{
-    padding-top:12%;
-    font-size: 3.325rem;
-    font-weight:300;
-    font-family: Lexend Deca,sans-serif;
-    color: rgb(73, 77, 89);
-}
-.top-heading>p:nth-child(2)
-{
-    padding-top: 2%;
-    font-size: 1rem;
-    font-weight:300;
-    font-family: Lexend Deca,
-    sans-serif;
-    color: rgb(73, 77, 89);
-}
-.middle-main-div
-{
-    background-color: rgb(97, 136, 255);
-    
-    height: 500px;
-}
-.information-card
-{
-    display:flex;
-    flex-flow: row wrap;
-    
-    justify-content: center;
+.top-heading > p:nth-child(2) {
+  padding-top: 2%;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem !important;
+  font-family: Lexend Deca, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #494d59;
 
-    margin-top:2%;
-    padding-bottom: 3%;
-    
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.middle-main-div
-{
-    display: flex;
-    flex-flow: column wrap;
-    position: relative;
+.middle-main-div {
+  background-color: rgb(97, 136, 255);
+
+  height: 500px;
 }
-.middle-main-div > div
-{
-    width: 50%;
-    height: 100%;
+.information-card {
+  display: flex;
+  flex-flow: row wrap;
+
+  justify-content: center;
+
+  margin-top: 2%;
+  padding-bottom: 3%;
 }
-.middle-main-div>div:nth-child(2)
-{
-    background-image: url("https://imagecdn.mightycause.com/157f44ef-a012-4866-b92a-f304aed7ac8d/");
-    
-    background-size: 100% 100%;
-    height: 100%;
-    opacity: 60%;
-    background-position: left;
-    background-repeat: no-repeat;
-    
+.middle-main-div {
+  display: flex;
+  flex-flow: column wrap;
+  position: relative;
+}
+.middle-main-div > div {
+  width: 50%;
+  height: 100%;
+}
+.middle-main-div > div:nth-child(2) {
+  background-image: url('https://imagecdn.mightycause.com/157f44ef-a012-4866-b92a-f304aed7ac8d/');
+
+  background-size: 100% 100%;
+  height: 100%;
+  opacity: 60%;
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
-.middle-main-div>div:nth-child(3)
-{
-      position: absolute;
-      display: block;
-      width: 60%;
-      
-      top: 10%;
-      left: 25%;
-      right: 0;
-      bottom: 0;
-      
-      z-index: 2;
-      cursor: pointer;
+.middle-main-div > div:nth-child(3) {
+  position: absolute;
+  display: block;
+  width: 60%;
 
+  top: 10%;
+  left: 25%;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+  cursor: pointer;
 }
 
-.middle-main-div>div:nth-child(4) {
-    position: absolute;
-    display: block;
-    width: 60%;
-    
-    top: 56%;
-    left: 25%;
-    right: 0;
-    bottom: 0;
-    
-    z-index: 2;
-    cursor: pointer;
-    
+.middle-main-div > div:nth-child(4) {
+  position: absolute;
+  display: block;
+  width: 60%;
 
+  top: 56%;
+  left: 25%;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+  cursor: pointer;
+}
+.navbar {
+  background-color: #b8bbc5;
+  width: 100%;
+}
+.questionmark {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+}
+.footercontactus {
+  width: 100% !important;
+  background-color: rgb(97, 136, 255);
 }
 
 /*********** card 1  ************/
-.card
-{
-    width:22%;
-    margin-left:1%;
-    margin-right:1%;
-    padding: 1%;
-    background-color:white;
-    box-shadow: 0 8px 16px rgb(0 0 0 / 3%);
-    color: rgb(73, 77, 89);
+.card {
+  width: 22%;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding: 36px 20px;
+  background-color: white;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 3%);
+  color: rgb(73, 77, 89);
 
+  border: 2px solid #fff;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 3%);
+  transition: box-shadow 0.2s linear;
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
 }
-.card-title
-{
-    font-size: 1.875rem;
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 4%;
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.card-description
-{
-    
-    font-size: 0.9125rem;
-    line-height: 1.6;
+.card-title {
+  font-size: calc(1.3125rem + 0.75vw);
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 4%;
+}
+.card-description {
+  font-size: 0.8125rem;
+  line-height: 1.6;
 }
 
 /********** car5d functional*****/
-.card-functional
-{
-    width:70%;
-    
-    text-align:center;
-    padding: 2%;
-    background-color: white;
-    padding: 4%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.card-functional {
+  width: 70%;
+
+  text-align: center;
+  padding: 2%;
+  background-color: white;
+  padding: 4%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem !important;
 }
-.card-functional > h1
-{
-        font-size: 1.875rem;
-        font-weight: 500;
-        line-height: 1.3;
-        color: rgb(73, 77, 89);
-        -webkit-text-size-adjust: 100%;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.card-functional > h1 {
+  font-size: calc(1.3125rem + 0.75vw);
+  font-weight: 500;
+  line-height: 1.3;
+  color: rgb(73, 77, 89);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.card-functional>p
-{
-    margin-top: 1%;
-        font-family: Lexend Deca,
-        sans-serif;
-            color: #494d59;
-        font-size: 0.7rem;
-        font-weight: 400;
-        line-height: 1.8;
+.card-functional > p {
+  margin-top: 1%;
+  font-family: Lexend Deca, sans-serif;
+  color: #494d59;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.8;
 }
-.card-functional>button
-{
-    margin-top: 2%;
-    width: 30%;
-    height: 20%;
-    font-family: Lexend Deca,
-    sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: rgb(39, 160, 160);
-    border: none;
-    background-color:transparent;
+.card-functional > button {
+  margin-top: 2%;
+  width: 30%;
+  height: 20%;
+  font-family: Lexend Deca, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(39, 160, 160);
+  border: none;
+  background-color: transparent;
+}
+
+/********* media and querries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 640px) {
+  .information-card {
+    display: flex;
+    flex-flow: column;
+  }
+  .card {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 3%;
+  }
+
+  .card-functional {
+    width: 90%;
+    margin-left: -10%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

@@ -104,11 +104,18 @@
   border: 2px solid #fff;
   border-radius: 5px;
   padding: 5px;
+<<<<<<< HEAD
   width: 140px;
   font-size: 16px;
   font-weight: 600;
   box-shadow: 0 0 0 0 rgb(0 0 0 / 20%), 0 0 0 0 rgb(0 0 0 / 14%),
     0 0 0 0 rgb(0 0 0 / 12%);
+=======
+  width: 127px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 20%), 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%);
+>>>>>>> fb01b36901f04fbc04350c5c23f0e495f6698d25
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -121,7 +128,11 @@
   background-color: #fff;
 }
 .Nav .laptopdiv span {
+<<<<<<< HEAD
   font-size: 16px;
+=======
+  font-size: 20px;
+>>>>>>> fb01b36901f04fbc04350c5c23f0e495f6698d25
 }
 .Nav .searchLi span:hover {
   color: rgb(98, 137, 255);

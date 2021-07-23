@@ -1,0 +1,31 @@
+{
+  "userData": [
+    {
+      "email": "pawanpatidar21@gmail.com",
+      "password": "123456",
+      "id": 1,
+      "events": {
+        "animal": [
+          {
+            "price": "120",
+            "hide": true,
+            "dedication": true,
+            "hidename": true,
+            "card": "mastercard",
+            "cardnumber": "123456789",
+            "year": "1222",
+            "cvv": "123",
+            "bill": "neemuch",
+            "city": "neemuch",
+            "pin": "123456",
+            "donation": true,
+            "id":1
+          }
+        ]
+      }
+     
+        
+      }
+  ]
+  
+}
