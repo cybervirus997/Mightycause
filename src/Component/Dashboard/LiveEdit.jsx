@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import styles from './LiveEdit.module.css';
 import styled from 'styled-components';
 import { Nav } from '../Home/Nav';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+=======
+import styles from "./LiveEdit.module.css";
+import styled from "styled-components";
+import { Nav } from "../Home/Nav";
+import Footer from "../Home/Footer";
+import { useEffect, useState } from "react";
+>>>>>>> ravi
 
 function LiveEdit({ data }) {
   const [width, setWidth] = useState(window.innerWidth);
@@ -18,16 +26,43 @@ function LiveEdit({ data }) {
     height: 100%;
     border-radius: 18px;
   `;
+  const [popC, setPopC] = useState(false);
 
   return (
     <>
+      {popC && (
+        <div className={styles.pop}>
+          <div className={styles.popCategory}>
+            <span
+              onClick={() => {
+                setPopC(!popC);
+              }}
+              class="material-icons-round"
+            >
+              close
+            </span>
+          </div>
+        </div>
+      )}
+
       {width < 600 && <Nav />}
       <div className={styles.Con}>
         <div className={styles.content}>
           <div className={styles.account}></div>
           <div>
             <button className={styles.category}>{data.category}</button>
+<<<<<<< HEAD
             <span class='material-icons-outlined'>mode_edit</span>
+=======
+            <span
+              onClick={() => {
+                setPopC(!popC);
+              }}
+              class="material-icons-outlined"
+            >
+              mode_edit
+            </span>
+>>>>>>> ravi
           </div>
           <div>
             <div className={styles.imgDiv}>
@@ -93,10 +128,20 @@ function LiveEdit({ data }) {
             <p>GET THE DETAILS</p>
           </div>
           <div className={styles.userDetail}>
-            <div></div>
-            <div></div>
+            <div>
+              <h2>Event Organiser</h2>
+              <p>{`${data.email}`}</p>
+            </div>
+            <div>
+              <p>{`Created on -${data.date} dsfsfsffs`} </p>
+              <p>{`Fundraising deadline ${data.deadline}`}dsfsfdf</p>
+              <p>{`Fundraising Target ${data.donationTarget}`}sdfsf</p>
+            </div>
           </div>
         </div>
+      </div>
+      <div className={styles.footer}>
+        <Footer />
       </div>
     </>
   );
