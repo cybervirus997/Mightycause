@@ -55,7 +55,7 @@ const Search = styled.div`
   position: relative;
   height: 50px;
 
- margin-left:180px;
+ margin-left:320px;
 .icon_s{
     color:#6188ff;
 }
@@ -212,7 +212,7 @@ const Navbarch = () => {
 
                 </Logo>
                 <Search>
-                    <input style={search ? { width: "250px", placeItems: "search", paddingLeft: "70px", outline: "none", border: 'none', borderBottom: "4px solid #6188ff" } : { transform: "translateX(198px)" }} type="text" placeholder="search..." />
+                    <input style={search ? { width: "250px", placeItems: "search", paddingLeft: "70px", outline: "none", border: 'none', borderBottom: "4px solid #6188ff" } : { transform: "translateX(198px)"}} type="text" placeholder="search..."   />
                     <button style={search ? { outline: "none", border: 'none' } : { transform: "translateX(198px)" }} onClick={() => setSearch(!search)} className="btn">
                         <SearchIcon className="icon_s" />
                     </button>

@@ -86,7 +86,7 @@ input {
 input:focus {
   border-color: rgb(97, 136, 253);
 }
-input[type='submit'] {
+input[type="submit"] {
   width: 40%;
   margin-top: 30px;
   height: 40px;
@@ -99,7 +99,7 @@ input[type='submit'] {
   cursor: pointer;
 }
 @media only screen and (max-width: 650px) {
-  input[type='submit'] {
+  input[type="submit"] {
     width: 60%;
   }
   input {
