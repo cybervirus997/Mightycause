@@ -4,6 +4,7 @@ import { Nav } from "../Home/Nav";
 import Footer from "../Home/Footer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Input = styled.input`
   width: 30%;
@@ -14,11 +15,17 @@ const forfun = {
 };
 function LiveEdit() {
   const [width, setWidth] = useState(window.innerWidth);
+  const [id, setId] = useState("");
+
   window.addEventListener("resize", handleResize);
   function handleResize() {
     setWidth(window.innerWidth);
     // console.log("no");
   }
+
+  useEffect(() => {
+    handleAuth();
+  }, []);
 
   const initial = {
     email: "ravishukla86044@gmai.com",
@@ -56,8 +63,14 @@ function LiveEdit() {
     setData(payload);
     console.log(data);
   };
+  function handleAuth() {
+    axios.get("http://localhost:3002/login/1").then((res) => {
+      console.log(res);
+    });
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios.patch("http://localhost:3002/userData/");
     console.log(data);
     setPopC(false);
     setPopValue(0);
