@@ -7,7 +7,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const Form = () => {
-  const dataaaaaa = 4;
   let history = useHistory();
   const [status, setstatus] = useState(false);
   const [formdata, setformdata] = useState({});
@@ -35,7 +34,9 @@ const Form = () => {
     axios
       .post('http://localhost:3002/userData', data)
       .then(function (response) {});
-    axios.post('http://localhost:3002/login', data).then(function (resp) {});
+    axios
+      .post('http://localhost:3002/login', res.profileObj)
+      .then(function (resp) {});
     history.push('/');
   };
 
