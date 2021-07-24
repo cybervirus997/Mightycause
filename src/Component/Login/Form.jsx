@@ -34,7 +34,7 @@ const Form = () => {
     let data = { ...res.profileObj, events: {} };
     axios.post("http://localhost:3002/userData", data).then(function (response) {});
     axios
-      .post("http://localhost:3002/login", data)
+      .post("http://localhost:3002/login", res.profileObj)
       .then(function (resp) {})
       .catch((er) => {
         console.log(er);

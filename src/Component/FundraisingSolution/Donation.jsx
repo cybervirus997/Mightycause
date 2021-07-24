@@ -369,7 +369,7 @@ const Donation = () => {
   const [formdata, setFormdata] = useState({});
   const [buttonClick, setButtonClick] = useState('');
   const [slide, setSlide] = useState(true);
-  const [totalval,setTotalval]= useState("0.00")
+  const [totalval, setTotalval] = useState("0.00")
   // const [check, setCheck] = useState()
 
   const handleOnchange1 = () => {
@@ -389,7 +389,7 @@ const Donation = () => {
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormdata({ ...formdata, [name]: type === 'checkbox' ? checked : value });
+    setFormdata({ ...formdata, "price": buttonClick, [name]: type === 'checkbox' ? checked : value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -400,7 +400,7 @@ const Donation = () => {
   const addData = async (id) => {
     const events = {};
     events.animal = { ...formdata };
-    await axios.patch(`http://localhost:3002/userData/1`, events);
+    await axios.patch(`http://localhost:3002/userData/2`, events);
   };
 
   const getData = async () => {
@@ -540,8 +540,8 @@ const Donation = () => {
             <div>
               <Wrapper2>
                 <Credential>
-              
-                 
+
+
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -550,7 +550,7 @@ const Donation = () => {
                   />
                 </Credential>
                 <Credential>
-                
+
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -559,7 +559,7 @@ const Donation = () => {
                   />
                 </Credential>
                 <Credential>
-               
+
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -571,7 +571,7 @@ const Donation = () => {
             </div>
           </span>
           <span>
-       
+
             <input
               onChange={handleOnchange}
               name='bill'
@@ -634,7 +634,7 @@ const Donation = () => {
             <input type='submit' value={`Pay$${totalval}`} />
           </BUTTON>
         </Total>
-      
+
         {/* <CHECKBOX>
           <input onChange={handleOnchange} name='donation' type='checkbox' />{' '}
           <span>
@@ -642,7 +642,7 @@ const Donation = () => {
           </span>
         </CHECKBOX> */}
 
-        
+
       </Form>
     </Wrapper>
   );
