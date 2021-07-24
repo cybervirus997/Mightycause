@@ -9,11 +9,11 @@ export default function Cardfunctional(props) {
       <h1>{props.titlefnc}</h1>
       <p>{props.descriptionfnc}</p>
       <Link to='/fund-raising-solution'>
-        <button
+        <button className={styles["final-touch"]}
           onClick={() => {
             console.log('hello');
           }}>
-          {props.btnfnc}
+          <span class="material-icons-outlined">east</span> {props.btnfnc}
         </button>
       </Link>
     </div>
