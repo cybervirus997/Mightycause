@@ -113,11 +113,12 @@ function LiveEdit() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(id);
     getEmail();
     let a = {};
     console.log(a, "this is a");
     let t = data.title;
-    let { price, donationTarget, goal, deadline, category, img } = data;
+    let { price, donationTarget, goal, deadline, category } = data;
     a.events = {
       [t]: {
         price,
@@ -125,10 +126,10 @@ function LiveEdit() {
         goal,
         deadline,
         category,
-        img,
+        img: newImg,
       },
     };
-    axios.patch(`http://localhost:3002/userData/1`, a).then((res) => {
+    axios.patch(`http://localhost:3002/userData/${id.current}`, a).then((res) => {
       console.log(res.data, "this is patch");
     });
     console.log(data, "inside submit");
@@ -141,39 +142,67 @@ function LiveEdit() {
     console.log(e.target.files[0]);
   };
 
-  const getImage = () => {
-    axios
-      .get("https://him-app.herokuapp.com/posts")
-      .then((res) => {
-        setDataArr(res.data);
-        console.log(res.data, "inside getImage");
-      })
-      .catch((err) => console.log(err));
-  };
-  const postImage = async () => {
-    const payload = {
-      Image: newImg,
-    };
-    await axios
-      .post("https://him-app.herokuapp.com/posts", {
-        ...payload,
-        status: false,
-      })
-      .then((res) => getImage())
-      .catch((err) => console.log(err));
-  };
+  // const getImage = () => {
+  //   axios
+  //     .get("https://him-app.herokuapp.com/posts")
+  //     .then((res) => {
+  //       setDataArr(res.data);
+  //       console.log(res.data, "inside getImage");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+  // const postImage = async () => {
+  //   const payload = {
+  //     Image: newImg,
+  //   };
+  //   await axios
+  //     .post("https://him-app.herokuapp.com/posts", {
+  //       ...payload,
+  //       status: false,
+  //     })
+  //     .then((res) => getImage())
+  //     .catch((err) => console.log(err));
+  // };
 
+  // const handleSubmitImg = () => {
+  //   const reader = new FileReader();
+  //   console.log(reader);
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       setNewImg(reader.result);
+  //     }
+  //   };
+  //   reader.readAsDataURL(file);
+
+  //   postImage();
+  // };
   const handleSubmitImg = () => {
-    const reader = new FileReader();
-    console.log(reader);
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setNewImg(reader.result);
-      }
-    };
-    reader.readAsDataURL(file);
-
-    postImage();
+    console.log(file);
+    const a = new FormData();
+    a.append("file", file);
+    a.append("upload_preset", "uploadimage");
+    axios.post("https://api.cloudinary.com/v1_1/masai-nj2045/image/upload", a).then((res) => {
+      console.log(res.data.url);
+      let aa = {};
+      let t = data.title;
+      let { price, donationTarget, goal, deadline, category } = data;
+      aa.events = {
+        [t]: {
+          price,
+          donationTarget,
+          goal,
+          deadline,
+          category,
+          img: res.data.url,
+        },
+      };
+      axios.patch(`http://localhost:3002/userData/${id.current}`, aa).then((res) => {
+        console.log(res.data, "this is patch");
+      });
+      setNewImg(res.data.url);
+      setPopC(false);
+      setPopValue(0);
+    });
   };
 
   return (
@@ -274,7 +303,7 @@ function LiveEdit() {
           <div>
             <div className={styles.imgDiv}>
               <div className={styles.pic}>
-                <img src="" alt="" />
+                <img src={newImg} alt="" />
               </div>
               <span
                 onClick={() => {
