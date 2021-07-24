@@ -16,6 +16,7 @@ const forfun = {
 function LiveEdit() {
   const [width, setWidth] = useState(window.innerWidth);
   const [id, setId] = useState("");
+  const [file, setFile] = useState("");
 
   window.addEventListener("resize", handleResize);
   function handleResize() {
@@ -51,6 +52,8 @@ function LiveEdit() {
   const [popC, setPopC] = useState(false);
   const [popValue, setPopValue] = useState(0);
   const [formData, setFormData] = useState({});
+  const [newImg, setNewImg] = useState();
+  const [dataArr, setDataArr] = useState("");
 
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -70,10 +73,50 @@ function LiveEdit() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.patch("http://localhost:3002/userData/");
+    // axios.patch("http://localhost:3002/userData/");
     console.log(data);
     setPopC(false);
     setPopValue(0);
+  };
+
+  const handleChangeImg = (e) => {
+    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+
+  const getImage = () => {
+    axios
+      .get("https://him-app.herokuapp.com/posts")
+      .then((res) => {
+        setDataArr(res.data);
+        console.log(res.data, "inside getImage");
+      })
+      .catch((err) => console.log(err));
+  };
+  const postImage = async () => {
+    const payload = {
+      Image: newImg,
+    };
+    await axios
+      .post("https://him-app.herokuapp.com/posts", {
+        ...payload,
+        status: false,
+      })
+      .then((res) => getImage())
+      .catch((err) => console.log(err));
+  };
+
+  const handleSubmitImg = () => {
+    const reader = new FileReader();
+    console.log(reader);
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setNewImg(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+
+    postImage();
   };
 
   return (
@@ -138,6 +181,18 @@ function LiveEdit() {
                   Save
                 </button>
               </>
+            ) : popValue === 4 ? (
+              <>
+                <div>
+                  <h1>Image</h1>
+                  <p>Upload an image for your cause </p>
+                </div>
+
+                <input type="file" name="img" onChange={handleChangeImg} />
+                <button onClick={handleSubmitImg} className={styles.save}>
+                  Save
+                </button>
+              </>
             ) : null}
           </div>
         </div>
@@ -164,7 +219,15 @@ function LiveEdit() {
               <div className={styles.pic}>
                 <img src={data.img} alt="" />
               </div>
-              <span class=" material-icons-outlined ">mode_edit</span>
+              <span
+                onClick={() => {
+                  setPopC(!popC);
+                  setPopValue(4);
+                }}
+                class=" material-icons-outlined "
+              >
+                mode_edit
+              </span>
             </div>
             <div className={styles.title}>
               <div>
