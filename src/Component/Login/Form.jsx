@@ -1,19 +1,67 @@
-import { Email, Facebook } from '@material-ui/icons';
-import React from 'react';
+import { Email, Facebook, Lock } from '@material-ui/icons';
+import React, { useState } from 'react';
 import styles from './Form.module.css';
 import { Link } from 'react-router-dom';
+import GoogleLogin from 'react-google-login';
+import axios from 'axios';
 
 const Form = () => {
+  const [status, setstatus] = useState(false);
+  const [formdata, setformdata] = useState({});
+
+  const handlechange = (e) => {
+    let email = e.target.value;
+    if (e.target.name === 'email') {
+      if (email.includes('@') && email.includes('.')) {
+        setstatus(true);
+      } else {
+        setstatus(false);
+      }
+    }
+    const { name, value } = e.target;
+    setformdata({ ...formdata, [name]: value });
+  };
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    console.log(formdata);
+  };
   let iconStyles = { color: 'rgb(54, 52, 52)', position: 'absolute' };
+  const responseGoogle = (res) => {
+    // console.log(res);
+    let data = { ...res.profileObj, events: {} };
+    axios
+      .post('http://localhost:3002/userData', data)
+      .then(function (response) {
+        console.log(response);
+      });
+  };
 
   return (
     <div className={styles.formdata}>
       <div className={styles.form}>
         <h1 className={styles.heading}>Log in or sign up</h1>
         <div>
-          <button className={styles.google}>
+          {/* <button className={styles.google}>
             <span>G</span> Use Google
-          </button>
+          </button> */}
+
+          <GoogleLogin
+            className='google'
+            clientId='378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com'
+            render={(renderProps) => (
+              <button
+                className={styles.google}
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}>
+                <span>G</span> Use Google
+              </button>
+            )}
+            buttonText='Login'
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            isSignedIn={true}
+            cookiePolicy={'single_host_origin'}
+          />
         </div>
         <div>
           <button className={styles.fb}>
@@ -30,10 +78,28 @@ const Form = () => {
         </div>
         <div className={styles.myform}>
           <Email style={iconStyles} />
-          <input type='email' name='' id='input' placeholder='Email' />
+          <input
+            onChange={handlechange}
+            type='email'
+            name='email'
+            id='input'
+            placeholder='Email'
+          />
+          {status ? (
+            <div>
+              <Lock style={iconStyles} />
+              <input
+                onChange={handlechange}
+                type='password'
+                name='password'
+                id='input'
+                placeholder='Password'
+              />
+            </div>
+          ) : null}
           <div>
             <Link to='/dashboard/live'>
-              <input type='submit' value='Continue' />
+              <input onClick={handlesubmit} type='submit' value='Continue' />
             </Link>
           </div>
         </div>

@@ -6,10 +6,10 @@
   padding-top: 20px;
   box-sizing: border-box;
   position: relative;
-  background: url('https://imagecdn.mightycause.com/536d9ad4-f4fe-4376-bbf9-192e2af39885/-/stretch/off/-/resize/1500x/-/progressive/yes/-/sharp/5/-/format/auto/');
+  background: url("https://imagecdn.mightycause.com/536d9ad4-f4fe-4376-bbf9-192e2af39885/-/stretch/off/-/resize/1500x/-/progressive/yes/-/sharp/5/-/format/auto/");
 }
 .Con::before {
-  content: '';
+  content: "";
   background: rgba(73, 77, 89, 0.5);
   position: absolute;
   top: 0;
@@ -30,7 +30,7 @@
   position: absolute;
 }
 .content > div:nth-child(n + 2) {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   width: 25%;
   height: max-content;
 
@@ -142,7 +142,7 @@
 }
 .eventProgress > div {
   width: 100%;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,10 +211,11 @@
   background: #fff;
   color: rgb(93 99 109);
 }
-.lastInfor {
+.lastInfor,
+.footer {
   width: 100%;
   padding: 10px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding-left: 70px;
   box-sizing: border-box;
   margin-top: 80px;
@@ -224,9 +225,10 @@
   max-width: 1170px;
   box-sizing: border-box;
   width: 100%;
-  height: 200px;
+  height: max-content;
   margin: auto;
 }
+
 .support {
   display: flex;
   align-items: center;
@@ -260,7 +262,103 @@
 .userDetail {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  color: #8b909e;
+  box-sizing: border-box;
+}
+.userDetail > div p {
+  color: #494d59;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.footer {
+  width: 100%;
+  background-color: rgb(97, 136, 255);
+}
+.pop {
+  display: flex;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 10;
+  background: rgba(218, 229, 235, 0.5);
+  align-items: center;
   justify-content: center;
+  text-align: center;
+}
+.pop > div {
+  position: relative;
+
+  width: 70%;
+  background: #fff;
+  height: 400px;
+  position: relative;
+  z-index: 11;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  box-shadow: 0 0 65px 1px rgb(0 128 188 / 36%);
+}
+/* .tttt input {
+  z-index: 120;
+  position: relative;
+} */
+.pop span {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #e1e2e5;
+  font-weight: 900;
+  transition: color 0.2s ease;
+}
+.pop span:hover {
+  color: #ff7979;
+}
+.pop input {
+  width: 30%;
+}
+.select {
+  padding-right: 30px;
+  color: #494d59;
+  background-color: #fff;
+  border: 2px solid #e1e2e5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: initial;
+  text-transform: none;
+  height: 32px;
+  width: 35%;
+  outline: none;
+}
+.save {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 10px;
+  border-radius: 40px;
+  width: 21%;
+  height: 50px;
+  font-size: 16px;
+  border: 4px solid #6188ff;
+  background: #6188ff;
+  color: #fff;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.save:hover {
+  background-color: transparent;
+  color: #6188ff;
 }
 
 @media (max-width: 600px) {
@@ -308,12 +406,68 @@
     margin-top: 20px;
     font-size: 16px;
   }
+  .support {
+    flex-direction: column;
+  }
+  .support p {
+    font-size: 16px;
+  }
+  .support h2 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .user h1 {
+    font-size: 30px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .user p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .userDetail {
+    flex-direction: column;
+  }
+  .userDetail > div {
+    margin-top: 20px;
+  }
+  .userDetail h2 {
+    text-align: center;
+  }
+  .userDetail p {
+    text-align: center;
+    width: 100%;
+    height: max-content;
+  }
+  .userDetail > div {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 @media (max-width: 420px) {
   span {
     position: relative !important;
   }
   .Con {
-    height: 1080px;
+    height: 1190px;
   }
+  .userDetail p {
+    font-size: 10px !important;
+  }
+  .support h2 {
+    font-size: 25px;
+  }
+  .user h1 {
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  .lastbutton button,
+  .donate {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 12px;
+  }
+}
+.hidden {
+  display: flex !important;
 }
