@@ -1,6 +1,6 @@
 import './App.css';
 import { Home } from './Component/Home/Home';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './Component/Login/Login';
 import SideNavbar from './Component/Dashboard/Navbar';
 import { Live } from './Component/Dashboard/Live';
@@ -8,8 +8,17 @@ import Contactus from './Component/Contactus/Contactus';
 import Main from './Component/FundraisingSolution/Main';
 import Donation from './Component/FundraisingSolution/Donation';
 import Searchpage from './Component/Searchtab/Searchpage';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 function App() {
+  let [auth, setauth] = useState({});
+  // let [authstatus, setauthstatus] = useState(false);
+  useEffect(() => {
+    axios.get('http://localhost:3002/login').then(function (response) {
+      setauth(response.data[0]);
+    });
+  }, []);
   return (
     <div className='App'>
       <Switch>
