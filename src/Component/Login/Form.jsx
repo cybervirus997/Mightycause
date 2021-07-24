@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 import GoogleLogin from 'react-google-login';
 import axios from 'axios';
 
+
+
 const Form = () => {
+
+
   const [status, setstatus] = useState(false);
   const [formdata, setformdata] = useState({});
 
@@ -27,7 +31,7 @@ const Form = () => {
   };
   let iconStyles = { color: 'rgb(54, 52, 52)', position: 'absolute' };
   const responseGoogle = (res) => {
-    // console.log(res);
+    console.log(res);
     let data = { ...res.profileObj, events: {} };
     axios
       .post('http://localhost:3002/userData', data)
@@ -44,6 +48,9 @@ const Form = () => {
           {/* <button className={styles.google}>
             <span>G</span> Use Google
           </button> */}
+
+         
+
 
           <GoogleLogin
             className='google'
