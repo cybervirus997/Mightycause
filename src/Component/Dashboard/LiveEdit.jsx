@@ -49,7 +49,7 @@ function LiveEdit() {
     background-size: cover;
   `;
   const Progress = styled.div`
-    width: ${Number((data.raised / data.donationTarget) * 100)}%;
+    width: ${Number((data.price / data.donationTarget) * 100)}%;
     background: rgb(118, 152, 255);
     position: absolute;
     height: 100%;
@@ -97,7 +97,7 @@ function LiveEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     getEmail();
-    axios.patch(`http://localhost:3002/userData/${id}`).then((res) => {
+    axios.patch(`http://localhost:3002/userData/${id}`, {}).then((res) => {
       console.log(res.data, "this is patch");
     });
     // console.log(data);
@@ -338,9 +338,9 @@ function LiveEdit() {
               <p>{`${data.name}`}</p>
             </div>
             <div>
-              <p>{`Created on -${data.date} dsfsfsffs`} </p>
-              <p>{`Fundraising deadline ${data.deadline}`}dsfsfdf</p>
-              <p>{`Fundraising Target ${data.donationTarget}`}sdfsf</p>
+              <p>{`Created on -${data.date} `} </p>
+              <p>{`Fundraising deadline ${data.deadline}`}</p>
+              <p>{`Fundraising Target ${data.donationTarget}`}</p>
             </div>
           </div>
         </div>

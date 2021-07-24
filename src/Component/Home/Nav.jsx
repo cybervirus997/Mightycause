@@ -179,17 +179,20 @@ function Nav() {
               </form>
             </button>
           </li>
-          <li>
+          <li className={styles.accountLi}>
             {auth ? (
               <>
                 <span class="material-icons-round" style={{ fontSize: "26px" }}>
-                  <img src={auth.imageUrl} alt="" />
+                  <img className={styles.userImage} src={auth.imageUrl} alt="" />
                 </span>
                 <GoogleLogout
+                  className={styles.logout}
                   clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
-                  buttonText="Logout"
+                  buttonText=""
                   onLogoutSuccess={logoutres}
-                ></GoogleLogout>
+                >
+                  <span class="material-icons-round">logout</span>
+                </GoogleLogout>
               </>
             ) : (
               <Link to="/login">
@@ -305,15 +308,17 @@ function Nav() {
             <span class="material-icons-round">search</span>
           </li>
           <li>
-            {auth ? (
-              <span class="material-icons-round">
-                <img src={auth.imageUrl} alt="" />
-              </span>
-            ) : (
-              <Link to="/login">
-                <span class="material-icons-round">account_circle</span>
-              </Link>
-            )}
+            <div className={styles.smallLogout}>
+              {auth ? (
+                <span className={styles.smallLogo} class="material-icons-round">
+                  <img src={auth.imageUrl} alt="" />
+                </span>
+              ) : (
+                <Link to="/login">
+                  <span class="material-icons-round">account_circle</span>
+                </Link>
+              )}
+            </div>
           </li>
         </ul>
       </div>
