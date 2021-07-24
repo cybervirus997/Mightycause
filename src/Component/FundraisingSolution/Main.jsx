@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 width:70%;
 margin:auto;
 margin-top:60px; */
+text-align: center;
 
 display: grid;
 width: 70%;
@@ -25,6 +26,7 @@ margin-top: 70px;
 
 `
 const Heading = styled.div`
+text-align: center;
 margin-top: 150px;
 h1{
     font-size: 65px;

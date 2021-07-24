@@ -93,50 +93,70 @@ const WholeDiv = styled.div`
 
   .Down_panel {
     margin-top: 50px;
-  }
-  .Down_panel > ul > li {
+    margin-left: 20px;
+    padding: 0 2%;
+
+}
+.Down_panel>ul>li{
     font-size: 20px;
-  }
+}
 
-  .fund_raise_btn > button {
-    background-color: #6188ff;
-    color: #fff;
-    padding: 3% 18%;
-    border: none;
-    cursor: pointer;
-  }
+.fund_raise_btn > button {
+  background-color: #6188ff;
+  color: #fff;
+  padding: 3% 18%;
+  border: none;
+  cursor: pointer;
+   margin-top: 40px;
+}
 
-  @media only screen and (max-width: 720px) {
-    .Card_div {
-      display: flex;
-      margin: auto;
-      justify-content: center;
-      margin-left: -40px;
-      margin-top: 40px;
+@media only screen and (max-width: 720px) {
 
-      height: 100%;
-    }
-    .Card_div > div:nth-child(1) {
-      width: 42%;
-    }
-    .Card_div > div:nth-child(2) {
-      width: 35%;
-      background-color: white;
+.Card_div{
+    display:flex;
+    margin:auto;
+    justify-content:center;
+    margin-left:-40px;
+    margin-top:40px;
 
-      margin-left: -55px;
-    }
+    height: 100%;
+    
+}
+.Card_div>div:nth-child(1){
+width:42%;
 
-    .fund_raise_btn > button {
-      background-color: #6188ff;
-      width: 90%;
-      color: #fff;
-      padding: 3% 18%;
-      border: none;
-      margin-top: 40px;
-      cursor: pointer;
-    }
-  }
-`;
+}
+.Card_div>div:nth-child(2){
+width:35%;
+background-color:white;
+
+margin-left:-55px;
+}
+
+.fund_raise_btn > button {
+  background-color: #6188ff;
+  width:90%;
+  color: #fff;
+  padding: 3% 18%;
+  border: none;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+}
+
+`
+
+const mybutton = {
+    background: "#6188ff",
+    color: "#fff",
+    padding: "3% 18%",
+    border: "none",
+    cursor: "pointer",
+    marginTop: "40px"
+    
+
+}
 
 const Fundrasingsolution = (props) => {
   const [isAuth, setAuth] = useState(true);
@@ -201,8 +221,8 @@ const Fundrasingsolution = (props) => {
             {!isAuth ? (
               <button onClick={handleClick}>{props.btn}</button>
             ) : (
-              <Link to='/dashboard'>
-                <button>{props.btn}</button>
+            <Link to='/dashboard/live'>
+            <button style={mybutton}>{props.btn}</button>
               </Link>
             )}
           </div>
