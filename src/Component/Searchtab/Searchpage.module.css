@@ -23,8 +23,8 @@
 }
 .menu-option > p
 {
-    margin-left: -80%;
-    font-size: calc(1.4875rem + 2.85vw);
+    margin-left: 3%;
+    font-size: calc(1.2875rem + 2.85vw);
     font-weight: 300;
     line-height: 1.1;
     margin-bottom: .5rem !important;
@@ -57,10 +57,24 @@
 {
     margin-right: 40%;
 }
-
-.menu-layout-changer>button 
+/* side drawer*/
+.drawer
 {
-    margin-top:-17%;
-    border: 3px solid rgb(128, 132, 145);
-    background-color:transparent;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.drawer-checkbox
+{
+    width:90%;
+}
+.drawer-checkbox 
+{
+ padding-left: 6%;
+ padding-bottom: 0%;
+ line-height:1.2;
+}
+.drawer-checkbox>div > p
+{
+    font-size:3%;
 }

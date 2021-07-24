@@ -81,6 +81,7 @@ input {
   width: 85%;
   font-size: 18px;
   font-weight: 500;
+  margin-bottom: 35px;
 }
 input:focus {
   border-color: rgb(97, 136, 253);
