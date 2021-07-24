@@ -1,22 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import styles from './LiveEdit.module.css';
-import styled from 'styled-components';
-import { Nav } from '../Home/Nav';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-=======
-=======
->>>>>>> ravi
 import styles from "./LiveEdit.module.css";
 import styled from "styled-components";
 import { Nav } from "../Home/Nav";
 import Footer from "../Home/Footer";
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
->>>>>>> ravi
-=======
->>>>>>> ravi
+import { Link } from 'react-router-dom';
 
 const Input = styled.input`
   width: 30%;
@@ -147,12 +134,6 @@ function LiveEdit() {
           <div className={styles.account}></div>
           <div>
             <button className={styles.category}>{data.category}</button>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <span class='material-icons-outlined'>mode_edit</span>
-=======
-=======
->>>>>>> ravi
             <span
               onClick={() => {
                 setPopC(!popC);
@@ -162,10 +143,6 @@ function LiveEdit() {
             >
               mode_edit
             </span>
-<<<<<<< HEAD
->>>>>>> ravi
-=======
->>>>>>> ravi
           </div>
           <div>
             <div className={styles.imgDiv}>
@@ -224,7 +201,9 @@ function LiveEdit() {
             </span>
           </div>
           <div className={styles.lastbutton}>
-            <button className={styles.donate}>DONATE</button>
+            <Link to='/Donation'>
+              <button className={styles.donate}>DONATE</button>
+            </Link>
             <button>JOIN THIS EVENT</button>
           </div>
         </div>

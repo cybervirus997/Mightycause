@@ -369,7 +369,8 @@ const Donation = () => {
   const [formdata, setFormdata] = useState({});
   const [buttonClick, setButtonClick] = useState('');
   const [slide, setSlide] = useState(true);
-  const [totalval,setTotalval]= useState("0.00")
+  const [totalval, setTotalval] = useState("0.00")
+  const [finalData,setFinalData] = useState({name:"",email:""})
   // const [check, setCheck] = useState()
 
   const handleOnchange1 = () => {
@@ -394,7 +395,8 @@ const Donation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     addData();
-    console.log(formdata);
+    
+    
   };
 
   const addData = async (id) => {
@@ -404,8 +406,9 @@ const Donation = () => {
   };
 
   const getData = async () => {
-    let { data } = await axios.get(`http://localhost:3002/userData/1`);
+    let { data } = await axios.get(`http://localhost:3002/userData/2`);
     console.log(data);
+    setFinalData({ name: data.name,email:data.email})
   };
   return (
     <Wrapper>
@@ -513,8 +516,8 @@ const Donation = () => {
 
         </FormInner>
         <FormMiddle>
-          <h4>You're Logged in as Manish Nagar (pawanpatidar21@gmail.com).</h4>
-          <h4> Not Manish? Log out.</h4>
+          <h4>You're Logged in as {finalData.name} ({finalData.email})).</h4>
+          <h4> Not {finalData.name}? Log out.</h4>
 
 
           <CHECKBOX>
@@ -530,7 +533,7 @@ const Donation = () => {
               <label>Payment Method</label>
               <br />
               <select onChange={handleOnchange} name="card" id="">
-
+                <option value="">Select Card</option>
                 <option value="mastercard">Mastercard</option>
                 <option value="ru-pay">Rupay</option>
               </select>
