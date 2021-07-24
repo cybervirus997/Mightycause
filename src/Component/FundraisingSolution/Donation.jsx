@@ -316,14 +316,15 @@ const Wrapper2 = styled.div`
 `;
 
 const BUTTON = styled.div`
+ 
   input {
-    margin-top: 50px;
+
     width: 250px;
-   
+height: 3.5vw;
     border-radius: 30px;
     background-color: #6188ff;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     border: none;
   }
   input:hover {
@@ -337,8 +338,7 @@ const Outer = styled.div`
   right: 60px;
   width: 11%;
 
-  /* justify-content: center;
-align-items: center; */
+ 
 `;
 
 const Inner = styled.div`
@@ -361,7 +361,7 @@ const Total = styled.div`
 margin-top:50px;
 h1{
   font-size: 55px;
-  color:grey;
+  font-weight: 400;
 }
 `
 const Donation = () => {
