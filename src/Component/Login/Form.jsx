@@ -32,10 +32,10 @@ const Form = () => {
   const responseGoogle = (res) => {
     console.log(res);
     let data = { ...res.profileObj, events: {} };
-    axios.post("http://localhost:3002/userData", data).then(function (response) {});
+    axios.post("http://localhost:3002/userData", data).then(function (response) { });
     axios
       .post("http://localhost:3002/login", res.profileObj)
-      .then(function (resp) {})
+      .then(function (resp) { })
       .catch((er) => {
         console.log(er);
       });

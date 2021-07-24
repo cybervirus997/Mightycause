@@ -18,6 +18,7 @@
       "name": "Pawan Patidar",
       "givenName": "Pawan",
       "familyName": "Patidar",
+<<<<<<< HEAD
       "events": {},
       "id": 1,
       "animal": {
@@ -102,6 +103,25 @@
     {
       "events": {},
       "id": 9
+=======
+      "events": {
+        "animal": {
+          "price": 100,
+          "hide": true,
+          "dedication": true,
+          "hidename": true,
+          "card": "mastercard",
+          "cardnumber": "555555555555555",
+          "year": "5555",
+          "cvv": "123",
+          "bill": "village bani teh manasa dist neemuch",
+          "city": "neemuch",
+          "pin": "458113",
+          "donation": true
+        }
+      },
+      "id": 1
+>>>>>>> 5b736ad7ce4a95bb369500c6c971b6e3fd14d5fd
     }
   ]
 }
