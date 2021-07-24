@@ -8,7 +8,7 @@ const Input = styled.input`
   width: 30%;
   color: #494d59;
 `;
-
+const forfun = { key: "hhhheeee" };
 function LiveEdit() {
   const [width, setWidth] = useState(window.innerWidth);
   window.addEventListener("resize", handleResize);
