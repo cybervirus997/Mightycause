@@ -1,39 +1,61 @@
 {
+  "login": [
+    {
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
+      "id": 1
+    }
+  ],
   "userData": [
     {
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
       "email": "pawanpatidar21@gmail.com",
-      "password": "123456",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
+      "events": {},
       "id": 1,
-      "events": {
-        "animal": [
-          {
-            "price": "120",
-            "hide": true,
-            "dedication": true,
-            "hidename": true,
-            "card": "mastercard",
-            "cardnumber": "123456789",
-            "year": "1222",
-            "cvv": "123",
-            "bill": "neemuch",
-            "city": "neemuch",
-            "pin": "123456",
-            "donation": true,
-            "id": 1
-          }
-        ]
-      },
-      "animal": {}
+      "animal": {
+        "hide": true,
+        "dedication": true,
+        "hidename": true,
+        "cardnumber": "123456789",
+        "year": "1222",
+        "cvv": "123456",
+        "bill": "village bani teh manasa dist neemuch",
+        "city": "neemuch",
+        "pin": "458113",
+        "donation": true
+      }
     },
     {
-      "googleId": "117485640165789879423",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GjHvjqNcqCTksh5V1G4cPVbsCL69lFUFGMnN1J1=s96-c",
-      "email": "manishsinghbhadouria4@gmail.com",
-      "name": "Manish Singh Bhadouria",
-      "givenName": "Manish",
-      "familyName": "Singh Bhadouria",
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
       "events": {},
-      "id": 2
+      "id": 2,
+      "animal": {
+        "price": 100,
+        "hide": true,
+        "dedication": true,
+        "hidename": true,
+        "card": "ru-pay",
+        "cardnumber": "14444444444",
+        "year": "5444",
+        "cvv": "123",
+        "bill": "village bani teh manasa dist neemuch",
+        "city": "neemuch",
+        "pin": "458113",
+        "donation": true
+      }
     },
     {
       "googleId": "114200217091714058997",

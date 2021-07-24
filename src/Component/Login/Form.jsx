@@ -1,9 +1,10 @@
-import { Email, Facebook, Lock } from '@material-ui/icons';
-import React, { useState } from 'react';
-import styles from './Form.module.css';
-import { Link } from 'react-router-dom';
-import GoogleLogin from 'react-google-login';
-import axios from 'axios';
+import { Email, Facebook, Lock } from "@material-ui/icons";
+import React, { useState } from "react";
+import styles from "./Form.module.css";
+import { Link, Redirect } from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -15,8 +16,8 @@ const Form = () => {
 
   const handlechange = (e) => {
     let email = e.target.value;
-    if (e.target.name === 'email') {
-      if (email.includes('@') && email.includes('.')) {
+    if (e.target.name === "email") {
+      if (email.includes("@") && email.includes(".")) {
         setstatus(true);
       } else {
         setstatus(false);
@@ -29,15 +30,21 @@ const Form = () => {
     e.preventDefault();
     console.log(formdata);
   };
-  let iconStyles = { color: 'rgb(54, 52, 52)', position: 'absolute' };
+  let iconStyles = { color: "rgb(54, 52, 52)", position: "absolute" };
   const responseGoogle = (res) => {
     console.log(res);
     let data = { ...res.profileObj, events: {} };
+    axios.post("http://localhost:3002/userData", data).then(function (response) {});
     axios
-      .post('http://localhost:3002/userData', data)
-      .then(function (response) {
-        console.log(response);
+      .post("http://localhost:3002/login", res.profileObj)
+      .then(function (resp) {})
+      .catch((er) => {
+        console.log(er);
       });
+    history.push("/");
+  };
+  const responseGoogleFail = () => {
+    console.log("fail");
   };
 
   return (
@@ -53,21 +60,22 @@ const Form = () => {
 
 
           <GoogleLogin
-            className='google'
-            clientId='378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com'
+            className="google"
+            clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
             render={(renderProps) => (
               <button
                 className={styles.google}
                 onClick={renderProps.onClick}
-                disabled={renderProps.disabled}>
+                disabled={renderProps.disabled}
+              >
                 <span>G</span> Use Google
               </button>
             )}
-            buttonText='Login'
+            buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             isSignedIn={true}
-            cookiePolicy={'single_host_origin'}
+            cookiePolicy={"single_host_origin"}
           />
         </div>
         <div>
@@ -85,28 +93,22 @@ const Form = () => {
         </div>
         <div className={styles.myform}>
           <Email style={iconStyles} />
-          <input
-            onChange={handlechange}
-            type='email'
-            name='email'
-            id='input'
-            placeholder='Email'
-          />
+          <input onChange={handlechange} type="email" name="email" id="input" placeholder="Email" />
           {status ? (
             <div>
               <Lock style={iconStyles} />
               <input
                 onChange={handlechange}
-                type='password'
-                name='password'
-                id='input'
-                placeholder='Password'
+                type="password"
+                name="password"
+                id="input1"
+                placeholder="Password"
               />
             </div>
           ) : null}
           <div>
-            <Link to='/dashboard/live'>
-              <input onClick={handlesubmit} type='submit' value='Continue' />
+            <Link to="/dashboard/live">
+              <input onClick={handlesubmit} type="submit" value="Continue" />
             </Link>
           </div>
         </div>
