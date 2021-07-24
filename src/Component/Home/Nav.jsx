@@ -2,9 +2,29 @@
 import { useEffect, useState } from 'react';
 import styles from './Nav.module.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { GoogleLogout } from 'react-google-login';
 
 function Nav() {
+  const logoutres = () => {
+    axios.delete('http://localhost:3002/login/1').then(function (response) {
+      setauthstatus(!authstatus);
+    });
+    console.log('logout');
+  };
+
   const [text, settext] = useState('');
+  let [auth, setauth] = useState({});
+  let [authstatus, setauthstatus] = useState(false);
+  // let [authstatus, setauthstatus] = useState(false);
+  useEffect(() => {
+    axios.get('http://localhost:3002/login').then(function (response) {
+      setauth(response.data[0]);
+      if (auth) {
+        setauthstatus(true);
+      }
+    });
+  }, [authstatus]);
   const handlechange = (e) => {
     settext(e.target.value);
   };
@@ -157,11 +177,23 @@ function Nav() {
             </button>
           </li>
           <li>
-            <Link to='/login'>
-              <span class='material-icons-round' style={{ fontSize: '26px' }}>
-                account_circle
-              </span>
-            </Link>
+            {auth ? (
+              <>
+                <span class='material-icons-round' style={{ fontSize: '26px' }}>
+                  <img src={auth.imageUrl} alt='' />
+                </span>
+                <GoogleLogout
+                  clientId='378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com'
+                  buttonText='Logout'
+                  onLogoutSuccess={logoutres}></GoogleLogout>
+              </>
+            ) : (
+              <Link to='/login'>
+                <span class='material-icons-round' style={{ fontSize: '26px' }}>
+                  account_circle
+                </span>
+              </Link>
+            )}
           </li>
         </ul>
       </div>
@@ -261,9 +293,15 @@ function Nav() {
             <span class='material-icons-round'>search</span>
           </li>
           <li>
-            <Link to='/login'>
-              <span class='material-icons-round'>account_circle</span>
-            </Link>
+            {auth ? (
+              <span class='material-icons-round'>
+                <img src={auth.imageUrl} alt='' />
+              </span>
+            ) : (
+              <Link to='/login'>
+                <span class='material-icons-round'>account_circle</span>
+              </Link>
+            )}
           </li>
         </ul>
       </div>
