@@ -2,7 +2,7 @@ import logo from './Logo.jpg';
 import React from 'react';
 import Footer from './Footer';
 import styles from './Login.module.css';
-import Form from './Form';
+import SignUpForm from './SignUpForm';
 import { ExploreOutlined, SearchOutlined } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const Signup = () => {
         </div>
       </div>
       <div>
-        <Form />
+        <SignUpForm />
       </div>
       <div>
         <Footer />

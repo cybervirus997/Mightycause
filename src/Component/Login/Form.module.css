@@ -82,11 +82,25 @@ input {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 35px;
+  margin-top: 5px;
 }
 input:focus {
   border-color: rgb(97, 136, 253);
 }
-input[type="submit"] {
+.disable {
+  opacity: 0.5;
+}
+.enable {
+  opacity: 1;
+}
+.pwd {
+  padding: 0;
+  margin-top: -30px;
+  font-size: 12px;
+  margin-left: 50px;
+  text-align: left;
+}
+input[type='submit'] {
   width: 40%;
   margin-top: 30px;
   height: 40px;
@@ -99,7 +113,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 @media only screen and (max-width: 650px) {
-  input[type="submit"] {
+  input[type='submit'] {
     width: 60%;
   }
   input {
