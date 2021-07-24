@@ -6,11 +6,9 @@ import GoogleLogin from "react-google-login";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-
-
 const Form = () => {
-
-
+  const dataaaaaa = 4;
+  let history = useHistory();
   const [status, setstatus] = useState(false);
   const [formdata, setformdata] = useState({});
 
@@ -34,10 +32,10 @@ const Form = () => {
   const responseGoogle = (res) => {
     console.log(res);
     let data = { ...res.profileObj, events: {} };
-    axios.post("http://localhost:3002/userData", data).then(function (response) {});
+    axios.post("http://localhost:3002/userData", data).then(function (response) { });
     axios
       .post("http://localhost:3002/login", res.profileObj)
-      .then(function (resp) {})
+      .then(function (resp) { })
       .catch((er) => {
         console.log(er);
       });
@@ -55,9 +53,6 @@ const Form = () => {
           {/* <button className={styles.google}>
             <span>G</span> Use Google
           </button> */}
-
-         
-
 
           <GoogleLogin
             className="google"
