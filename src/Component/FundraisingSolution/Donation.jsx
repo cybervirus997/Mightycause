@@ -374,10 +374,15 @@ const Donation = () => {
   const [finalData, setFinalData] = useState({ name: "", email: "" })
   const [mydata,setMyData] = useState()
   // const [check, setCheck] = useState()
-
+   console.log(mydata,"mydata")
   const handleOnchange1 = () => {
     setSlide(!slide);
   };
+
+ 
+  // if (!mydata) {
+  //   alert("please login first")
+  // }
 
   const onMybutton = (val) => {
     console.log(val)
@@ -386,7 +391,9 @@ const Donation = () => {
   };
 
   useEffect(() => {
+    LogingFun()
     getData();
+   
   }, []);
 
   const handleOnchange = (e) => {
@@ -400,18 +407,22 @@ const Donation = () => {
     
     
   };
+  const LogingFun =  async () => {
+    let { data } = await axios.get("http://localhost:3002/login")
+    console.log(data)
+  }
 
   const addData = async (id) => {
     const events = {};
     events.animal = { ...formdata };
-    let B = { ...mydata }
-    B.events.animal= {...formdata}
+    let Detail = { ...mydata }
+    Detail.events.animal= {...formdata}
   
-    await axios.patch(`http://localhost:3002/userData/1`, B);
+    await axios.patch(`http://localhost:3002/userData/2`, Detail);
   };
 
   const getData = async () => {
-    let { data } = await axios.get(`http://localhost:3002/userData/1`);
+    let { data } = await axios.get(`http://localhost:3002/userData/2`);
     console.log(data);
     setMyData(data)
     setFinalData({ name: data.name,email:data.email})
