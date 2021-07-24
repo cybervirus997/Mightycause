@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
 import ExploreIcon from '@material-ui/icons/Explore';
 import SearchIcon from '@material-ui/icons/Search';
 import StarsIcon from '@material-ui/icons/Stars';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 const Wrapper = styled.div`
   width: 100%;
   top: 0;
@@ -78,7 +80,14 @@ const Heading = styled.div`
     font-weight: bolder;
   }
 `;
+
+
+
+
 const Form = styled.form``;
+
+
+
 
 const FormInner = styled.div`
   padding: 1% 0;
@@ -90,14 +99,17 @@ const FormInner = styled.div`
   margin-top: 50px;
   background-color: white;
 
-  div {
-    display: flex;
-    justify-content: center;
-  }
-  div > div input,
-  p {
-    display: inline;
-  }
+label {
+  line-height: 18px;
+
+}
+input {
+  width: 13px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
 `;
 const DonateNav = styled.div`
   display: flex;
@@ -171,17 +183,33 @@ const Buttondiv = styled.div`
 const Input = styled.div`
 margin-top: 25px;
 input{
-width:50%;
+width:60%;
 border: none;
 outline: none;
-border-bottom:2px solid black;
+border-bottom:2px solid grey;
 }
-
+label{
+  border-bottom:2px solid grey;
+  padding-bottom:1px;
+ 
+}
 
 
 `
 const CHECKBOX = styled.div`
-margin-top:20px;
+
+
+margin-top:15px;
+label {
+  line-height: 18px;
+  
+}
+input {
+  width: 13px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 12px;
+}
 `
 
 const FormMiddle = styled.div`
@@ -198,6 +226,9 @@ const FormMiddle = styled.div`
   }
 `;
 
+
+
+
 const FormLast = styled.div`
   padding: 2% 0;
   width: 50%;
@@ -209,48 +240,77 @@ const FormLast = styled.div`
   margin-top: 50px;
   background-color: white;
   justify-items: center;
-  input {
-    border: none;
-    outline: none;
-    border-bottom: 2px solid grey;
-    margin-top:20px;
+
+
+  span{
+
+    display: flex;
+  }
+
+span>div:nth-child(1) select{
+width:300px;
+border: none;
+border-bottom: 1.5px solid grey;
+outline:none;
 }
 
-  span {
-    display: flex;
-    justify-content: center;
-  }
+span>div:nth-child(1) label{
+  margin-left: -180px;
+}
+span:nth-child(2) input{
+  margin-top: 10px;
+  width:857px;
+  border-bottom: 1.5px solid grey;
+}
 
-  span > div {
-    margin-left: 10px;
-  }
+span:nth-child(3)>div:nth-child(1) input{
+  border-bottom: 1.5px solid grey;
+  margin-top: 21px;
+width:420px;
+}
 
-  span:nth-child(2) > input {
-    margin-top: 20px;
-    width: 75%;
-  }
-  span:nth-child(3) {
-    margin-top: 20px;
-    width: 100%;
-    justify-content: center;
-  }
-  span:nth-child(3) > div:nth-child(1) input {
-    margin-top: 20px;
-    width: 580px;
-  }
-  span:nth-child(3) > div:nth-child(1) select {
-    border: none;
-    width: 580px;
-  }
-  span:nth-child(4) > div:nth-child(2) input {
-    width: 580px;
-    margin-top: 20px;
-  }
-  input:hover {
-    border-bottom: 2px solid blue;
-  }
+span:nth-child(3)>div:nth-child(2) select{
+width:300px;
+margin-left: 10px;
+border: none;
+border-bottom: 1.5px solid grey;
+outline:none;
+width:420px;
+}
+
+span:nth-child(3)>div:nth-child(2) label{
+margin-left:-370px;
+}
+span:nth-child(4)>div:nth-child(2) input{
+  margin-left: 10px;
+  margin-top: 22px;
+width:420px;
+border-bottom: 1.5px solid grey;
+}
+
+span:nth-child(4)>div:nth-child(1) select{
+width:300px;
+border: none;
+border-bottom: 1.5px solid grey;
+outline:none;
+width:420px;
+}
+ span:nth-child(4)>div:nth-child(1) label{
+margin-left:-350px;
+}
 `;
-const Credential = styled.div``;
+const Credential = styled.div`
+input{
+  width: 160px;
+  margin-left:5px;
+  margin-top:21px;
+  border-bottom:1.5px solid grey;
+}
+
+
+
+
+`;
 const Wrapper2 = styled.div`
   display: flex;
 `;
@@ -259,7 +319,7 @@ const BUTTON = styled.div`
   input {
     margin-top: 50px;
     width: 250px;
-    padding: 1% 2%;
+   
     border-radius: 30px;
     background-color: #6188ff;
     color: white;
@@ -296,11 +356,20 @@ const Inner = styled.div`
     margin-top: 20px;
   }
 `;
+
+const Total = styled.div`
+margin-top:50px;
+h1{
+  font-size: 55px;
+  color:grey;
+}
+`
 const Donation = () => {
   const [search, setSearch] = useState(false);
   const [formdata, setFormdata] = useState({});
   const [buttonClick, setButtonClick] = useState('');
   const [slide, setSlide] = useState(true);
+  const [totalval,setTotalval]= useState("0.00")
   // const [check, setCheck] = useState()
 
   const handleOnchange1 = () => {
@@ -308,6 +377,8 @@ const Donation = () => {
   };
 
   const onMybutton = (val) => {
+    console.log(val)
+    setTotalval(val)
     setButtonClick(val);
   };
 
@@ -392,8 +463,10 @@ const Donation = () => {
       <Form onSubmit={handleSubmit}>
         <FormInner>
           <div>
-            <input onChange={handleOnchange1} type='radio' name='one' />
-            <span>One-time donation</span>
+
+
+            <span>  <input onChange={handleOnchange1} type='radio' name='one' />
+              One-time donation</span>
             <input onChange={handleOnchange1} type='radio' name='one' />
             <span>Monthly donation</span>
           </div>
@@ -414,35 +487,40 @@ const Donation = () => {
           )}
 
           <Input>
-            <span>$</span>
+            <label>$</label>
             <input
               onChange={handleOnchange}
               name='price'
               type='text'
               value={buttonClick}
             />
-            <span>month</span>
+            <label>month</label>
           </Input>
           <CHECKBOX>
-            <input onChange={handleOnchange} name='hide' type='checkbox' />{' '}
-            <span>Hide amount from public display </span>
+
+            <label><input onChange={handleOnchange} type="checkbox" name="hide" />Hide amount from public display</label>
+
           </CHECKBOX>
 
           <CHECKBOX>
-            <input
-              onChange={handleOnchange}
-              name='dedication'
-              type='checkbox'
-            />{' '}
-            <span>Add a dedication</span>
+
+            <label><input onChange={handleOnchange} type="checkbox" name="dedication" />Add a dedication</label>
+
           </CHECKBOX>
+
+
+
+
         </FormInner>
         <FormMiddle>
           <h4>You're Logged in as Manish Nagar (pawanpatidar21@gmail.com).</h4>
           <h4> Not Manish? Log out.</h4>
+
+
           <CHECKBOX>
-            <input onChange={handleOnchange} name='hidename' type='checkbox' />{' '}
-            <span>Hide my name from public display</span>
+
+            <label><input onChange={handleOnchange} type="checkbox" name="hidename" />Hide my name from public display</label>
+
           </CHECKBOX>
         </FormMiddle>
 
@@ -451,14 +529,19 @@ const Donation = () => {
             <div>
               <label>Payment Method</label>
               <br />
-              <input name='card' onChange={handleOnchange} type='text' />
+              <select onChange={handleOnchange} name="card" id="">
+
+                <option value="mastercard">Mastercard</option>
+                <option value="ru-pay">Rupay</option>
+              </select>
+              {/* <input name='card' onChange={handleOnchange} type='text' /> */}
             </div>
 
             <div>
               <Wrapper2>
                 <Credential>
-                  <label>Card Number</label>
-                  <br />
+              
+                 
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -467,8 +550,7 @@ const Donation = () => {
                   />
                 </Credential>
                 <Credential>
-                  <label>MM/YY</label>
-                  <br />
+                
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -477,8 +559,7 @@ const Donation = () => {
                   />
                 </Credential>
                 <Credential>
-                  <label>CVV</label>
-                  <br />
+               
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -490,6 +571,7 @@ const Donation = () => {
             </div>
           </span>
           <span>
+       
             <input
               onChange={handleOnchange}
               name='bill'
@@ -540,17 +622,27 @@ const Donation = () => {
           </span>
         </FormLast>
 
-        <h1>Total</h1>
-        <h1>$0.00</h1>
-        <CHECKBOX>
+        <Total>
+          <h1>Total</h1>
+          <h1>${totalval}</h1>
+          <CHECKBOX>
+
+            <label><input onChange={handleOnchange} type="checkbox" name="donation" /> Cover fees so Anima Christi Retreats Inc gets my full donation</label>
+
+          </CHECKBOX>
+          <BUTTON>
+            <input type='submit' value={`Pay$${totalval}`} />
+          </BUTTON>
+        </Total>
+      
+        {/* <CHECKBOX>
           <input onChange={handleOnchange} name='donation' type='checkbox' />{' '}
           <span>
             Cover fees so Anima Christi Retreats Inc gets my full donation
           </span>
-        </CHECKBOX>
-        <BUTTON>
-          <input type='submit' value='Pay' />
-        </BUTTON>
+        </CHECKBOX> */}
+
+        
       </Form>
     </Wrapper>
   );

@@ -147,6 +147,17 @@ margin-left:-55px;
 
 `
 
+const mybutton = {
+    background: "#6188ff",
+    color: "#fff",
+    padding: "3% 18%",
+    border: "none",
+    cursor: "pointer",
+    marginTop: "40px"
+    
+
+}
+
 const Fundrasingsolution = (props) => {
   const [isAuth, setAuth] = useState(true);
   const handleClick = () => {
@@ -210,8 +221,8 @@ const Fundrasingsolution = (props) => {
             {!isAuth ? (
               <button onClick={handleClick}>{props.btn}</button>
             ) : (
-              <Link to='/dashboard'>
-                <button>{props.btn}</button>
+            <Link to='/dashboard/live'>
+            <button style={mybutton}>{props.btn}</button>
               </Link>
             )}
           </div>

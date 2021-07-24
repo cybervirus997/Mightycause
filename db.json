@@ -23,9 +23,7 @@
           }
         ]
       },
-      "animal": {
-        "hidename": false
-      }
+      "animal": {}
     }
   ]
 }
