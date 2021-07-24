@@ -19,13 +19,29 @@
             "city": "neemuch",
             "pin": "123456",
             "donation": true,
-            "id":1
+            "id": 1
           }
         ]
       }
-     
-        
-      }
+    },
+    {
+      "googleId": "117485640165789879423",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GjHvjqNcqCTksh5V1G4cPVbsCL69lFUFGMnN1J1=s96-c",
+      "email": "manishsinghbhadouria4@gmail.com",
+      "name": "Manish Singh Bhadouria",
+      "givenName": "Manish",
+      "familyName": "Singh Bhadouria",
+      "id": 2
+    },
+    {
+      "googleId": "117485640165789879423",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GjHvjqNcqCTksh5V1G4cPVbsCL69lFUFGMnN1J1=s96-c",
+      "email": "manishsinghbhadouria4@gmail.com",
+      "name": "Manish Singh Bhadouria",
+      "givenName": "Manish",
+      "familyName": "Singh Bhadouria",
+      "events": {},
+      "id": 3
+    }
   ]
-  
 }
