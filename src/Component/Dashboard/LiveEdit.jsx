@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { Nav } from "../Home/Nav";
 import Footer from "../Home/Footer";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Input = styled.input`
   width: 30%;
   color: #494d59;
 `;
-const forfun = { key: "hhhheeee" };
+const forfun = {
+  key: "hhhheeee",
+};
 function LiveEdit() {
   const [width, setWidth] = useState(window.innerWidth);
   window.addEventListener("resize", handleResize);
@@ -200,7 +203,9 @@ function LiveEdit() {
             </span>
           </div>
           <div className={styles.lastbutton}>
-            <button className={styles.donate}>DONATE</button>
+            <Link to="/Donation">
+              <button className={styles.donate}>DONATE</button>
+            </Link>
             <button>JOIN THIS EVENT</button>
           </div>
         </div>
@@ -222,6 +227,9 @@ function LiveEdit() {
             <p>GET THE DETAILS</p>
           </div>
           <div className={styles.userDetail}>
+            <div className={styles.userImage}>
+              <img src={data.url} alt="" />
+            </div>
             <div>
               <h2>Event Organiser</h2>
               <p>{`${data.email}`}</p>
