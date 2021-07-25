@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "login": [
     {
       "googleId": "112267376158770995959",
@@ -50,4 +51,8 @@
       "id": 1
     }
   ]
+=======
+  "login": [],
+  "userData": []
+>>>>>>> 4af6cac7cce90594aced4e69f2cb60dfd5aadf77
 }

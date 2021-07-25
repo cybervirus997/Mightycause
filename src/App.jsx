@@ -8,6 +8,7 @@ import Contactus from './Component/Contactus/Contactus';
 import Main from './Component/FundraisingSolution/Main';
 import Donation from './Component/FundraisingSolution/Donation';
 import Searchpage from './Component/Searchtab/Searchpage';
+import Signup from './Component/Login/Signup';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -29,6 +30,7 @@ function App() {
         <Route exact path='/fund-raising-solution' component={Main}></Route>
         <Route exact path='/Donation' component={Donation}></Route>
         <Route exact path='/search' component={Searchpage}></Route>
+        <Route exact path='/sign-up' component={Signup}></Route>
       </Switch>
     </div>
   );
