@@ -5,6 +5,7 @@ import Footer from "../Home/Footer";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SideNavbar from "./Navbar";
 
 const Input = styled.input`
   width: 30%;
@@ -63,6 +64,7 @@ function LiveEdit() {
   const [newImg, setNewImg] = useState();
   const [dataArr, setDataArr] = useState("");
   const Email = useRef();
+  const evt = useRef();
 
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -101,8 +103,10 @@ function LiveEdit() {
       console.log(a, "inside getEmail");
       for (var i = 0; i < a.length; i++) {
         if (a[i].email === Email.current) {
-          var original = a[i].id;
+          console.log(a[i].events, "thsi a[i].envets");
 
+          var original = a[i].id;
+          evt.current = a[i].events;
           id.current = a[i].id;
           console.log(id.current, "this is id");
           break;
@@ -115,21 +119,30 @@ function LiveEdit() {
     e.preventDefault();
     console.log(id);
     getEmail();
+
     let a = {};
     console.log(a, "this is a");
     let t = data.title;
     let { price, donationTarget, goal, deadline, category } = data;
-    a.events = {
-      [t]: {
-        price,
-        donationTarget,
-        goal,
-        deadline,
-        category,
-        img: newImg,
-      },
+    a = {
+      title: t,
+      price,
+      donationTarget,
+      goal,
+      deadline,
+      category,
+      img: newImg,
     };
-    axios.patch(`http://localhost:3002/userData/${id.current}`, a).then((res) => {
+    let d = {};
+    // d.events = [...evt.current, a];
+    if (evt.current.length > 0) {
+      d.events = [...evt.current, a];
+    } else {
+      d.events = [a];
+    }
+    console.log(a, "patch");
+    console.log(evt.current, "evt");
+    axios.patch(`http://localhost:3002/userData/${id.current}`, d).then((res) => {
       console.log(res.data, "this is patch");
     });
     console.log(data, "inside submit");
@@ -183,22 +196,30 @@ function LiveEdit() {
     a.append("upload_preset", "uploadimage");
     axios.post("https://api.cloudinary.com/v1_1/masai-nj2045/image/upload", a).then((res) => {
       console.log(res.data.url);
-      let aa = {};
-      let t = data.title;
-      let { price, donationTarget, goal, deadline, category } = data;
-      aa.events = {
-        [t]: {
-          price,
-          donationTarget,
-          goal,
-          deadline,
-          category,
-          img: res.data.url,
-        },
-      };
-      axios.patch(`http://localhost:3002/userData/${id.current}`, aa).then((res) => {
-        console.log(res.data, "this is patch");
-      });
+      // let aa = {};
+      // console.log(aa, "this is a");
+      // let t = data.title;
+      // let { price, donationTarget, goal, deadline, category } = data;
+      // aa = {
+      //   title: t,
+      //   price,
+      //   donationTarget,
+      //   goal,
+      //   deadline,
+      //   category,
+      //   img: newImg,
+      // };
+      // let d = {};
+      // if (evt.current.length > 0) {
+      //   d.events = [...evt.current, aa];
+      // } else {
+      //   d.events = [aa];
+      // }
+      // console.log(aa, "patch");
+      // console.log(evt.current, "evt");
+      // axios.patch(`http://localhost:3002/userData/${id.current}`, d).then((res) => {
+      //   console.log(res.data, "this is patch");
+      // });
       setNewImg(res.data.url);
       setPopC(false);
       setPopValue(0);
@@ -207,6 +228,7 @@ function LiveEdit() {
 
   return (
     <>
+      <SideNavbar handleSubmit={handleSubmit} />
       {popC && (
         <div className={styles.pop}>
           <div className={styles.popCategory}>
@@ -235,7 +257,13 @@ function LiveEdit() {
                   <option value="Health">Health</option>
                   <option value="Sports">Sports</option>
                 </select>
-                <button onClick={handleSubmit} className={styles.save}>
+                <button
+                  onClick={() => {
+                    setPopC(false);
+                    setPopValue(0);
+                  }}
+                  className={styles.save}
+                >
                   Save
                 </button>
               </>
@@ -247,7 +275,13 @@ function LiveEdit() {
                 </div>
 
                 <input type="text" name="title" onChange={handleChange} value={title} />
-                <button onClick={handleSubmit} className={styles.save}>
+                <button
+                  onClick={() => {
+                    setPopC(false);
+                    setPopValue(0);
+                  }}
+                  className={styles.save}
+                >
                   Save
                 </button>
               </>
@@ -263,7 +297,13 @@ function LiveEdit() {
                   onChange={handleChange}
                   setFocus="true"
                 />
-                <button onClick={handleSubmit} className={styles.save}>
+                <button
+                  onClick={() => {
+                    setPopC(false);
+                    setPopValue(0);
+                  }}
+                  className={styles.save}
+                >
                   Save
                 </button>
               </>

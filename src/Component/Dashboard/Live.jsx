@@ -25,7 +25,6 @@ function Live() {
   };
   return (
     <div className={styles.Con}>
-      <SideNavbar />
       <LiveEdit data={data} />
     </div>
   );

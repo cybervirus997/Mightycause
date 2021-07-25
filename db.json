@@ -18,7 +18,35 @@
       "name": "ravi shukla",
       "givenName": "ravi",
       "familyName": "shukla",
-      "events": {},
+      "events": [
+        {
+          "title": "this is one",
+          "price": 25,
+          "donationTarget": "2233",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Sports",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627196996/ujqwbmf1qzxzlasfspje.jpg"
+        },
+        {
+          "title": "edu",
+          "price": 25,
+          "donationTarget": "333",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Education ",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627196996/ujqwbmf1qzxzlasfspje.jpg"
+        },
+        {
+          "title": "one",
+          "price": 25,
+          "donationTarget": "1200",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Emergencies",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627197284/c60zel8wjeivxjsf4ubl.jpg"
+        }
+      ],
       "id": 1
     }
   ]
