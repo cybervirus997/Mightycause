@@ -57,12 +57,25 @@
         },
         {
           "title": "run",
-          "price": 25,
+          "price": 100,
           "donationTarget": "40",
           "goal": 0,
           "deadline": 0,
           "category": "Health",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg",
+          "hide": true,
+          "dedication": true,
+          "hidename": true,
+          "card": "mastercard",
+          "cardnumber": "22",
+          "year": "32",
+          "cvv": "23",
+          "bill": "23",
+          "city": "23",
+          "pin": "23",
+          "donation": "",
+          "country": "India",
+          "state": "Madhya Pradesh"
         }
       ],
       "id": 1,

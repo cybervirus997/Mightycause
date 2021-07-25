@@ -8,7 +8,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import HelpIcon from "@material-ui/icons/Help";
-import { DataUsage } from "@material-ui/icons";
+import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
 import { useRef } from "react";
 
 const Wrapper = styled.div`
@@ -362,6 +362,8 @@ const Donation = () => {
   const Myid = useRef();
   const title = useRef();
   const evt = useRef();
+  const currentTitle = useRef();
+  const currentElement = useRef();
   // const [check, setCheck] = useState()
   // console.log(mydata, "mydata");
 
@@ -399,41 +401,59 @@ const Donation = () => {
   };
 
   const addData = async () => {
-    console.log(formdata, "formdata");
-    console.log(title.current, "this is title");
+    // console.log(formdata, "formdata");
+    // console.log(title.current, "this is title");
 
-    var events = {};
-    events = { ...formdata };
-    let Detail = { ...mydata, ...events };
-    console.log(Detail, mydata);
+    var events = [];
+    // events = { ...formdata };
+    // let Detail = { ...mydata, ...events };
+    // console.log(Detail, mydata);
+    let a = evt.current;
 
-    await axios.patch(`http://localhost:3002/userData/${Myid.current}`, Detail);
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].title === currentTitle.current) {
+        a[i] = { ...a[i], ...formdata };
+        break;
+      }
+    }
+
+    console.log(evt.current, currentElement.current, mydata, a, "current");
+    let details = { ...mydata };
+    details.events = a;
+
+    await axios.patch(`http://localhost:3002/userData/${Myid.current}`, details);
   };
 
   const getData = async () => {
     let { data } = await axios.get(`http://localhost:3002/userData`);
 
     setMyData(data);
-    console.log(data, "this is the real onlle");
+    // console.log(data, "this is the real onlle");
 
     for (let i = 0; i < data.length; i++) {
-      console.log(myemail, "this is emsail");
+      // console.log(myemail, "this is emsail");
       if (myemail.current === data[i].email) {
-        console.log(data[i], "data1[i]");
+        // console.log(data[i], "data1[i]");
         Myid.current = data[i].id;
+        currentTitle.current = data[i].currentTitle;
         evt.current = data[i].events;
-        console.log(evt.current, "evt");
-        // for (var j = 0; j < evt.current.length; j++) {
-        //   title.current = evt.current[j].title;
-        //   console.log(title.current, "this is title");
-        // }
+        // console.log(evt.current, "evt");
+        for (var j = 0; j < evt.current.length; j++) {
+          if (evt.current[j].title === currentTitle.current) {
+            currentElement.current = evt.current[j];
+            break;
+          }
+
+          title.current = evt.current[j].title;
+          // console.log(title.current, "this is title");
+        }
         // console.log(title.current);
 
         setMyData(data[i]);
         break;
       }
     }
-    console.log(data);
+    // console.log(data);
 
     setFinalData({ name: data.name, email: data.email });
   };
