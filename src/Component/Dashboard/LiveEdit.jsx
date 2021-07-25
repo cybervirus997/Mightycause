@@ -4,6 +4,7 @@ import { Nav } from "../Home/Nav";
 import Footer from "../Home/Footer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Input = styled.input`
   width: 30%;
@@ -14,11 +15,21 @@ const forfun = {
 };
 function LiveEdit() {
   const [width, setWidth] = useState(window.innerWidth);
+  const [id, setId] = useState("");
+  const [file, setFile] = useState("");
+
   window.addEventListener("resize", handleResize);
   function handleResize() {
     setWidth(window.innerWidth);
     // console.log("no");
   }
+
+  useEffect(() => {
+    handleAuth();
+  }, []);
+  useEffect(() => {
+    getEmail();
+  }, []);
 
   const initial = {
     email: "ravishukla86044@gmai.com",
@@ -26,13 +37,17 @@ function LiveEdit() {
     orgainsation: "Oraganisation Name",
     img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMIAAAEDCAMAAABQ/CumAAAAJ1BMVEXIyMivr6+tra3FxcW2traysrK7u7vBwcG+vr7GxsaxsbG1tbW5ubnPcSqzAAAExUlEQVR4nO3d7XKDIBCF4ShqNMn9X28T06aACywflrOdfX+3MzxjNUYLXAbxXXoPoL6dMIrth2A2I7TNvAnjdhHbNr4JpvdAyjNhglmXxzQ9lhWcFyKs9/Fzuo/DdO0yOF40YfEvWuMNF0ERrtSVd5xRz3iC8BgpwjPQA3EkzMGPwHHpONBwB0JYgGrwCTHB88fWroOl8wiPqOD5c4Dng0u4hs7k3zqPl8glJAHDMHUe8DGHcPhEo/6U4G43HAJDAHgYbMLKIoy9h+xnE+4swoB2YbUJ6cvR3r33mL0sguEJ4K6rFoF3KuCdDBaBc0ndA7usWoTUzcUnsJsMizApoVf/6w+Jezqj3SX9r4uqYX4633qP2cu+wWAehUfvMXvZBOYlCexsdgiMr52veg/Zz/nKc+MI4B7EOISVcxh6j/iQ+/U//hQJ8yB4hPR1de48XiLvUVjyTwnw8bb/QDL4WHsP7d5i7/BYOGZAfBxJPZxfwgbEY0C+IiFf8jy7AZ4Hr8h3bXfiQGC+W3hFvy40BwTavZ1V6KXtttzHb8Y4TGgP8Jwir84v5rqu6/UKegp8ihGEpASElICQEhBSAkJKQEgJCCkBISUgpASElICQEhBSAkJKQEgJCCkBISUgpASElICQEhBSAkJKQEgJCCkBISUgpASElICQVMLtd8BCCTdrxDIJN/uf4EUSZucf+SUSPjOOfmfvCCNYc6b2UcsjOLO+XsMWR/DmrRl5BH/m3SSOcJg7KI5wnP0ojUDM3xRGoGagyiKQc2hFEehZwJIIgXnMggihmdhyCMG55GII4dnwUgiR+fxCCLEVCWQQogvJiSDEl8KTQEgs5ieAkFqOEJ+QXFARnpBeEhKdwFjUEpzAWZYTm8BaWBSawFsaFZnAXNwVmMAUABO4AlwCWwBL4AtQCRkCUAJ7UVRYQpYAkpAnQCRkCgAJuQI8QrYAjpAvQCMUCMAIJQIsQpEAilAmQCIUCoAIpQIcQrEAhlAuQCFUCEAI7B0HYAlVAghCnQCBUCkAIMQXlJZAqBZ0J9QLehMaCDoTWgjaEJbC7QyaCJoQlrFsf5U2ghaEfXn3AkMjQQPC9wL12YZWgnrCZ4n9TEMzQTXB2iQgy9BOUEtwtjnIMES2R/hjgjcStqGloI5wGAnT0FRQRSA2XmEZ2gpqCOTWMQxDY0EFIbD5TdLQWlBOCG7fkzA0FxQTIhsQRQ3tBaWE6BZKkR2gThAUEhKbQAWPwxmCMkJyG6vAcThFUERg7OlGGs4RlBBYu9IRhpMEBQSWgDCcJcgnMAUHw2mCbAJb4BnOE+QSMgSO4URBJiFLYBkyfy+vLEL2SOY/EGQRCkYyny/IIRSNZD5dkEEoHMl8toBPYG7Y2yEuAVfAJQALmARkAY8ALWARsAUcAriAQUAXpAnwgiQBX5AiCBAkCBIEcYIIQZQgQxAjCBFECFIEYYIYQZAgRxAiCBIECJIENEGUgCQYUQKKIExAEKQJjgRxggNBnsAnCBR4BFlX0+9cQs1kjm4pASElIKQEhJSAkBIQUgJCSkBICQgpASElIKQEhJSAkBIQUgJCSkBICQi5hGUS2NJ7ZZ4m/RC23gMpb3sTBrMZoW1meBOGUWzDD0F2/4DwBbBzaYqf/U92AAAAAElFTkSuQmCC",
     goal: 0,
-    raised: 25,
+    price: 25,
     title: "Your Event Name",
     donationTarget: 100,
     deadline: 0,
   };
   const [data, setData] = useState(initial);
-
+  const ImageDiv = styled.div`
+    background-image: url(${data.imageUrl});
+    background-repeat: no-repeat;
+    background-size: cover;
+  `;
   const Progress = styled.div`
     width: ${Number((data.raised / data.donationTarget) * 100)}%;
     background: rgb(118, 152, 255);
@@ -44,6 +59,8 @@ function LiveEdit() {
   const [popC, setPopC] = useState(false);
   const [popValue, setPopValue] = useState(0);
   const [formData, setFormData] = useState({});
+  const [newImg, setNewImg] = useState();
+  const [dataArr, setDataArr] = useState("");
 
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -56,11 +73,76 @@ function LiveEdit() {
     setData(payload);
     console.log(data);
   };
+  function handleAuth() {
+    return axios.get("http://localhost:3002/login/1").then((res) => {
+      console.log(res.data, "in th auth");
+      setData({ ...data, ...res.data });
+      console.log(data, "this is data");
+    });
+  }
+  const getEmail = () => {
+    axios.get("http://localhost:3002/userData").then((res) => {
+      console.log(res.data);
+      let a = res.data;
+      console.log(a, "inside getEmail");
+      for (var i = 0; i < a.length; i++) {
+        if (a[i].email === data.email) {
+          setId(a[i].id);
+          console.log(a[i].id);
+          break;
+        }
+      }
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
+    getEmail();
+    axios.patch(`http://localhost:3002/userData/${id}`).then((res) => {
+      console.log(res.data, "this is patch");
+    });
+    // console.log(data);
     setPopC(false);
     setPopValue(0);
+  };
+
+  const handleChangeImg = (e) => {
+    setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
+
+  const getImage = () => {
+    axios
+      .get("https://him-app.herokuapp.com/posts")
+      .then((res) => {
+        setDataArr(res.data);
+        console.log(res.data, "inside getImage");
+      })
+      .catch((err) => console.log(err));
+  };
+  const postImage = async () => {
+    const payload = {
+      Image: newImg,
+    };
+    await axios
+      .post("https://him-app.herokuapp.com/posts", {
+        ...payload,
+        status: false,
+      })
+      .then((res) => getImage())
+      .catch((err) => console.log(err));
+  };
+
+  const handleSubmitImg = () => {
+    const reader = new FileReader();
+    console.log(reader);
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setNewImg(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+
+    postImage();
   };
 
   return (
@@ -125,6 +207,18 @@ function LiveEdit() {
                   Save
                 </button>
               </>
+            ) : popValue === 4 ? (
+              <>
+                <div>
+                  <h1>Image</h1>
+                  <p>Upload an image for your cause </p>
+                </div>
+
+                <input type="file" name="img" onChange={handleChangeImg} />
+                <button onClick={handleSubmitImg} className={styles.save}>
+                  Save
+                </button>
+              </>
             ) : null}
           </div>
         </div>
@@ -149,9 +243,17 @@ function LiveEdit() {
           <div>
             <div className={styles.imgDiv}>
               <div className={styles.pic}>
-                <img src={data.img} alt="" />
+                <img src="" alt="" />
               </div>
-              <span class=" material-icons-outlined ">mode_edit</span>
+              <span
+                onClick={() => {
+                  setPopC(!popC);
+                  setPopValue(4);
+                }}
+                class=" material-icons-outlined "
+              >
+                mode_edit
+              </span>
             </div>
             <div className={styles.title}>
               <div>
@@ -182,7 +284,7 @@ function LiveEdit() {
 
         <div className={styles.eventProgress}>
           <div>
-            <h1>{`$ ${data.raised} raised`}</h1>
+            <h1>{`$ ${data.price} raised`}</h1>
             <p>
               FUNDRAISING DEADLINE <span class="material-icons-outlined">mode_edit</span>
             </p>
@@ -227,12 +329,13 @@ function LiveEdit() {
             <p>GET THE DETAILS</p>
           </div>
           <div className={styles.userDetail}>
-            <div className={styles.userImage}>
-              <img src={data.url} alt="" />
-            </div>
+            <ImageDiv className={styles.userImage}></ImageDiv>
+            {/* <div >
+              <img src={data.imageUrl} alt="" />
+            </div> */}
             <div>
               <h2>Event Organiser</h2>
-              <p>{`${data.email}`}</p>
+              <p>{`${data.name}`}</p>
             </div>
             <div>
               <p>{`Created on -${data.date} dsfsfsffs`} </p>

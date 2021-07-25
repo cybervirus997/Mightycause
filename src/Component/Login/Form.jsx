@@ -1,10 +1,10 @@
-import { Email, Facebook, Lock } from '@material-ui/icons';
-import React, { useState } from 'react';
-import styles from './Form.module.css';
-import { Link, Redirect } from 'react-router-dom';
-import GoogleLogin from 'react-google-login';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Email, Facebook, Lock } from "@material-ui/icons";
+import React, { useState } from "react";
+import styles from "./Form.module.css";
+import { Link, Redirect } from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Form = () => {
   const [disable, setdisable] = useState(true);
@@ -53,9 +53,9 @@ const Form = () => {
       }
     });
   };
-  let iconStyles = { color: 'rgb(54, 52, 52)', position: 'absolute' };
+  let iconStyles = { color: "rgb(54, 52, 52)", position: "absolute" };
   const responseGoogle = (res) => {
-    // console.log(res);
+    console.log(res);
     let data = { ...res.profileObj, events: {} };
 
     axios.get('http://localhost:3002/userData').then(function (response) {
@@ -96,21 +96,22 @@ const Form = () => {
           </button> */}
 
           <GoogleLogin
-            className='google'
-            clientId='378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com'
+            className="google"
+            clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
             render={(renderProps) => (
               <button
                 className={styles.google}
                 onClick={renderProps.onClick}
-                disabled={renderProps.disabled}>
+                disabled={renderProps.disabled}
+              >
                 <span>G</span> Use Google
               </button>
             )}
-            buttonText='Login'
+            buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             isSignedIn={true}
-            cookiePolicy={'single_host_origin'}
+            cookiePolicy={"single_host_origin"}
           />
         </div>
         <div>
@@ -128,22 +129,16 @@ const Form = () => {
         </div>
         <div className={styles.myform}>
           <Email style={iconStyles} />
-          <input
-            onChange={handlechange}
-            type='email'
-            name='email'
-            id='input'
-            placeholder='Email'
-          />
+          <input onChange={handlechange} type="email" name="email" id="input" placeholder="Email" />
           {status ? (
             <div>
               <Lock style={iconStyles} />
               <input
                 onChange={handlechange}
-                type='password'
-                name='password'
-                id='input1'
-                placeholder='Password'
+                type="password"
+                name="password"
+                id="input1"
+                placeholder="Password"
               />
               <p className={styles.pwd}>
                 Password Should be minimum of 8-Characters

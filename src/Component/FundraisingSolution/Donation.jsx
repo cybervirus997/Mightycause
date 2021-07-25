@@ -7,6 +7,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import HelpIcon from '@material-ui/icons/Help';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -369,7 +370,9 @@ const Donation = () => {
   const [formdata, setFormdata] = useState({});
   const [buttonClick, setButtonClick] = useState('');
   const [slide, setSlide] = useState(true);
-  const [totalval,setTotalval]= useState("0.00")
+  const [totalval, setTotalval] = useState("0.00")
+  const [finalData, setFinalData] = useState({ name: "", email: "" })
+  const [mydata,setMyData] = useState()
   // const [check, setCheck] = useState()
 
   const handleOnchange1 = () => {
@@ -389,23 +392,29 @@ const Donation = () => {
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormdata({ ...formdata, [name]: type === 'checkbox' ? checked : value });
+    setFormdata({ ...formdata, "price": buttonClick, [name]: type === 'checkbox' ? checked : value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     addData();
-    console.log(formdata);
+    
+    
   };
 
   const addData = async (id) => {
     const events = {};
     events.animal = { ...formdata };
-    await axios.patch(`http://localhost:3002/userData/1`, events);
+    let B = { ...mydata }
+    B.events.animal= {...formdata}
+  
+    await axios.patch(`http://localhost:3002/userData/1`, B);
   };
 
   const getData = async () => {
     let { data } = await axios.get(`http://localhost:3002/userData/1`);
     console.log(data);
+    setMyData(data)
+    setFinalData({ name: data.name,email:data.email})
   };
   return (
     <Wrapper>
@@ -498,13 +507,13 @@ const Donation = () => {
           </Input>
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="hide" />Hide amount from public display</label>
+            <label><input onChange={handleOnchange} type="checkbox" name="hide" />Hide amount from public display </label><HelpIcon/>
 
           </CHECKBOX>
 
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="dedication" />Add a dedication</label>
+            <label><input onChange={handleOnchange} type="checkbox" name="dedication" />Add a dedication</label><HelpIcon />
 
           </CHECKBOX>
 
@@ -513,13 +522,13 @@ const Donation = () => {
 
         </FormInner>
         <FormMiddle>
-          <h4>You're Logged in as Manish Nagar (pawanpatidar21@gmail.com).</h4>
-          <h4> Not Manish? Log out.</h4>
+          <h4>You're Logged in as {finalData.name} ({finalData.email})).</h4>
+          <h4> Not {finalData.name}? Log out.</h4>
 
 
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="hidename" />Hide my name from public display</label>
+            <label><input onChange={handleOnchange} type="checkbox" name="hidename" />Hide my name from public display</label><HelpIcon />
 
           </CHECKBOX>
         </FormMiddle>
@@ -530,7 +539,7 @@ const Donation = () => {
               <label>Payment Method</label>
               <br />
               <select onChange={handleOnchange} name="card" id="">
-
+                <option value="">Select Card</option>
                 <option value="mastercard">Mastercard</option>
                 <option value="ru-pay">Rupay</option>
               </select>
@@ -540,8 +549,8 @@ const Donation = () => {
             <div>
               <Wrapper2>
                 <Credential>
-              
-                 
+
+
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -550,7 +559,7 @@ const Donation = () => {
                   />
                 </Credential>
                 <Credential>
-                
+
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -559,7 +568,7 @@ const Donation = () => {
                   />
                 </Credential>
                 <Credential>
-               
+
                   <input
                     onChange={handleOnchange}
                     type='number'
@@ -571,7 +580,7 @@ const Donation = () => {
             </div>
           </span>
           <span>
-       
+
             <input
               onChange={handleOnchange}
               name='bill'
@@ -627,14 +636,15 @@ const Donation = () => {
           <h1>${totalval}</h1>
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="donation" /> Cover fees so Anima Christi Retreats Inc gets my full donation</label>
+            <label><input onChange={handleOnchange} type="checkbox" name="donation" /> Cover fees so Anima Christi Retreats Inc gets my full donation</label><HelpIcon />
+         
 
           </CHECKBOX>
           <BUTTON>
             <input type='submit' value={`Pay$${totalval}`} />
           </BUTTON>
         </Total>
-      
+
         {/* <CHECKBOX>
           <input onChange={handleOnchange} name='donation' type='checkbox' />{' '}
           <span>
@@ -642,7 +652,7 @@ const Donation = () => {
           </span>
         </CHECKBOX> */}
 
-        
+
       </Form>
     </Wrapper>
   );
