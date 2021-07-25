@@ -38,7 +38,6 @@
           "city": "",
           "pin": "",
           "donation": "",
-<<<<<<< HEAD
           "country": "India",
           "state": "Madhya Pradesh"
         },
@@ -66,14 +65,6 @@
       ],
       "id": 1,
       "currentTitle": "one two three"
-=======
-          "country": "",
-          "state": ""
-        }
-      ],
-      "id": 1,
-      "currentTitle": "Pawan"
->>>>>>> 33a0401ecf2ffe2406774f6efafcce32d81fd70e
     }
   ]
 }
