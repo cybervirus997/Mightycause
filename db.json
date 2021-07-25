@@ -12,33 +12,6 @@
   ],
   "userData": [
     {
-      "googleId": "114200217091714058997",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
-      "email": "pawanpatidar21@gmail.com",
-      "name": "Pawan Patidar",
-      "givenName": "Pawan",
-      "familyName": "Patidar",
-      "events": {
-        "animal": {
-          "price": 50,
-          "hide": false,
-          "dedication": false,
-          "hidename": false,
-          "card": "ru-pay",
-          "cardnumber": "1222222222",
-          "year": "44444",
-          "cvv": "123",
-          "bill": "village bani teh manasa dist neemuch, madhya pradesh",
-          "city": "neemuch",
-          "pin": "458113",
-          "donation": "",
-          "country": "",
-          "state": ""
-        }
-      },
-      "id": 1
-    },
-    {
       "googleId": "112267376158770995959",
       "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
       "email": "ravishukla86044@gmail.com",
@@ -46,7 +19,7 @@
       "givenName": "ravi",
       "familyName": "shukla",
       "events": {},
-      "id": 2
+      "id": 1
     }
   ]
 }
