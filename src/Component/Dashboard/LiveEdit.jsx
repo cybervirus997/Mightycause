@@ -86,11 +86,10 @@ function LiveEdit() {
     //   return { ...pre, ...res.data };
     // });
 
-    console.log(data, "this is data");
     Promise.all([res]).then((response) => {
       console.log(response, "this is all");
 
-      console.log(data, "this is data");
+      console.log(data, "this is data indide auth");
       getEmail();
     });
   }
@@ -132,16 +131,22 @@ function LiveEdit() {
       category,
       img: newImg,
     };
+    let original = {};
     let d = {};
+    let events = [];
+    let currentTitle = t;
     // d.events = [...evt.current, a];
     if (evt.current.length > 0) {
-      d.events = [...evt.current, a];
+      events = [...evt.current, a];
+      original = { events, currentTitle };
     } else {
-      d.events = [a];
+      events = [a];
+      original = { events, currentTitle };
     }
-    console.log(a, "patch");
+
+    console.log(original, "patch");
     console.log(evt.current, "evt");
-    axios.patch(`http://localhost:3002/userData/${id.current}`, d).then((res) => {
+    axios.patch(`http://localhost:3002/userData/${id.current}`, original).then((res) => {
       console.log(res.data, "this is patch");
     });
     console.log(data, "inside submit");
