@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
-import ExploreIcon from '@material-ui/icons/Explore';
-import SearchIcon from '@material-ui/icons/Search';
-import StarsIcon from '@material-ui/icons/Stars';
-import Avatar from '@material-ui/core/Avatar';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import ExploreIcon from "@material-ui/icons/Explore";
+import SearchIcon from "@material-ui/icons/Search";
+import StarsIcon from "@material-ui/icons/Stars";
+import Avatar from "@material-ui/core/Avatar";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import HelpIcon from "@material-ui/icons/Help";
+import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
+import { useRef } from "react";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -81,35 +84,26 @@ const Heading = styled.div`
   }
 `;
 
-
-
-
 const Form = styled.form``;
-
-
-
 
 const FormInner = styled.div`
   padding: 1% 0;
   width: 50%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
 
   margin-top: 50px;
   background-color: white;
 
-label {
-  line-height: 18px;
-
-}
-input {
-  width: 13px;
-  height: 18px;
-  font-size: 12px;
-  line-height: 12px;
-}
-
+  label {
+    line-height: 18px;
+  }
+  input {
+    width: 13px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 12px;
+  }
 `;
 const DonateNav = styled.div`
   display: flex;
@@ -120,11 +114,9 @@ const Icons = styled.div`
 `;
 
 const Logo = styled.div`
-
-margin-left: 750px;
-margin-top: 20px;
-
-`
+  margin-left: 750px;
+  margin-top: 20px;
+`;
 
 const Search = styled.div`
   position: relative;
@@ -181,42 +173,35 @@ const Buttondiv = styled.div`
 `;
 
 const Input = styled.div`
-margin-top: 25px;
-input{
-width:60%;
-border: none;
-outline: none;
-border-bottom:2px solid grey;
-}
-label{
-  border-bottom:2px solid grey;
-  padding-bottom:1px;
- 
-}
-
-
-`
+  margin-top: 25px;
+  input {
+    width: 60%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid grey;
+  }
+  label {
+    border-bottom: 2px solid grey;
+    padding-bottom: 1px;
+  }
+`;
 const CHECKBOX = styled.div`
-
-
-margin-top:15px;
-label {
-  line-height: 18px;
-  
-}
-input {
-  width: 13px;
-  height: 18px;
-  font-size: 12px;
-  line-height: 12px;
-}
-`
+  margin-top: 15px;
+  label {
+    line-height: 18px;
+  }
+  input {
+    width: 13px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+`;
 
 const FormMiddle = styled.div`
   padding: 1% 0;
   width: 50%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
 
   margin-top: 50px;
@@ -226,14 +211,10 @@ const FormMiddle = styled.div`
   }
 `;
 
-
-
-
 const FormLast = styled.div`
   padding: 2% 0;
   width: 50%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
   justify-content: center;
   margin: auto;
@@ -241,86 +222,78 @@ const FormLast = styled.div`
   background-color: white;
   justify-items: center;
 
-
-  span{
-
+  span {
     display: flex;
   }
 
-span>div:nth-child(1) select{
-width:300px;
-border: none;
-border-bottom: 1.5px solid grey;
-outline:none;
-}
+  span > div:nth-child(1) select {
+    width: 300px;
+    border: none;
+    border-bottom: 1.5px solid grey;
+    outline: none;
+  }
 
-span>div:nth-child(1) label{
-  margin-left: -180px;
-}
-span:nth-child(2) input{
-  margin-top: 10px;
-  width:857px;
-  border-bottom: 1.5px solid grey;
-}
+  span > div:nth-child(1) label {
+    margin-left: -180px;
+  }
+  span:nth-child(2) input {
+    margin-top: 10px;
+    width: 857px;
+    border-bottom: 1.5px solid grey;
+  }
 
-span:nth-child(3)>div:nth-child(1) input{
-  border-bottom: 1.5px solid grey;
-  margin-top: 21px;
-width:420px;
-}
+  span:nth-child(3) > div:nth-child(1) input {
+    border-bottom: 1.5px solid grey;
+    margin-top: 21px;
+    width: 420px;
+  }
 
-span:nth-child(3)>div:nth-child(2) select{
-width:300px;
-margin-left: 10px;
-border: none;
-border-bottom: 1.5px solid grey;
-outline:none;
-width:420px;
-}
+  span:nth-child(3) > div:nth-child(2) select {
+    width: 300px;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 1.5px solid grey;
+    outline: none;
+    width: 420px;
+  }
 
-span:nth-child(3)>div:nth-child(2) label{
-margin-left:-370px;
-}
-span:nth-child(4)>div:nth-child(2) input{
-  margin-left: 10px;
-  margin-top: 22px;
-width:420px;
-border-bottom: 1.5px solid grey;
-}
+  span:nth-child(3) > div:nth-child(2) label {
+    margin-left: -370px;
+  }
+  span:nth-child(4) > div:nth-child(2) input {
+    margin-left: 10px;
+    margin-top: 22px;
+    width: 420px;
+    border-bottom: 1.5px solid grey;
+  }
 
-span:nth-child(4)>div:nth-child(1) select{
-width:300px;
-border: none;
-border-bottom: 1.5px solid grey;
-outline:none;
-width:420px;
-}
- span:nth-child(4)>div:nth-child(1) label{
-margin-left:-350px;
-}
+  span:nth-child(4) > div:nth-child(1) select {
+    width: 300px;
+    border: none;
+    border-bottom: 1.5px solid grey;
+    outline: none;
+    width: 420px;
+  }
+  span:nth-child(4) > div:nth-child(1) label {
+    margin-left: -350px;
+  }
 `;
 const Credential = styled.div`
-input{
-  width: 160px;
-  margin-left:5px;
-  margin-top:21px;
-  border-bottom:1.5px solid grey;
-}
-
-
-
-
+  input {
+    width: 160px;
+    margin-left: 5px;
+    margin-top: 21px;
+    border-bottom: 1.5px solid grey;
+  }
 `;
 const Wrapper2 = styled.div`
   display: flex;
 `;
 
 const BUTTON = styled.div`
- 
   input {
-
     width: 250px;
-height: 3.5vw;
+    height: 3.5vw;
     border-radius: 30px;
     background-color: #6188ff;
     color: white;
@@ -337,14 +310,11 @@ const Outer = styled.div`
   top: 70px;
   right: 60px;
   width: 11%;
-
- 
 `;
 
 const Inner = styled.div`
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   background-color: white;
   height: 5vw;
   border-radius: 10px;
@@ -358,27 +328,59 @@ const Inner = styled.div`
 `;
 
 const Total = styled.div`
-margin-top:50px;
-h1{
-  font-size: 55px;
-  font-weight: 400;
-}
-`
+  margin-top: 50px;
+  h1 {
+    font-size: 55px;
+    font-weight: 400;
+  }
+`;
 const Donation = () => {
+  const initial = {
+    price: "",
+    hide: false,
+    dedication: false,
+    hidename: false,
+    card: "",
+    cardnumber: "",
+    year: "",
+    cvv: "",
+    bill: "",
+    city: "",
+    pin: "",
+    donation: "",
+    country: "",
+    state: "",
+  };
   const [search, setSearch] = useState(false);
-  const [formdata, setFormdata] = useState({});
-  const [buttonClick, setButtonClick] = useState('');
+  const [formdata, setFormdata] = useState(initial);
+  const [buttonClick, setButtonClick] = useState("");
   const [slide, setSlide] = useState(true);
-  const [totalval,setTotalval]= useState("0.00")
+  const [totalval, setTotalval] = useState("0.00");
+  const [finalData, setFinalData] = useState({ name: "", email: "" });
+  const [mydata, setMyData] = useState();
+  const myemail = useRef();
+  const Myid = useRef();
+  const title = useRef();
+  const evt = useRef();
+  const currentTitle = useRef();
+  const currentElement = useRef();
   // const [check, setCheck] = useState()
+  // console.log(mydata, "mydata");
+
+  const LogingFun = async () => {
+    let { data } = await axios.get("http://localhost:3002/login/1");
+    myemail.current = data.email;
+  };
+
+  LogingFun();
 
   const handleOnchange1 = () => {
     setSlide(!slide);
   };
 
   const onMybutton = (val) => {
-    console.log(val)
-    setTotalval(val)
+    console.log(val);
+    setTotalval(val);
     setButtonClick(val);
   };
 
@@ -389,51 +391,99 @@ const Donation = () => {
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormdata({ ...formdata, [name]: type === 'checkbox' ? checked : value });
+    setFormdata({ ...formdata, price: buttonClick, [name]: type === "checkbox" ? checked : value });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    // alert("djsf");
     addData();
-    console.log(formdata);
+    setFormdata(initial);
   };
 
-  const addData = async (id) => {
-    const events = {};
-    events.animal = { ...formdata };
-    await axios.patch(`http://localhost:3002/userData/1`, events);
+  const addData = async () => {
+    // console.log(formdata, "formdata");
+    // console.log(title.current, "this is title");
+
+    var events = [];
+    // events = { ...formdata };
+    // let Detail = { ...mydata, ...events };
+    // console.log(Detail, mydata);
+    let a = evt.current;
+
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].title === currentTitle.current) {
+        a[i] = { ...a[i], ...formdata };
+        break;
+      }
+    }
+
+    console.log(evt.current, currentElement.current, mydata, a, "current");
+    let details = { ...mydata };
+    details.events = a;
+
+    await axios.patch(`http://localhost:3002/userData/${Myid.current}`, details);
   };
 
   const getData = async () => {
-    let { data } = await axios.get(`http://localhost:3002/userData/1`);
-    console.log(data);
+    let { data } = await axios.get(`http://localhost:3002/userData`);
+
+    setMyData(data);
+    // console.log(data, "this is the real onlle");
+
+    for (let i = 0; i < data.length; i++) {
+      // console.log(myemail, "this is emsail");
+      if (myemail.current === data[i].email) {
+        // console.log(data[i], "data1[i]");
+        Myid.current = data[i].id;
+        currentTitle.current = data[i].currentTitle;
+        evt.current = data[i].events;
+        // console.log(evt.current, "evt");
+        for (var j = 0; j < evt.current.length; j++) {
+          if (evt.current[j].title === currentTitle.current) {
+            currentElement.current = evt.current[j];
+            break;
+          }
+
+          title.current = evt.current[j].title;
+          // console.log(title.current, "this is title");
+        }
+        // console.log(title.current);
+
+        setMyData(data[i]);
+        break;
+      }
+    }
+    // console.log(data);
+
+    setFinalData({ name: data.name, email: data.email });
   };
   return (
     <Wrapper>
       <DonateNav>
         <Icons>
-          <ExploreIcon style={{ color: '#6188FF' }} />
+          <ExploreIcon style={{ color: "#6188FF" }} />
         </Icons>
-        <Link to='/'>
-          <Logo className='lodo_div'>
-            <img src='./image/Mightcauselogo.png' alt='Logo' />
+        <Link to="/">
+          <Logo className="lodo_div">
+            <img src="./image/Mightcauselogo.png" alt="Logo" />
           </Logo>
         </Link>
         <Search>
-          <button onClick={() => setSearch(!search)} className='btn'>
-            <SearchIcon className='icon_s' />
+          <button onClick={() => setSearch(!search)} className="btn">
+            <SearchIcon className="icon_s" />
           </button>
           {search && (
             <Outer>
               <Inner>
-                <label htmlFor=''>Search</label>
+                <label htmlFor="">Search</label>
                 <br />
-                <input type='text' placeholder='search...' />
+                <input type="text" placeholder="search..." />
               </Inner>
             </Outer>
           )}
         </Search>
         <Profile>
-          <Avatar alt='Cindy Baker' src='/static/images/avatar/3.jpg' />
+          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
         </Profile>
       </DonateNav>
       <Heading>
@@ -443,18 +493,14 @@ const Donation = () => {
         </div>
         <div>
           <div>
-            <img
-              src='https://www.mightycause.com/images/gold_size_220x220.png'
-              alt=''
-            />
+            <img src="https://www.mightycause.com/images/gold_size_220x220.png" alt="" />
           </div>
 
           <span>
             <h4>ORGANIZATION</h4>
             <br />
             <p>
-              Anima Christi Retreats Inc{' '}
-              <StarsIcon style={{ color: 'blue', marginTop: '2px' }} />
+              Anima Christi Retreats Inc <StarsIcon style={{ color: "blue", marginTop: "2px" }} />
             </p>
           </span>
         </div>
@@ -463,11 +509,12 @@ const Donation = () => {
       <Form onSubmit={handleSubmit}>
         <FormInner>
           <div>
-
-
-            <span>  <input onChange={handleOnchange1} type='radio' name='one' />
-              One-time donation</span>
-            <input onChange={handleOnchange1} type='radio' name='one' />
+            <span>
+              {" "}
+              <input onChange={handleOnchange1} type="radio" name="one" />
+              One-time donation
+            </span>
+            <input onChange={handleOnchange1} type="radio" name="one" />
             <span>Monthly donation</span>
           </div>
           {slide ? (
@@ -488,39 +535,47 @@ const Donation = () => {
 
           <Input>
             <label>$</label>
-            <input
-              onChange={handleOnchange}
-              name='price'
-              type='text'
-              value={buttonClick}
-            />
+            <input onChange={handleOnchange} name="price" type="text" value={buttonClick} />
             <label>month</label>
           </Input>
           <CHECKBOX>
-
-            <label><input onChange={handleOnchange} type="checkbox" name="hide" />Hide amount from public display</label>
-
+            <label>
+              <input onChange={handleOnchange} type="checkbox" name="hide" value={formdata.hide} />
+              Hide amount from public display{" "}
+            </label>
+            <HelpIcon />
           </CHECKBOX>
 
           <CHECKBOX>
-
-            <label><input onChange={handleOnchange} type="checkbox" name="dedication" />Add a dedication</label>
-
+            <label>
+              <input
+                onChange={handleOnchange}
+                type="checkbox"
+                name="dedication"
+                value={formdata.dedication}
+              />
+              Add a dedication
+            </label>
+            <HelpIcon />
           </CHECKBOX>
-
-
-
-
         </FormInner>
         <FormMiddle>
-          <h4>You're Logged in as Manish Nagar (pawanpatidar21@gmail.com).</h4>
-          <h4> Not Manish? Log out.</h4>
-
+          <h4>
+            You're Logged in as {finalData.name} ({finalData.email})).
+          </h4>
+          <h4> Not {finalData.name}? Log out.</h4>
 
           <CHECKBOX>
-
-            <label><input onChange={handleOnchange} type="checkbox" name="hidename" />Hide my name from public display</label>
-
+            <label>
+              <input
+                onChange={handleOnchange}
+                type="checkbox"
+                name="hidename"
+                value={formdata.hidename}
+              />
+              Hide my name from public display
+            </label>
+            <HelpIcon />
           </CHECKBOX>
         </FormMiddle>
 
@@ -529,8 +584,8 @@ const Donation = () => {
             <div>
               <label>Payment Method</label>
               <br />
-              <select onChange={handleOnchange} name="card" id="">
-
+              <select onChange={handleOnchange} value={formdata.card} name="card" id="">
+                <option value="">Select Card</option>
                 <option value="mastercard">Mastercard</option>
                 <option value="ru-pay">Rupay</option>
               </select>
@@ -540,43 +595,42 @@ const Donation = () => {
             <div>
               <Wrapper2>
                 <Credential>
-              
-                 
                   <input
                     onChange={handleOnchange}
-                    type='number'
-                    name='cardnumber'
-                    placeholder='Card Number'
+                    type="number"
+                    name="cardnumber"
+                    placeholder="Card Number"
+                    value={formdata.cardnumber}
                   />
                 </Credential>
                 <Credential>
-                
                   <input
                     onChange={handleOnchange}
-                    type='number'
-                    name='year'
-                    placeholder='MM/YY'
+                    type="number"
+                    name="year"
+                    placeholder="MM/YY"
+                    value={formdata.year}
                   />
                 </Credential>
                 <Credential>
-               
                   <input
                     onChange={handleOnchange}
-                    type='number'
-                    name='cvv'
-                    placeholder='CVV'
+                    type="number"
+                    name="cvv"
+                    placeholder="CVV"
+                    value={formdata.cvv}
                   />
                 </Credential>
               </Wrapper2>
             </div>
           </span>
           <span>
-       
             <input
               onChange={handleOnchange}
-              name='bill'
-              type='text'
-              placeholder='Bill Address'
+              name="bill"
+              type="text"
+              placeholder="Bill Address"
+              value={formdata.bill}
             />
           </span>
 
@@ -584,18 +638,20 @@ const Donation = () => {
             <div>
               <input
                 onChange={handleOnchange}
-                name='city'
-                type='text'
-                placeholder='City'
+                name="city"
+                type="text"
+                placeholder="City"
+                value={formdata.city}
               />
             </div>
 
             <div>
               <label>State</label>
               <br />
-              <select onChange={handleOnchange} name='state'>
-                <option value='mp'>Madhya Pradesh</option>
-                <option value='up'>Up</option>
+              <select onChange={handleOnchange} value={formdata.state} name="state">
+                <option value="">select state</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
               </select>
             </div>
           </span>
@@ -605,18 +661,21 @@ const Donation = () => {
               <label>Country</label>
               <br />
 
-              <select onChange={handleOnchange} name='country'>
-                <option value='unitedstate'>United State</option>
-                <option value='Bhutan'>Bhutan</option>
+              <select onChange={handleOnchange} value={formdata.country} name="country">
+                <option value="">select country</option>
+                <option value="United State">United State</option>
+                <option value="India">India</option>
+                <option value="Bhutan">Bhutan</option>
               </select>
             </div>
 
             <div>
               <input
                 onChange={handleOnchange}
-                type='number'
-                name='pin'
-                placeholder='ZIP/Post Code'
+                type="number"
+                name="pin"
+                value={formdata.pin}
+                placeholder="ZIP/Post Code"
               />
             </div>
           </span>
@@ -626,27 +685,34 @@ const Donation = () => {
           <h1>Total</h1>
           <h1>${totalval}</h1>
           <CHECKBOX>
-
-            <label><input onChange={handleOnchange} type="checkbox" name="donation" /> Cover fees so Anima Christi Retreats Inc gets my full donation</label>
-
+            <label>
+              <input
+                onChange={handleOnchange}
+                type="checkbox"
+                name="donation"
+                value={formdata.donation}
+              />{" "}
+              Cover fees so Anima Christi Retreats Inc gets my full donation
+            </label>
+            <HelpIcon />
           </CHECKBOX>
-          <BUTTON>
-            <input type='submit' value={`Pay$${totalval}`} />
-          </BUTTON>
+          <Link to="/dashboard/live">
+            <BUTTON onClick={() => { alert("Thanks For Your Valuable Donation") }}>
+              <input type="submit" value={`Pay$${totalval}`} />
+            </BUTTON>
+          </Link>
+         
         </Total>
-      
+
         {/* <CHECKBOX>
           <input onChange={handleOnchange} name='donation' type='checkbox' />{' '}
           <span>
             Cover fees so Anima Christi Retreats Inc gets my full donation
           </span>
         </CHECKBOX> */}
-
-        
       </Form>
     </Wrapper>
   );
 };
 
 export default Donation;
-

@@ -5,6 +5,7 @@
 .Container {
   width: 100%;
   box-sizing: border-box;
+  background-color: rgb(97, 136, 255);
 }
 .footer {
   max-width: 1140px;

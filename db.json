@@ -1,48 +1,5 @@
 {
-  "userData": [
-    {
-      "email": "pawanpatidar21@gmail.com",
-      "password": "123456",
-      "id": 1,
-      "events": {
-        "animal": [
-          {
-            "price": "120",
-            "hide": true,
-            "dedication": true,
-            "hidename": true,
-            "card": "mastercard",
-            "cardnumber": "123456789",
-            "year": "1222",
-            "cvv": "123",
-            "bill": "neemuch",
-            "city": "neemuch",
-            "pin": "123456",
-            "donation": true,
-            "id": 1
-          }
-        ]
-      }
-    },
-    {
-      "googleId": "117485640165789879423",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GjHvjqNcqCTksh5V1G4cPVbsCL69lFUFGMnN1J1=s96-c",
-      "email": "manishsinghbhadouria4@gmail.com",
-      "name": "Manish Singh Bhadouria",
-      "givenName": "Manish",
-      "familyName": "Singh Bhadouria",
-      "id": 2
-    },
-    {
-      "googleId": "117485640165789879423",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GjHvjqNcqCTksh5V1G4cPVbsCL69lFUFGMnN1J1=s96-c",
-      "email": "manishsinghbhadouria4@gmail.com",
-      "name": "Manish Singh Bhadouria",
-      "givenName": "Manish",
-      "familyName": "Singh Bhadouria",
-      "events": {},
-      "id": 3
-    },
+  "login": [
     {
       "googleId": "114200217091714058997",
       "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
@@ -50,8 +7,43 @@
       "name": "Pawan Patidar",
       "givenName": "Pawan",
       "familyName": "Patidar",
-      "events": {},
-      "id": 4
+      "id": 1
+    }
+  ],
+  "userData": [
+    {
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
+      "events": [
+        {
+          "title": "Pawan",
+          "price": "",
+          "donationTarget": "5666",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Environment",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627209159/vurok7eje7fsagjqvbma.png",
+          "hide": false,
+          "dedication": false,
+          "hidename": false,
+          "card": "",
+          "cardnumber": "",
+          "year": "",
+          "cvv": "",
+          "bill": "",
+          "city": "",
+          "pin": "",
+          "donation": "",
+          "country": "",
+          "state": ""
+        }
+      ],
+      "id": 1,
+      "currentTitle": "Pawan"
     }
   ]
 }
