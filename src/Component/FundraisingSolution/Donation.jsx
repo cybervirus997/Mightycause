@@ -696,12 +696,12 @@ const Donation = () => {
             </label>
             <HelpIcon />
           </CHECKBOX>
-          <Link to="/dashboard/live">
+          <Link to="/">
             <BUTTON onClick={() => { alert("Thanks For Your Valuable Donation") }}>
               <input type="submit" value={`Pay$${totalval}`} />
             </BUTTON>
           </Link>
-         
+
         </Total>
 
         {/* <CHECKBOX>
