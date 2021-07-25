@@ -49,6 +49,7 @@ const Heading = styled.div`
     height: 6vw;
     display: flex;
     align-items: center;
+    padding: 20px;
   }
   div:nth-child(2):hover {
     border: 2px solid blue;
@@ -88,7 +89,7 @@ const Form = styled.form``;
 
 const FormInner = styled.div`
   padding: 1% 0;
-  width: 50%;
+  width: 70%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
 
@@ -106,15 +107,20 @@ const FormInner = styled.div`
   }
 `;
 const DonateNav = styled.div`
+  width: 100%;
+  padding: 0px 20px;
   display: flex;
   align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 `;
 const Icons = styled.div`
-  margin-left: 20px;
+  /* margin-left: 20px; */
 `;
 
 const Logo = styled.div`
-  margin-left: 750px;
+  /* margin-left: 750px; */
   margin-top: 20px;
 `;
 
@@ -122,7 +128,7 @@ const Search = styled.div`
   position: relative;
   height: 50px;
 
-  margin-left: 600px;
+  /* margin-left: 600px; */
   .icon_s {
     color: #6188ff;
   }
@@ -135,7 +141,7 @@ const Search = styled.div`
     border: 0;
     cursor: pointer;
     font-size: 24px;
-    position: absolute;
+
     top: 1.8;
     left: 0;
     height: 55px;
@@ -151,7 +157,11 @@ const Search = styled.div`
 `;
 
 const Profile = styled.div`
-  margin-left: 100px;
+  /* margin-left: 100px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6%;
 `;
 
 const Buttondiv = styled.div`
@@ -200,7 +210,7 @@ const CHECKBOX = styled.div`
 
 const FormMiddle = styled.div`
   padding: 1% 0;
-  width: 50%;
+  width: 70%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
 
@@ -213,7 +223,7 @@ const FormMiddle = styled.div`
 
 const FormLast = styled.div`
   padding: 2% 0;
-  width: 50%;
+  width: 70%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
   justify-content: center;
@@ -476,21 +486,22 @@ const Donation = () => {
             <img src="./image/Mightcauselogo.png" alt="Logo" />
           </Logo>
         </Link>
-        <Search>
-          <button onClick={() => setSearch(!search)} className="btn">
-            <SearchIcon className="icon_s" />
-          </button>
-          {search && (
-            <Outer>
-              <Inner>
-                <label htmlFor="">Search</label>
-                <br />
-                <input type="text" placeholder="search..." />
-              </Inner>
-            </Outer>
-          )}
-        </Search>
+
         <Profile>
+          <Search>
+            <button onClick={() => setSearch(!search)} className="btn">
+              <SearchIcon className="icon_s" />
+            </button>
+            {search && (
+              <Outer>
+                <Inner>
+                  <label htmlFor="">Search</label>
+                  <br />
+                  <input type="text" placeholder="search..." />
+                </Inner>
+              </Outer>
+            )}
+          </Search>
           <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
         </Profile>
       </DonateNav>
