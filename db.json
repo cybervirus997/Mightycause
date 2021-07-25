@@ -1,11 +1,4 @@
 {
   "login": [],
-  "userData": [
-    {
-      "name": "Manish bhadouria Singh",
-      "email": "manishsinghbhadouria4@gmail.com",
-      "password": "12345678",
-      "id": 1
-    }
-  ]
+  "userData": []
 }

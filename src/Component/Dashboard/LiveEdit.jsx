@@ -2,7 +2,7 @@ import styles from "./LiveEdit.module.css";
 import styled from "styled-components";
 import { Nav } from "../Home/Nav";
 import Footer from "../Home/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -15,21 +15,15 @@ const forfun = {
 };
 function LiveEdit() {
   const [width, setWidth] = useState(window.innerWidth);
-  const [id, setId] = useState("");
+  const id = useRef();
   const [file, setFile] = useState("");
+  const [myVlaue, setMyValue] = useState();
 
   window.addEventListener("resize", handleResize);
   function handleResize() {
     setWidth(window.innerWidth);
     // console.log("no");
   }
-
-  useEffect(() => {
-    handleAuth();
-  }, []);
-  useEffect(() => {
-    getEmail();
-  }, []);
 
   const initial = {
     email: "ravishukla86044@gmai.com",
@@ -43,13 +37,20 @@ function LiveEdit() {
     deadline: 0,
   };
   const [data, setData] = useState(initial);
+
+  useEffect(() => {
+    handleAuth();
+  }, []);
+  useEffect(() => {}, [data]);
+
   const ImageDiv = styled.div`
     background-image: url(${data.imageUrl});
     background-repeat: no-repeat;
     background-size: cover;
   `;
+
   const Progress = styled.div`
-    width: ${Number((data.raised / data.donationTarget) * 100)}%;
+    width: ${Number((data.price / data.donationTarget) * 100)}%;
     background: rgb(118, 152, 255);
     position: absolute;
     height: 100%;
@@ -61,6 +62,7 @@ function LiveEdit() {
   const [formData, setFormData] = useState({});
   const [newImg, setNewImg] = useState();
   const [dataArr, setDataArr] = useState("");
+  const Email = useRef();
 
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -70,37 +72,67 @@ function LiveEdit() {
       console.log(title);
     }
     let payload = { ...data, [name]: value };
-    setData(payload);
+    setData({ ...data, ...payload });
     console.log(data);
   };
-  function handleAuth() {
-    return axios.get("http://localhost:3002/login/1").then((res) => {
-      console.log(res.data, "in th auth");
-      setData({ ...data, ...res.data });
+  async function handleAuth() {
+    let res = await axios.get("http://localhost:3002/login/1");
+    console.log(res.data, "in th auth");
+    Email.current = res.data.email;
+    setData({ ...data, ...res.data });
+    // setData((pre) => {
+    //   return { ...pre, ...res.data };
+    // });
+
+    console.log(data, "this is data");
+    Promise.all([res]).then((response) => {
+      console.log(response, "this is all");
+
       console.log(data, "this is data");
+      getEmail();
     });
   }
-  const getEmail = () => {
-    axios.get("http://localhost:3002/userData").then((res) => {
-      console.log(res.data);
-      let a = res.data;
+  const getEmail = async () => {
+    let res = await axios.get("http://localhost:3002/userData");
+
+    Promise.all([res]).then((response) => {
+      console.log(response, "insie getEmail promise");
+      let a = response[0].data;
       console.log(a, "inside getEmail");
       for (var i = 0; i < a.length; i++) {
-        if (a[i].email === data.email) {
-          setId(a[i].id);
-          console.log(a[i].id);
+        if (a[i].email === Email.current) {
+          var original = a[i].id;
+
+          id.current = a[i].id;
+          console.log(id.current, "this is id");
           break;
         }
       }
+      return original;
     });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(id);
     getEmail();
-    axios.patch(`http://localhost:3002/userData/${id}`).then((res) => {
+    let a = {};
+    console.log(a, "this is a");
+    let t = data.title;
+    let { price, donationTarget, goal, deadline, category } = data;
+    a.events = {
+      [t]: {
+        price,
+        donationTarget,
+        goal,
+        deadline,
+        category,
+        img: newImg,
+      },
+    };
+    axios.patch(`http://localhost:3002/userData/${id.current}`, a).then((res) => {
       console.log(res.data, "this is patch");
     });
-    // console.log(data);
+    console.log(data, "inside submit");
     setPopC(false);
     setPopValue(0);
   };
@@ -110,39 +142,67 @@ function LiveEdit() {
     console.log(e.target.files[0]);
   };
 
-  const getImage = () => {
-    axios
-      .get("https://him-app.herokuapp.com/posts")
-      .then((res) => {
-        setDataArr(res.data);
-        console.log(res.data, "inside getImage");
-      })
-      .catch((err) => console.log(err));
-  };
-  const postImage = async () => {
-    const payload = {
-      Image: newImg,
-    };
-    await axios
-      .post("https://him-app.herokuapp.com/posts", {
-        ...payload,
-        status: false,
-      })
-      .then((res) => getImage())
-      .catch((err) => console.log(err));
-  };
+  // const getImage = () => {
+  //   axios
+  //     .get("https://him-app.herokuapp.com/posts")
+  //     .then((res) => {
+  //       setDataArr(res.data);
+  //       console.log(res.data, "inside getImage");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+  // const postImage = async () => {
+  //   const payload = {
+  //     Image: newImg,
+  //   };
+  //   await axios
+  //     .post("https://him-app.herokuapp.com/posts", {
+  //       ...payload,
+  //       status: false,
+  //     })
+  //     .then((res) => getImage())
+  //     .catch((err) => console.log(err));
+  // };
 
+  // const handleSubmitImg = () => {
+  //   const reader = new FileReader();
+  //   console.log(reader);
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       setNewImg(reader.result);
+  //     }
+  //   };
+  //   reader.readAsDataURL(file);
+
+  //   postImage();
+  // };
   const handleSubmitImg = () => {
-    const reader = new FileReader();
-    console.log(reader);
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setNewImg(reader.result);
-      }
-    };
-    reader.readAsDataURL(file);
-
-    postImage();
+    console.log(file);
+    const a = new FormData();
+    a.append("file", file);
+    a.append("upload_preset", "uploadimage");
+    axios.post("https://api.cloudinary.com/v1_1/masai-nj2045/image/upload", a).then((res) => {
+      console.log(res.data.url);
+      let aa = {};
+      let t = data.title;
+      let { price, donationTarget, goal, deadline, category } = data;
+      aa.events = {
+        [t]: {
+          price,
+          donationTarget,
+          goal,
+          deadline,
+          category,
+          img: res.data.url,
+        },
+      };
+      axios.patch(`http://localhost:3002/userData/${id.current}`, aa).then((res) => {
+        console.log(res.data, "this is patch");
+      });
+      setNewImg(res.data.url);
+      setPopC(false);
+      setPopValue(0);
+    });
   };
 
   return (
@@ -243,7 +303,7 @@ function LiveEdit() {
           <div>
             <div className={styles.imgDiv}>
               <div className={styles.pic}>
-                <img src="" alt="" />
+                <img src={newImg} alt="" />
               </div>
               <span
                 onClick={() => {
@@ -331,16 +391,16 @@ function LiveEdit() {
           <div className={styles.userDetail}>
             <ImageDiv className={styles.userImage}></ImageDiv>
             {/* <div >
-              <img src={data.imageUrl} alt="" />
+              <img src={data.current.imageUrl} alt="" />
             </div> */}
             <div>
               <h2>Event Organiser</h2>
               <p>{`${data.name}`}</p>
             </div>
             <div>
-              <p>{`Created on -${data.date} dsfsfsffs`} </p>
-              <p>{`Fundraising deadline ${data.deadline}`}dsfsfdf</p>
-              <p>{`Fundraising Target ${data.donationTarget}`}sdfsf</p>
+              <p>{`Created on -${data.date} `} </p>
+              <p>{`Fundraising deadline ${data.deadline}`}</p>
+              <p>{`Fundraising Target ${data.donationTarget}`}</p>
             </div>
           </div>
         </div>
