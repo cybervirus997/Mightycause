@@ -18,8 +18,40 @@
       "name": "ravi shukla",
       "givenName": "ravi",
       "familyName": "shukla",
-      "events": {},
-      "id": 1
+      "events": [
+        {
+          "title": "Your Event Name",
+          "price": 25,
+          "donationTarget": 100,
+          "goal": 0,
+          "deadline": 0,
+          "category": "Category"
+        },
+        {
+          "title": "run for health",
+          "price": 75,
+          "donationTarget": "200",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Health",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627227448/rt8ghbkfaokdkrrny0st.jpg",
+          "hide": false,
+          "dedication": false,
+          "hidename": false,
+          "card": "",
+          "cardnumber": "",
+          "year": "",
+          "cvv": "",
+          "bill": "",
+          "city": "",
+          "pin": "",
+          "donation": "",
+          "country": "",
+          "state": ""
+        }
+      ],
+      "id": 1,
+      "currentTitle": "run for health"
     }
   ]
 }

@@ -380,6 +380,7 @@ const Donation = () => {
   const LogingFun = async () => {
     let { data } = await axios.get("http://localhost:3002/login/1");
     myemail.current = data.email;
+    setFinalData(data);
   };
 
   LogingFun();
