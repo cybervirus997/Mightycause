@@ -1,3 +1,5 @@
+
+
 .Nav {
   display: flex;
   align-items: center;
@@ -40,7 +42,7 @@
   display: flex;
   box-sizing: border-box;
   flex-direction: row;
-  /* width: 600px; */
+ 
   justify-content: space-between;
   align-items: center;
   margin: 0 21px;
@@ -140,4 +142,7 @@
   padding: 1% 1%;
    color:rgb(129, 160, 255) ;
 }
+
+
+
 

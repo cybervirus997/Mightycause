@@ -1,12 +1,12 @@
 {
   "login": [
     {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
       "id": 1
     }
   ],
@@ -20,131 +20,23 @@
       "familyName": "Patidar",
       "events": {
         "animal": {
-          "price": 25,
-          "hide": true,
-          "dedication": true,
-          "hidename": true,
-          "card": "mastercard",
-          "cardnumber": "222222222",
-          "year": "6666",
-          "cvv": "159",
-          "bill": "village bani dist neemuch mp",
+          "price": 50,
+          "hide": false,
+          "dedication": false,
+          "hidename": false,
+          "card": "ru-pay",
+          "cardnumber": "1222222222",
+          "year": "44444",
+          "cvv": "123",
+          "bill": "village bani teh manasa dist neemuch, madhya pradesh",
           "city": "neemuch",
           "pin": "458113",
-          "donation": true
+          "donation": "",
+          "country": "",
+          "state": ""
         }
       },
       "id": 1
-    },
-    {
-      "googleId": "114200217091714058997",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
-      "email": "pawanpatidar21@gmail.com",
-      "name": "Pawan Patidar",
-      "givenName": "Pawan",
-      "familyName": "Patidar",
-      "events": {
-        "animal": {
-          "price": 100,
-          "hide": true,
-          "dedication": true,
-          "hidename": true,
-          "card": "ru-pay",
-          "cardnumber": "5555555",
-          "year": "44444",
-          "cvv": "11111",
-          "bill": "village bani teh manasa dist neemuch",
-          "city": "neemuch",
-          "pin": "458113"
-        }
-      },
-      "id": 2
-    },
-    {
-      "googleId": "114200217091714058997",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
-      "email": "pawanpatidar21@gmail.com",
-      "name": "Pawan Patidar",
-      "givenName": "Pawan",
-      "familyName": "Patidar",
-      "events": {},
-      "id": 3
-    },
-    {
-      "googleId": "114200217091714058997",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
-      "email": "pawanpatidar21@gmail.com",
-      "name": "Pawan Patidar",
-      "givenName": "Pawan",
-      "familyName": "Patidar",
-      "events": {},
-      "id": 4
-    },
-    {
-      "googleId": "114200217091714058997",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
-      "email": "pawanpatidar21@gmail.com",
-      "name": "Pawan Patidar",
-      "givenName": "Pawan",
-      "familyName": "Patidar",
-      "events": {},
-      "id": 5
-    },
-    {
-      "events": {},
-      "id": 6
-    },
-    {
-      "events": {},
-      "id": 7
-    },
-    {
-      "events": {},
-      "id": 8
-    },
-    {
-      "events": {},
-      "id": 9
-    },
-    {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
-      "events": {},
-      "id": 10
-    },
-    {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
-      "events": {},
-      "id": 11
-    },
-    {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
-      "events": {},
-      "id": 12
-    },
-    {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
-      "events": {},
-      "id": 13
     }
   ]
 }

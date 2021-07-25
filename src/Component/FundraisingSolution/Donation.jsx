@@ -8,6 +8,8 @@ import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import HelpIcon from '@material-ui/icons/Help';
+import { DataUsage } from '@material-ui/icons';
+import { useRef } from 'react';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -366,23 +368,48 @@ h1{
 }
 `
 const Donation = () => {
+  const initial = {
+    price: "",
+    hide: false,
+    dedication: false,
+    hidename: false,
+    card: "",
+    cardnumber: "",
+    year: "",
+    cvv: "",
+    bill: "",
+    city: "",
+    pin: "",
+    donation: "",
+    country: "",
+    state:"",
+  }
   const [search, setSearch] = useState(false);
-  const [formdata, setFormdata] = useState({});
+  const [formdata, setFormdata] = useState(initial);
   const [buttonClick, setButtonClick] = useState('');
   const [slide, setSlide] = useState(true);
   const [totalval, setTotalval] = useState("0.00")
   const [finalData, setFinalData] = useState({ name: "", email: "" })
-  const [mydata,setMyData] = useState()
+  const [mydata, setMyData] = useState()
+ const myemail = useRef()
+  const Myid = useRef()
   // const [check, setCheck] = useState()
-   console.log(mydata,"mydata")
+  console.log(mydata, "mydata")
+ 
+  const LogingFun = async () => {
+    let { data } = await axios.get("http://localhost:3002/login/1")
+    myemail.current = data.email
+}
+
+  
+  LogingFun()
+ 
   const handleOnchange1 = () => {
     setSlide(!slide);
   };
 
  
-  // if (!mydata) {
-  //   alert("please login first")
-  // }
+
 
   const onMybutton = (val) => {
     console.log(val)
@@ -391,9 +418,9 @@ const Donation = () => {
   };
 
   useEffect(() => {
-    LogingFun()
-    getData();
    
+    getData();
+ 
   }, []);
 
   const handleOnchange = (e) => {
@@ -404,27 +431,40 @@ const Donation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     addData();
-    
+  setFormdata(initial)
     
   };
-  const LogingFun =  async () => {
-    let { data } = await axios.get("http://localhost:3002/login")
-    console.log(data)
-  }
 
-  const addData = async (id) => {
+  const addData = async () => {
+    console.log(formdata, "formdata")
+    
     const events = {};
     events.animal = { ...formdata };
     let Detail = { ...mydata }
     Detail.events.animal= {...formdata}
   
-    await axios.patch(`http://localhost:3002/userData/2`, Detail);
+    await axios.patch(`http://localhost:3002/userData/${Myid}`, Detail);
   };
 
   const getData = async () => {
-    let { data } = await axios.get(`http://localhost:3002/userData/2`);
-    console.log(data);
+    let { data } = await axios.get(`http://localhost:3002/userData`);
+
     setMyData(data)
+    console.log(data, "getdata")
+ 
+    for (let i = 0; i < data.length; i++){
+      console.log(data[i].email)
+      if (myemail === data[i].email) {
+     
+        console.log(data[i].email, "normalemail")
+        Myid.current = data[i].id
+        
+        setMyData(data[i])
+        break;
+      }
+    }
+    console.log(data);
+    
     setFinalData({ name: data.name,email:data.email})
   };
   return (
@@ -518,13 +558,13 @@ const Donation = () => {
           </Input>
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="hide" />Hide amount from public display </label><HelpIcon/>
+            <label><input onChange={handleOnchange} type="checkbox" name="hide" value={formdata.hide} />Hide amount from public display </label><HelpIcon/>
 
           </CHECKBOX>
 
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="dedication" />Add a dedication</label><HelpIcon />
+            <label><input onChange={handleOnchange} type="checkbox" name="dedication" value={formdata.dedication} />Add a dedication</label><HelpIcon />
 
           </CHECKBOX>
 
@@ -539,7 +579,7 @@ const Donation = () => {
 
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="hidename" />Hide my name from public display</label><HelpIcon />
+            <label><input onChange={handleOnchange} type="checkbox" name="hidename" value={formdata.hidename}  />Hide my name from public display</label><HelpIcon />
 
           </CHECKBOX>
         </FormMiddle>
@@ -549,7 +589,7 @@ const Donation = () => {
             <div>
               <label>Payment Method</label>
               <br />
-              <select onChange={handleOnchange} name="card" id="">
+              <select onChange={handleOnchange} value={formdata.card} name="card" id="">
                 <option value="">Select Card</option>
                 <option value="mastercard">Mastercard</option>
                 <option value="ru-pay">Rupay</option>
@@ -567,6 +607,7 @@ const Donation = () => {
                     type='number'
                     name='cardnumber'
                     placeholder='Card Number'
+                    value={formdata.cardnumber}
                   />
                 </Credential>
                 <Credential>
@@ -576,6 +617,7 @@ const Donation = () => {
                     type='number'
                     name='year'
                     placeholder='MM/YY'
+                    value={formdata.year}
                   />
                 </Credential>
                 <Credential>
@@ -585,6 +627,7 @@ const Donation = () => {
                     type='number'
                     name='cvv'
                     placeholder='CVV'
+                    value={formdata.cvv}
                   />
                 </Credential>
               </Wrapper2>
@@ -597,6 +640,7 @@ const Donation = () => {
               name='bill'
               type='text'
               placeholder='Bill Address'
+              value={formdata.bill}
             />
           </span>
 
@@ -607,15 +651,17 @@ const Donation = () => {
                 name='city'
                 type='text'
                 placeholder='City'
+                value={formdata.city}
               />
             </div>
 
             <div>
               <label>State</label>
               <br />
-              <select onChange={handleOnchange} name='state'>
-                <option value='mp'>Madhya Pradesh</option>
-                <option value='up'>Up</option>
+              <select onChange={handleOnchange} value={formdata.state} name='state'>
+                <option value=''>select state</option>
+                <option value='Madhya Pradesh'>Madhya Pradesh</option>
+                <option value='Uttar Pradesh'>Uttar Pradesh</option>
               </select>
             </div>
           </span>
@@ -625,8 +671,10 @@ const Donation = () => {
               <label>Country</label>
               <br />
 
-              <select onChange={handleOnchange} name='country'>
-                <option value='unitedstate'>United State</option>
+              <select onChange={handleOnchange} value={formdata.country} name='country'>
+                <option value=''>select country</option>
+                <option value='United State'>United State</option>
+                <option value='India'>India</option>
                 <option value='Bhutan'>Bhutan</option>
               </select>
             </div>
@@ -636,6 +684,7 @@ const Donation = () => {
                 onChange={handleOnchange}
                 type='number'
                 name='pin'
+                value={formdata.pin}
                 placeholder='ZIP/Post Code'
               />
             </div>
@@ -647,7 +696,7 @@ const Donation = () => {
           <h1>${totalval}</h1>
           <CHECKBOX>
 
-            <label><input onChange={handleOnchange} type="checkbox" name="donation" /> Cover fees so Anima Christi Retreats Inc gets my full donation</label><HelpIcon />
+            <label><input onChange={handleOnchange} type="checkbox" name="donation" value={formdata.donation} /> Cover fees so Anima Christi Retreats Inc gets my full donation</label><HelpIcon />
          
 
           </CHECKBOX>

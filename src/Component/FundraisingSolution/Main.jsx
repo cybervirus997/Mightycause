@@ -2,8 +2,8 @@ import React from 'react'
 import Fundrasingsolution from './Fundrasingsolution'
 
 import styled from 'styled-components'
-import { Nav } from '../Home/Nav.jsx'
-
+// import { Nav } from './Navbarch'
+import {Navbarch} from '../FundraisingSolution/Navbarch'
 const Wrapper = styled.div`
 /* display:flex;
 width:70%;
@@ -46,10 +46,9 @@ const Main = () => {
     return (
 
         <div>
-            {/* <Navbarch /> */}
-            <div style={{color:"blue"}}>
-                <Nav />
-            </div>
+            <Navbarch />
+         
+         
 
             <Heading >
                 <h1>Fundraising Solutions</h1>
