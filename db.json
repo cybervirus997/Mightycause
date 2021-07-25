@@ -1,79 +1,44 @@
 {
   "login": [
     {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
       "id": 1
     }
   ],
   "userData": [
     {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
       "events": [
         {
-          "title": "the the the",
-          "price": 25,
-          "donationTarget": "123",
+          "title": "Pawan",
+          "price": "",
+          "donationTarget": "5666",
           "goal": 0,
           "deadline": 0,
-          "category": "Childer-and-comunity",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
-        },
-        {
-          "title": "save animlas",
-          "price": 25,
-          "donationTarget": "151515",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Sports",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
-        },
-        {
-          "title": "to the pint",
-          "price": 25,
-          "donationTarget": "200",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Education ",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
-        },
-        {
-          "title": "to the pint",
-          "price": 25,
-          "donationTarget": "200",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Education ",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
-        },
-        {
-          "title": "run",
-          "price": 100,
-          "donationTarget": "40",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Health",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg",
-          "hide": true,
-          "dedication": true,
-          "hidename": true,
-          "card": "mastercard",
-          "cardnumber": "22",
-          "year": "32",
-          "cvv": "23",
-          "bill": "23",
-          "city": "23",
-          "pin": "23",
+          "category": "Environment",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627209159/vurok7eje7fsagjqvbma.png",
+          "hide": false,
+          "dedication": false,
+          "hidename": false,
+          "card": "",
+          "cardnumber": "",
+          "year": "",
+          "cvv": "",
+          "bill": "",
+          "city": "",
+          "pin": "",
           "donation": "",
+<<<<<<< HEAD
           "country": "India",
           "state": "Madhya Pradesh"
         },
@@ -101,6 +66,14 @@
       ],
       "id": 1,
       "currentTitle": "one two three"
+=======
+          "country": "",
+          "state": ""
+        }
+      ],
+      "id": 1,
+      "currentTitle": "Pawan"
+>>>>>>> 33a0401ecf2ffe2406774f6efafcce32d81fd70e
     }
   ]
 }
