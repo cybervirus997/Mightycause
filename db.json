@@ -20,25 +20,53 @@
       "familyName": "shukla",
       "events": [
         {
-          "title": "to the point",
+          "title": "the the the",
           "price": 25,
-          "donationTarget": "120",
+          "donationTarget": "123",
           "goal": 0,
           "deadline": 0,
-          "category": "Environment",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627198334/wf2fohxrm2zvmt1anplz.jpg"
+          "category": "Childer-and-comunity",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
         },
         {
-          "title": "tttt",
+          "title": "save animlas",
           "price": 25,
-          "donationTarget": "240",
+          "donationTarget": "151515",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Sports",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
+        },
+        {
+          "title": "to the pint",
+          "price": 25,
+          "donationTarget": "200",
           "goal": 0,
           "deadline": 0,
           "category": "Education ",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627198385/brbioxqbplicxamio4a9.jpg"
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
+        },
+        {
+          "title": "to the pint",
+          "price": 25,
+          "donationTarget": "200",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Education ",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
+        },
+        {
+          "title": "run",
+          "price": 25,
+          "donationTarget": "40",
+          "goal": 0,
+          "deadline": 0,
+          "category": "Health",
+          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627205368/v7fqf9wfm1mf7tmeyyst.jpg"
         }
       ],
-      "id": 1
+      "id": 1,
+      "currentTitle": "run"
     }
   ]
 }

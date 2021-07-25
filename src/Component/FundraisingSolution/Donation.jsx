@@ -361,6 +361,7 @@ const Donation = () => {
   const myemail = useRef();
   const Myid = useRef();
   const title = useRef();
+  const evt = useRef();
   // const [check, setCheck] = useState()
   // console.log(mydata, "mydata");
 
@@ -388,7 +389,7 @@ const Donation = () => {
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormdata({ ...formdata, [name]: type === "checkbox" ? checked : value });
+    setFormdata({ ...formdata, price: buttonClick, [name]: type === "checkbox" ? checked : value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -418,15 +419,15 @@ const Donation = () => {
     for (let i = 0; i < data.length; i++) {
       console.log(myemail, "this is emsail");
       if (myemail.current === data[i].email) {
-        console.log(data[i], "data[i]");
+        console.log(data[i], "data1[i]");
         Myid.current = data[i].id;
-        let t = data[i].events;
-
-        for (var j = 0; j < t.length; j++) {
-          title.current = t[j].title;
-          console.log(title.current, "this is title");
-        }
-        console.log(title.current);
+        evt.current = data[i].events;
+        console.log(evt.current, "evt");
+        // for (var j = 0; j < evt.current.length; j++) {
+        //   title.current = evt.current[j].title;
+        //   console.log(title.current, "this is title");
+        // }
+        // console.log(title.current);
 
         setMyData(data[i]);
         break;
