@@ -6,10 +6,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 export default function CheckboxLabels(props) {
   const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-    checkedF: true,
-    checkedG: true,
+    checkedA: false,
+    checkedB: false,
+    checkedF: false,
+    checkedG: false,
   });
 
   const handleChange = (event) => {
