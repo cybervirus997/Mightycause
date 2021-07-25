@@ -64,10 +64,7 @@ function LiveEdit() {
   const [newImg, setNewImg] = useState();
   const [dataArr, setDataArr] = useState("");
   const Email = useRef();
-<<<<<<< HEAD
   const evt = useRef();
-=======
->>>>>>> 4af6cac7cce90594aced4e69f2cb60dfd5aadf77
 
   const [title, setTitle] = useState("");
   const handleChange = (e) => {
@@ -106,15 +103,10 @@ function LiveEdit() {
       console.log(a, "inside getEmail");
       for (var i = 0; i < a.length; i++) {
         if (a[i].email === Email.current) {
-<<<<<<< HEAD
           console.log(a[i].events, "thsi a[i].envets");
 
           var original = a[i].id;
           evt.current = a[i].events;
-=======
-          var original = a[i].id;
-
->>>>>>> 4af6cac7cce90594aced4e69f2cb60dfd5aadf77
           id.current = a[i].id;
           console.log(id.current, "this is id");
           break;
@@ -127,15 +119,10 @@ function LiveEdit() {
     e.preventDefault();
     console.log(id);
     getEmail();
-<<<<<<< HEAD
-
-=======
->>>>>>> 4af6cac7cce90594aced4e69f2cb60dfd5aadf77
     let a = {};
     console.log(a, "this is a");
     let t = data.title;
     let { price, donationTarget, goal, deadline, category } = data;
-<<<<<<< HEAD
     a = {
       title: t,
       price,
@@ -155,19 +142,6 @@ function LiveEdit() {
     console.log(a, "patch");
     console.log(evt.current, "evt");
     axios.patch(`http://localhost:3002/userData/${id.current}`, d).then((res) => {
-=======
-    a.events = {
-      [t]: {
-        price,
-        donationTarget,
-        goal,
-        deadline,
-        category,
-        img: newImg,
-      },
-    };
-    axios.patch(`http://localhost:3002/userData/${id.current}`, a).then((res) => {
->>>>>>> 4af6cac7cce90594aced4e69f2cb60dfd5aadf77
       console.log(res.data, "this is patch");
     });
     console.log(data, "inside submit");
@@ -221,7 +195,6 @@ function LiveEdit() {
     a.append("upload_preset", "uploadimage");
     axios.post("https://api.cloudinary.com/v1_1/masai-nj2045/image/upload", a).then((res) => {
       console.log(res.data.url);
-<<<<<<< HEAD
       // let aa = {};
       // console.log(aa, "this is a");
       // let t = data.title;
@@ -246,24 +219,6 @@ function LiveEdit() {
       // axios.patch(`http://localhost:3002/userData/${id.current}`, d).then((res) => {
       //   console.log(res.data, "this is patch");
       // });
-=======
-      let aa = {};
-      let t = data.title;
-      let { price, donationTarget, goal, deadline, category } = data;
-      aa.events = {
-        [t]: {
-          price,
-          donationTarget,
-          goal,
-          deadline,
-          category,
-          img: res.data.url,
-        },
-      };
-      axios.patch(`http://localhost:3002/userData/${id.current}`, aa).then((res) => {
-        console.log(res.data, "this is patch");
-      });
->>>>>>> 4af6cac7cce90594aced4e69f2cb60dfd5aadf77
       setNewImg(res.data.url);
       setPopC(false);
       setPopValue(0);
