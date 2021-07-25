@@ -388,7 +388,7 @@ const Donation = () => {
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormdata({ ...formdata, [name]: type === "checkbox" ? checked : value });
+    setFormdata({ ...formdata, price: buttonClick, [name]: type === "checkbox" ? checked : value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
