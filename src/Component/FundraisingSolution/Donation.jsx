@@ -379,7 +379,7 @@ const Donation = () => {
   };
 
   const onMybutton = (val) => {
-    console.log(val);
+    // console.log(val);
     setTotalval(val);
     setButtonClick(val);
   };
@@ -412,12 +412,20 @@ const Donation = () => {
 
     for (var i = 0; i < a.length; i++) {
       if (a[i].title === currentTitle.current) {
-        a[i] = { ...a[i], ...formdata };
+        a[i] = { ...a[i], ...formdata, price: buttonClick };
         break;
       }
     }
 
-    console.log(evt.current, currentElement.current, mydata, a, "current");
+    console.log(
+      evt.current,
+      currentElement.current,
+      mydata,
+      a,
+      buttonClick,
+      currentTitle.current,
+      "current"
+    );
     let details = { ...mydata };
     details.events = a;
 
@@ -696,12 +704,15 @@ const Donation = () => {
             </label>
             <HelpIcon />
           </CHECKBOX>
-          <Link to="/dashboard/live">
-            <BUTTON onClick={() => { alert("Thanks For Your Valuable Donation") }}>
+          <Link to="/">
+            <BUTTON
+              onClick={() => {
+                alert("Thanks For Your Valuable Donation");
+              }}
+            >
               <input type="submit" value={`Pay$${totalval}`} />
             </BUTTON>
           </Link>
-         
         </Total>
 
         {/* <CHECKBOX>
