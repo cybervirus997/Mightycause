@@ -1,0 +1,103 @@
+{
+    "mainData":[
+        {
+            "image": "https://i.pinimg.com/originals/9b/07/15/9b07155809ee57aec9cded5300ee7a67.jpg",
+            "name": "Bostron fun run",
+            "category": "Fun",
+            "percentage":"45",
+            "moneyRaised": "43657"
+        },
+        {
+            "image": "https://www.wateraid.org/uk/sites/g/files/jkxoof211/files/styles/wateraid_landscape_in_content/public/fundraising-ideas-for-charity.jpg?itok=_Cj3Fa9l",
+            "name": "save water",
+            "category": "awerness",
+            "percentage":"54",
+            "moneyRaised": "93357"
+        },
+        {
+            "image":"https://i0.wp.com/www.giveindia.org/blog/wp-content/uploads/2021/01/fundraiserblog-banner.jpg?fit=1200%2C675&ssl=1",
+            "name": "Give india Fundraiser",
+            "category": "awerness",
+            "percentage":"89",
+            "moneyRaised": "13357"
+        },
+        {
+            "image":"https://d2aq6dqxahe4ka.cloudfront.net/themes/front/page/images/browse-fundraiser/Corona%20Microsite%20Banner%20Mobile.jpg",
+            "name": "Covid donation india",
+            "category": "awerness",
+            "percentage":"97",
+            "moneyRaised": "1389357"
+        },
+        {
+            "image":"https://cdn.mycreativeshop.com/images/templates/19661/non-profitfundraising-banners-banner-template-35409-thumb.jpg",
+            "name": "Save lion",
+            "category": "awerness",
+            "percentage":"17",
+            "moneyRaised": "38957"
+        },
+        {
+            "image":"https://cdn.mycreativeshop.com/images/templates/19661/non-profitfundraising-banners-banner-template-35409-thumb.jpg",
+            "name": "Save lion",
+            "category": "awerness",
+            "percentage":"17",
+            "moneyRaised": "38957"
+        },
+        {
+          "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNaqP6WCoG-kzXnr2OtiKkcvUS2s6WHhpoxw&usqp=CAU",
+          "name": "House party",
+            "category": "fun",
+            "percentage":"1",
+            "moneyRaised": "57"
+        },
+        {
+          "image":"https://i.pinimg.com/564x/58/a2/f6/58a2f6febf541c2b77e8c85904098685.jpg",
+          "name": "HDon charity",
+            "category": "Fundraiser",
+            "percentage":"56",
+            "moneyRaised": "99957"
+        },
+        {
+          "image":"https://www.mapsofindia.com/ci-moi-images/my-india/2014/06/narendra-modis-mission-to-clean-ganga.jpg",
+          "name": "Modi foundation",
+            "category": "Fundraiser",
+            "percentage":"96",
+            "moneyRaised": "999957"
+        },
+        {
+          "image":"https://www.oneindia.com/img/1200x80/2017/09/slaughters-in-market-01-1504248791.jpg",
+          "name": "Goat movement",
+            "category": "Fundraiser",
+            "percentage":"16",
+            "moneyRaised": "957"
+        },
+        {
+          "image":"https://hi-static.z-dn.net/files/da5/a60a65bb40c3f55cc0d7b4f51b6bc33e.jpg",
+          "name": "Moment-e-girls",
+            "category": "Fundraiser",
+            "percentage":"66",
+            "moneyRaised": "6957"
+        },
+        {
+          "image":"https://www.unicef.org/romania/sites/unicef.org.romania/files/styles/hero_mobile/public/UNI20002.jpg?itok=HBcA3yWH",
+          "name": "Unicef romania",
+            "category": "Fundraiser",
+            "percentage":"69",
+            "moneyRaised": "236957"
+        },
+        {
+          "image":"https://www.thehindu.com/entertainment/art/khr0es/article34603777.ece/ALTERNATES/LANDSCAPE_1200/MPDevangana-art-fundraiser",
+          "name": "Karni-sena",
+            "category": "Team",
+            "percentage":"7",
+            "moneyRaised": "1236957"
+        },
+        {
+          "image":"https://images.newindianexpress.com/uploads/user/imagelibrary/2021/5/25/w1200X800/Fundraisers.jpg",
+          "name": "Nani amma school",
+            "category": "Fundraiser",
+            "percentage":"89",
+            "moneyRaised": "996957"
+        }
+        
+    ]
+}

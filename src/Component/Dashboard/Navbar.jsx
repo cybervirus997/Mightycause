@@ -18,7 +18,12 @@ const SideNavbar = ({ handleSubmit }) => {
               return (
                 <li key={index} className={item.cName}>
                   {item.title === "Publish" ? (
-                    <Link onClick={handleSubmit}>
+                    <Link
+                      onClick={(e) => {
+                        alert("You have published this event");
+                        handleSubmit(e);
+                      }}
+                    >
                       {item.icon}
                       <span className={sidebar ? "title" : "hide"}>{item.title}</span>
                     </Link>

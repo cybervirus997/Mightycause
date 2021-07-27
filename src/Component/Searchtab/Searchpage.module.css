@@ -1,3 +1,7 @@
+body
+{
+    background-color:white!important;
+}
 .search-navbar
 {
     display: flex;
@@ -38,13 +42,212 @@
     flex-flow: row;
     margin-left: 1.8%;
 }
+/*header-meanu-bar start here*/
 
+.header-meanu-bar
+{
+    width: 90%;
+    margin-top: 2rem;
+    margin-left: 2.6%;
+}
+.header-tag > p
+{
+   font-size: calc(1.875rem + 2.85vw);
+    font-weight: 300;
+    line-height: 1.1;
+    color: #494d59;
+    background-color:white;
+    font-family: Lexend Deca,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin-bottom: .5rem !important;   
+}
+.header-searchBar-conatiner
+{
+    display: flex;
+    flex-flow: row;
+}
+.header-searchBar-conatiner> div
+{
+    width: 33.33%;
+}
+.header-search-result-count
+{
+    display: flex;
+    flex-flow: row;
+    margin-top: 0.4%;
+    justify-content: center;
+}
+.header-search-result-count > div:nth-child(2)
+{
+    margin-top:3.5%;
+}
+.header-homepage-operaingbtns
+{
+    display: flex;
+    flex-flow: row;
+}
+.header-homepage-operaingbtns> button
+{
+    border:0px solid white;
+    background-color:transparent
+}
+.header-homepage-operaingbtns>button:nth-child(1)
+{
+    display: flex;
+    flex-flow: row;
+    align-items:center;
+    font-size:1rem;
+   padding-left:10%
+}
+.header-homepage-operaingbtns>button:hover
+{
+    color:rgb(42, 112, 112);
+}
+.header-homepage-operaingbtns>button:nth-child(1):hover
+{
+    color: #080808;
+    background-color:rgb(241, 226, 226);
+}
+.header-homepage-operaingbtns>button:nth-child(1):focus
+{
+    border:4px solid grey;
+}
+.header-homepage-operaingbtns>button:nth-child(3)> *
+{
+    justify-content:flex-start;
+}
+/*header-meanu-bar end here*/
+
+
+
+/* cards details start */
 .mapping-section
 {
-    width: 100%;
-    height: 50vh;
-    border: 1px solid black;
+    width: 90%;
+    margin-left: 2%;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap:1%;
 }
+.card-main-body
+{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: border .6s ease;
+    transition-property: border;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+    transition-delay: 0.0.1s;
+    border: 0 solid #6188ff;
+    border-radius: 5px;
+    z-index: 4;
+}
+.card-main-body:hover
+{
+    border: 4px solid #6188ff;
+}
+/* The Image container */
+.img-hover-zoom {
+    width: 100%;
+    height: 60%;
+    overflow: hidden;   
+}
+.userdetail-image 
+{
+    width: 100%;
+}
+/* Colorize-zoom Container */
+.img-hover-zoom img {
+    transition: transform .5s, filter 1.5s ease-in-out;
+    filter: grayscale(40%);
+    padding-bottom: 0.834rem;
+}
+/* The Transformation */
+.img-hover-zoom > img:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+.card-Fund-tag>p>span>*
+{
+    width: 4%;
+}
+.card-Fund-tag
+{
+    text-align: center;
+}
+.card-fundraiser-heading >p
+{
+    width: 90%;
+    padding-top:0.34rem;
+    text-align: center;
+    font-size:1.2rem;
+    font-weight: bolder;
+    color: #494d59;
+    cursor: pointer;
+    font-family: Lexend Deca,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.card-fundraiser-progress-bar
+{
+    width: 70%;
+    margin: 2% auto;
+}
+.card-fundraiser-raised-money
+{
+    padding-top:3%;
+    text-align: center;
+    color: rgb(25, 139, 139);
+    font-size:1rem;
+    font-weight:600;
+}
+
+/**** skeleton start ****/
+.loading,
+.loading>div
+{
+    height: 100%;
+    background-color: #080808;
+    animation: myanimation 2s infinite;
+}
+.loading>div,
+.loading>div:nth-child(1)
+{
+    width: 80%;
+    height: 60%;
+    margin: 3% auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.loading>div
+{
+    height: 6%;
+}
+@keyframes myanimation {
+    0% {
+        background-color: rgb(34, 33, 33);
+    }
+
+    25% {
+        background-color: rgb(61, 61, 57);
+    }
+
+    50% {
+        background-color: rgb(96, 102, 96);
+    }
+
+    75% {
+        background-color: rgb(192, 187, 187);
+    }
+
+    100% {
+        background-color: rgb(2, 2, 2);
+    }
+}
+
+/****skeleton start ****/
+
+/*********** cards details ends ********/
 .menu-layout-setting,
 .menu-layout-changer
 {
@@ -73,8 +276,4 @@
  padding-left: 6%;
  padding-bottom: 0%;
  line-height:1.2;
-}
-.drawer-checkbox>div > p
-{
-    font-size:3%;
 }
