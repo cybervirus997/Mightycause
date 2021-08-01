@@ -8,7 +8,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import HelpIcon from "@material-ui/icons/Help";
-import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
+//import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
 import { useRef } from "react";
 
 const Wrapper = styled.div`
@@ -18,6 +18,8 @@ const Wrapper = styled.div`
   text-align: center;
   padding-bottom: 10%;
 `;
+
+
 const Heading = styled.div`
   width: 50%;
 
@@ -85,27 +87,9 @@ const Heading = styled.div`
   }
 `;
 
-const Form = styled.form``;
 
-const FormInner = styled.div`
-  padding: 1% 0;
-  width: 70%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  margin: auto;
 
-  margin-top: 50px;
-  background-color: white;
-
-  label {
-    line-height: 18px;
-  }
-  input {
-    width: 13px;
-    height: 18px;
-    font-size: 12px;
-    line-height: 12px;
-  }
-`;
+// ------------------------
 const DonateNav = styled.div`
   width: 100%;
   padding: 0px 20px;
@@ -163,6 +147,54 @@ const Profile = styled.div`
   justify-content: center;
   width: 6%;
 `;
+// ---------
+
+const Form = styled.form``;
+
+
+
+
+
+
+
+
+const FormInner = styled.div`
+  padding: 1% 0;
+  width: 60%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: auto;
+
+  margin-top: 50px;
+  background-color: white;
+div{
+  display:flex;
+  justify-content:center;
+}
+div>div{
+  margin-left:20px;
+}
+
+  input {
+    width: 20px;
+   
+  }
+`;
+
+
+const Input = styled.div`
+  margin-top: 25px;
+  input {
+    width: 70%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid grey;
+  }
+  label{
+    width:100%;
+ 
+  }
+
+`;
 
 const Buttondiv = styled.div`
   margin-top: 20px;
@@ -182,123 +214,130 @@ const Buttondiv = styled.div`
   }
 `;
 
-const Input = styled.div`
-  margin-top: 25px;
-  input {
-    width: 60%;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid grey;
-  }
-  label {
-    border-bottom: 2px solid grey;
-    padding-bottom: 1px;
-  }
-`;
-const CHECKBOX = styled.div`
-  margin-top: 15px;
-  label {
-    line-height: 18px;
-  }
-  input {
-    width: 13px;
-    height: 18px;
-    font-size: 12px;
-    line-height: 12px;
-  }
-`;
+
+
 
 const FormMiddle = styled.div`
   padding: 1% 0;
-  width: 70%;
+  width: 60%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
 
   margin-top: 50px;
   background-color: white;
-  label {
-    display: inline;
-  }
+
+ 
 `;
+const CHECKBOX = styled.div`
+/* display: flex; */
+
+
+`;
+
+
+
 
 const FormLast = styled.div`
-  padding: 2% 0;
-  width: 70%;
+  padding: 1.5% 0;
+  width: 60%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin: auto;
-  justify-content: center;
+
   margin: auto;
   margin-top: 50px;
+
   background-color: white;
-  justify-items: center;
 
-  span {
-    display: flex;
-  }
 
-  span > div:nth-child(1) select {
-    width: 300px;
-    border: none;
-    border-bottom: 1.5px solid grey;
-    outline: none;
-  }
 
-  span > div:nth-child(1) label {
-    margin-left: -180px;
-  }
-  span:nth-child(2) input {
-    margin-top: 10px;
-    width: 857px;
-    border-bottom: 1.5px solid grey;
+
+  div:nth-child(1) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns:48% 50%;
+  
+      padding:0% 3%;
+
   }
 
-  span:nth-child(3) > div:nth-child(1) input {
-    border-bottom: 1.5px solid grey;
-    margin-top: 21px;
-    width: 420px;
+
+
+
+ div:nth-child(1) >div:nth-child(1) select{
+height:1.5vw;
+width:200%;
+border:none;
+border-bottom:1px solid black;
+}
+ div:nth-child(1) >div:nth-child(2){
+  display:flex;
+}
+
+
+ div:nth-child(2) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns:100%;
+
+      padding:0% 3%;
+
+  }
+  div:nth-child(2) >div input{
+
+width:200%;
+border:none;
+border-bottom:1px solid black;
+}
+
+
+ div:nth-child(3) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns:50% 48%;
+
+      padding:0% 3%;
+
+  }
+   
+
+ div:nth-child(3) >div:nth-child(2) select{
+height:1.5vw;
+width:100%;
+border:none;
+border-bottom:1px solid black;
+}
+ div:nth-child(3) >div:nth-child(1) input{
+
+width:180%;
+border:none;
+border-bottom:1px solid black;
+}
+
+ div:nth-child(4) {
+    display: grid;
+    /* justify-content: center; */
+    grid-template-columns:48% 50%;
+
+      padding:0% 3%;
+
   }
 
-  span:nth-child(3) > div:nth-child(2) select {
-    width: 300px;
-    margin-left: 10px;
-    border: none;
-    border-bottom: 1.5px solid grey;
-    outline: none;
-    width: 420px;
-  }
 
-  span:nth-child(3) > div:nth-child(2) label {
-    margin-left: -370px;
-  }
-  span:nth-child(4) > div:nth-child(2) input {
-    margin-left: 10px;
-    margin-top: 22px;
-    width: 420px;
-    border-bottom: 1.5px solid grey;
-  }
+ div:nth-child(4) >div:nth-child(1) select{
+height:1.5vw;
+width:210%;
+border:none;
+border-bottom:1px solid black;
+}
+ div:nth-child(4) >div:nth-child(2) input{
 
-  span:nth-child(4) > div:nth-child(1) select {
-    width: 300px;
-    border: none;
-    border-bottom: 1.5px solid grey;
-    outline: none;
-    width: 420px;
-  }
-  span:nth-child(4) > div:nth-child(1) label {
-    margin-left: -350px;
-  }
+width:92%;
+border:none;
+border-bottom:1px solid black;
+}
+ 
 `;
-const Credential = styled.div`
-  input {
-    width: 160px;
-    margin-left: 5px;
-    margin-top: 21px;
-    border-bottom: 1.5px solid grey;
-  }
-`;
-const Wrapper2 = styled.div`
-  display: flex;
-`;
+
 
 const BUTTON = styled.div`
   input {
@@ -344,25 +383,34 @@ const Total = styled.div`
     font-weight: 400;
   }
 `;
+
+
+
+
+
+
+
+
+
 const Donation = () => {
-  const initial = {
-    price: "",
-    hide: false,
-    dedication: false,
-    hidename: false,
-    card: "",
-    cardnumber: "",
-    year: "",
-    cvv: "",
-    bill: "",
-    city: "",
-    pin: "",
-    donation: "",
-    country: "",
-    state: "",
-  };
+  // const initial = {
+  //   price: "",
+  //   hide: false,
+  //   dedication: false,
+  //   hidename: false,
+  //   card: "",
+  //   cardnumber: "",
+  //   year: "",
+  //   cvv: "",
+  //   bill: "",
+  //   city: "",
+  //   pin: "",
+  //   donation: "",
+  //   country: "",
+  //   state: "",
+  // };
   const [search, setSearch] = useState(false);
-  const [formdata, setFormdata] = useState(initial);
+  const [formdata, setFormdata] = useState({});
   const [buttonClick, setButtonClick] = useState("");
   const [slide, setSlide] = useState(true);
   const [totalval, setTotalval] = useState("0.00");
@@ -376,7 +424,7 @@ const Donation = () => {
   const currentElement = useRef();
   // const [check, setCheck] = useState()
   // console.log(mydata, "mydata");
-
+// console.log(formdata,"formdata")
   const LogingFun = async () => {
     let { data } = await axios.get("http://localhost:3002/login/1");
     myemail.current = data.email;
@@ -402,20 +450,21 @@ const Donation = () => {
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormdata({ ...formdata, price: buttonClick, [name]: type === "checkbox" ? checked : value });
+    setFormdata({ ...formdata, [name]: type === "checkbox" ? checked : value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     // alert("djsf");
-    addData();
-    setFormdata(initial);
+    console.log(formdata, "formdata")
+    // addData();
+  
   };
 
   const addData = async () => {
     // console.log(formdata, "formdata");
     // console.log(title.current, "this is title");
 
-    var events = [];
+    // var events = [];
     // events = { ...formdata };
     // let Detail = { ...mydata, ...events };
     // console.log(Detail, mydata);
@@ -526,17 +575,24 @@ const Donation = () => {
         </div>
       </Heading>
 
+
+
+
+
       <Form onSubmit={handleSubmit}>
         <FormInner>
           <div>
-            <span>
-              {" "}
+            <div>
+            
               <input onChange={handleOnchange1} type="radio" name="one" />
               One-time donation
-            </span>
-            <input onChange={handleOnchange1} type="radio" name="one" />
-            <span>Monthly donation</span>
+            </div>
+            <div>
+              <input onChange={handleOnchange1} type="radio" name="one" />
+              Monthly donation
+            </div>
           </div>
+            
           {slide ? (
             <Buttondiv>
               <button onClick={() => onMybutton(25)}>$ 25</button>
@@ -553,186 +609,210 @@ const Donation = () => {
             </Buttondiv>
           )}
 
+         
+
           <Input>
-            <label>$</label>
-            <input onChange={handleOnchange} name="price" type="text" value={buttonClick} />
-            <label>month</label>
+         
+          <label>$ <input  onChange={handleOnchange} name="price" type="text" />month</label>
+         
           </Input>
+
+
           <CHECKBOX>
-            <label>
-              <input onChange={handleOnchange} type="checkbox" name="hide" value={formdata.hide} />
-              Hide amount from public display{" "}
-            </label>
-            <HelpIcon />
+            <input onChange={handleOnchange} type="checkbox" name="hide" />
+            <label>Hide amount from public display</label>
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
 
           <CHECKBOX>
-            <label>
-              <input
-                onChange={handleOnchange}
-                type="checkbox"
-                name="dedication"
-                value={formdata.dedication}
-              />
-              Add a dedication
-            </label>
-            <HelpIcon />
+            <input onChange={handleOnchange} type="checkbox" name="dedication"/>
+            <label>Add a dedication</label>
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
         </FormInner>
+        
+
         <FormMiddle>
-          <h4>
-            You're Logged in as {finalData.name} ({finalData.email})).
-          </h4>
-          <h4> Not {finalData.name}? Log out.</h4>
+          <div>
+            <param>
+              {/* You're Logged in as {finalData.name} ({finalData.email})). */}
+              You're Logged in as Pawan patidar Pawanpatidar21@gmail.com
+            </param>
+            <p> Not Pawan Patidar? Log out.</p>
+         </div>
+          
+        
+         
 
           <CHECKBOX>
-            <label>
-              <input
-                onChange={handleOnchange}
-                type="checkbox"
-                name="hidename"
-                value={formdata.hidename}
-              />
-              Hide my name from public display
-            </label>
-            <HelpIcon />
+         
+              <input onChange={handleOnchange} type="checkbox" name="hidename" />
+           
+          
+            <label>Hide my name from public display</label>
+              <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} /> 
           </CHECKBOX>
+
+   
         </FormMiddle>
 
         <FormLast>
-          <span>
+          <div>
             <div>
-              <label>Payment Method</label>
-              <br />
-              <select onChange={handleOnchange} value={formdata.card} name="card" id="">
-                <option value="">Select Card</option>
-                <option value="mastercard">Mastercard</option>
-                <option value="ru-pay">Rupay</option>
-              </select>
-              {/* <input name='card' onChange={handleOnchange} type='text' /> */}
-            </div>
+            
+              <label htmlFor="">
+                Payment Method
+                <select onChange={handleOnchange} name="card" id="">
+                  <option value="">Select Card</option>
+                  <option value="mastercard">Mastercard</option>
+                  <option value="ru-pay">Rupay</option>
+                </select>
+              </label>
+             </div>
 
-            <div>
-              <Wrapper2>
-                <Credential>
+            
+              <div>
+              <label >
+                Card Number
                   <input
                     onChange={handleOnchange}
                     type="number"
                     name="cardnumber"
                     placeholder="Card Number"
-                    value={formdata.cardnumber}
+                   
                   />
-                </Credential>
-                <Credential>
+              </label>
+              <label htmlFor="">
+                MM/YY
                   <input
                     onChange={handleOnchange}
                     type="number"
                     name="year"
                     placeholder="MM/YY"
-                    value={formdata.year}
+                
                   />
-                </Credential>
-                <Credential>
-                  <input
-                    onChange={handleOnchange}
-                    type="number"
-                    name="cvv"
-                    placeholder="CVV"
-                    value={formdata.cvv}
-                  />
-                </Credential>
-              </Wrapper2>
-            </div>
-          </span>
-          <span>
-            <input
-              onChange={handleOnchange}
-              name="bill"
-              type="text"
-              placeholder="Bill Address"
-              value={formdata.bill}
-            />
-          </span>
+              </label>
+              <label htmlFor="">
+                CVV
+                <input
+                  onChange={handleOnchange}
+                  type="number"
+                  name="cvv"
+                  placeholder="CVV"
 
-          <span>
+                />
+              </label>
+               
+              
+              </div>
+            </div>
+       
+         
+          <div>
             <div>
+              <label htmlFor="">
+                Bill
+                <input
+                  onChange={handleOnchange}
+                  name="bill"
+                  type="text"
+                  placeholder="Bill Address"
+
+                />
+              </label>
+         </div>
+          </div>
+
+
+
+
+        
+
+          <div>
+            <div>
+              <label htmlFor="">
+                City         
               <input
                 onChange={handleOnchange}
                 name="city"
                 type="text"
                 placeholder="City"
-                value={formdata.city}
-              />
+            
+                />
+              </label>
             </div>
 
             <div>
-              <label>State</label>
-              <br />
-              <select onChange={handleOnchange} value={formdata.state} name="state">
+           
+            <label htmlFor="">
+                state
+              <select onChange={handleOnchange}  name="state">
                 <option value="">select state</option>
                 <option value="Madhya Pradesh">Madhya Pradesh</option>
                 <option value="Uttar Pradesh">Uttar Pradesh</option>
-              </select>
+                </select>
+              </label>
             </div>
-          </span>
+          </div>
 
-          <span>
+          <div>
             <div>
-              <label>Country</label>
-              <br />
+              <label>Country 
+            
 
-              <select onChange={handleOnchange} value={formdata.country} name="country">
+              <select onChange={handleOnchange} name="country">
                 <option value="">select country</option>
                 <option value="United State">United State</option>
                 <option value="India">India</option>
                 <option value="Bhutan">Bhutan</option>
-              </select>
+                </select>
+              </label>
             </div>
 
             <div>
+              <label htmlFor="">
+                Pin
+            
               <input
                 onChange={handleOnchange}
                 type="number"
                 name="pin"
-                value={formdata.pin}
+              
                 placeholder="ZIP/Post Code"
-              />
+                /></label>
+              
             </div>
-          </span>
+          </div>
         </FormLast>
 
         <Total>
           <h1>Total</h1>
           <h1>${totalval}</h1>
           <CHECKBOX>
+            <input
+              onChange={handleOnchange}
+              type="checkbox"
+              name="donation"
+
+            />
             <label>
-              <input
-                onChange={handleOnchange}
-                type="checkbox"
-                name="donation"
-                value={formdata.donation}
-              />{" "}
+             
               Cover fees so Anima Christi Retreats Inc gets my full donation
             </label>
             <HelpIcon />
           </CHECKBOX>
-          <Link to="/">
+          {/* <Link to="/"> */}
             <BUTTON
-              onClick={() => {
-                alert("Thanks For Your Valuable Donation");
-              }}
+              // onClick={() => {
+              //   alert("Thanks For Your Valuable Donation");
+              // }}
             >
               <input type="submit" value={`Pay$${totalval}`} />
             </BUTTON>
-          </Link>
+          {/* </Link> */}
         </Total>
 
-        {/* <CHECKBOX>
-          <input onChange={handleOnchange} name='donation' type='checkbox' />{' '}
-          <span>
-            Cover fees so Anima Christi Retreats Inc gets my full donation
-          </span>
-        </CHECKBOX> */}
+
       </Form>
     </Wrapper>
   );
