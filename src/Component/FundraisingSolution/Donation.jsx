@@ -10,7 +10,9 @@ import axios from "axios";
 import HelpIcon from "@material-ui/icons/Help";
 import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
 import { useRef } from "react";
+const INPUT = styled.input`
 
+`
 const Wrapper = styled.div`
   width: 100%;
   top: 0;
@@ -197,14 +199,15 @@ const Input = styled.div`
 `;
 const CHECKBOX = styled.div`
   margin-top: 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   label {
     line-height: 18px;
   }
   input {
-    width: 13px;
-    height: 18px;
-    font-size: 12px;
-    line-height: 12px;
+    margin-bottom:0;
+   width:15px
   }
 `;
 
@@ -405,7 +408,7 @@ const Donation = () => {
 
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
-   
+
     setFormdata({ ...formdata, price: buttonClick, [name]: type === "checkbox" ? checked : value });
   };
   const handleSubmit = (e) => {
@@ -562,25 +565,27 @@ const Donation = () => {
             <input onChange={onPriceChange} name="price" type="text" value={buttonClick} />
             <label>month</label>
           </Input>
+
+
           <CHECKBOX>
-            <label>
-              <input onChange={handleOnchange} type="checkbox" name="hide" value={formdata.hide} />
-              Hide amount from public display{" "}
-            </label>
-            <HelpIcon />
+
+            <input onChange={handleOnchange} type="checkbox" name="hide" value={formdata.hide} />
+            <p>Hide amount from public display</p>
+
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
 
           <CHECKBOX>
-            <label>
+           
               <input
                 onChange={handleOnchange}
                 type="checkbox"
                 name="dedication"
                 value={formdata.dedication}
               />
-              Add a dedication
-            </label>
-            <HelpIcon />
+        
+            <p>Add a dedication</p>
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }}/>
           </CHECKBOX>
         </FormInner>
         <FormMiddle>
@@ -590,16 +595,16 @@ const Donation = () => {
           <h4> Not {finalData.name}? Log out.</h4>
 
           <CHECKBOX>
-            <label>
-              <input
-                onChange={handleOnchange}
-                type="checkbox"
-                name="hidename"
-                value={formdata.hidename}
-              />
+            <input
+              onChange={handleOnchange}
+              type="checkbox"
+              name="hidename"
+              value={formdata.hidename}
+            />
+            <p>
               Hide my name from public display
-            </label>
-            <HelpIcon />
+            </p>
+            <HelpIcon style={{fontSize:"20px",marginLeft:"2px"}} />
           </CHECKBOX>
         </FormMiddle>
 
@@ -709,16 +714,16 @@ const Donation = () => {
           <h1>Total</h1>
           <h1>${totalval}</h1>
           <CHECKBOX>
-            <label>
+          
               <input
                 onChange={handleOnchange}
                 type="checkbox"
                 name="donation"
                 value={formdata.donation}
-              />{" "}
-              Cover fees so Anima Christi Retreats Inc gets my full donation
-            </label>
-            <HelpIcon />
+              />
+            <p>Add a dedication</p>
+           
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
           <Link to="/">
             <BUTTON
