@@ -27,7 +27,7 @@ const Heading = styled.div`
   text-align: center;
   margin-top: 150px;
   h1 {
-    font-size: 65px;
+    font-size: 50px;
     color: #6188ff;
   }
   p {

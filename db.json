@@ -18,41 +18,8 @@
       "name": "Pawan Patidar",
       "givenName": "Pawan",
       "familyName": "Patidar",
-      "events": [
-        {
-          "title": "Child",
-          "price": 25,
-          "donationTarget": "200",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Childer-and-comunity",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627216403/nrp2mcri60yyqooamu4o.png"
-        },
-        {
-          "title": "Animal",
-          "price": "",
-          "donationTarget": "150",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Emergencies",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627216473/zrhr2igomkk8k1h78ako.png",
-          "hide": false,
-          "dedication": false,
-          "hidename": false,
-          "card": "",
-          "cardnumber": "",
-          "year": "",
-          "cvv": "",
-          "bill": "",
-          "city": "",
-          "pin": "",
-          "donation": "",
-          "country": "",
-          "state": ""
-        }
-      ],
-      "id": 1,
-      "currentTitle": "Animal"
+      "events": {},
+      "id": 1
     }
   ]
 }

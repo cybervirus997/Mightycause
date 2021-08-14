@@ -377,6 +377,10 @@ const Donation = () => {
   // const [check, setCheck] = useState()
   // console.log(mydata, "mydata");
 
+
+  const onPriceChange = (e) => {
+    setButtonClick(e.target.value)
+  }
   const LogingFun = async () => {
     let { data } = await axios.get("http://localhost:3002/login/1");
     myemail.current = data.email;
@@ -401,7 +405,7 @@ const Donation = () => {
 
   const handleOnchange = (e) => {
     const { name, value, type, checked } = e.target;
-
+   
     setFormdata({ ...formdata, price: buttonClick, [name]: type === "checkbox" ? checked : value });
   };
   const handleSubmit = (e) => {
@@ -555,7 +559,7 @@ const Donation = () => {
 
           <Input>
             <label>$</label>
-            <input onChange={handleOnchange} name="price" type="text" value={buttonClick} />
+            <input onChange={onPriceChange} name="price" type="text" value={buttonClick} />
             <label>month</label>
           </Input>
           <CHECKBOX>
