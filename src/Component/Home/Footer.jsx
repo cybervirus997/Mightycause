@@ -9,6 +9,7 @@ import {
 } from '@material-ui/icons';
 import React from 'react';
 import styles from './Footer.module.css';
+import {Link} from 'react-router-dom'
 const Footer = () => {
   let iconStyles = { color: 'white', fontSize: 16 };
   return (
@@ -21,13 +22,13 @@ const Footer = () => {
             </button>
             <ul>
               <li>
-                <a href=''>Cloud Service </a>
+                <Link>Cloud Service </Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
             </ul>
           </div>
@@ -37,58 +38,58 @@ const Footer = () => {
             </button>
             <ul>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
             </ul>
           </div>
@@ -98,13 +99,13 @@ const Footer = () => {
             </button>
             <ul>
               <li>
-                <a href=''>Cloud Service</a>
+                <Link>Cloud Service</Link>
               </li>
               <li>
-                <a href=''>Music Streaming</a>
+                <Link>Music Streaming</Link>
               </li>
               <li>
-                <a href=''>Consulting Help</a>
+                <Link>Consulting Help</Link>
               </li>
             </ul>
           </div>
@@ -115,37 +116,37 @@ const Footer = () => {
               src='https://static-prod.mightycause.com/mc-client/assets/svgs/logos/glyph-mighty-white.svg'
               alt=''
             />
-            <a href=''>BLOG</a>
+            <Link>BLOG</Link>
           </div>
           <div>
             <Help style={iconStyles} />
-            <a href=''>SUPPORT</a>
+            <Link>SUPPORT</Link>
           </div>
           <div>
             <MonetizationOn style={iconStyles} />
-            <a href=''>PRICING</a>
+            <Link>PRICING</Link>
           </div>
           <div>
             <FileCopySharp style={iconStyles} />
-            <a href=''>TERMS & PRIVACY</a>
+            <Link>TERMS & PRIVACY</Link>
           </div>
         </div>
         <div className={styles.two}>
           <div>
             <Facebook style={iconStyles} />
-            <a href=''>FACEBOOK</a>
+            <Link>FACEBOOK</Link>
           </div>
           <div>
             <Twitter style={iconStyles} />
-            <a href=''>TWITTER</a>
+            <Link>TWITTER</Link>
           </div>
           <div>
             <Instagram style={iconStyles} />
-            <a href=''>INSTAGRAM</a>
+            <Link>INSTAGRAM</Link>
           </div>
           <div>
             <YouTube style={iconStyles} />
-            <a href=''>YOUTUBE</a>
+            <Link>YOUTUBE</Link>
           </div>
         </div>
         <div className={styles.imgs}>

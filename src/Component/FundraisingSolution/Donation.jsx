@@ -8,8 +8,9 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import HelpIcon from "@material-ui/icons/Help";
-import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
+import styles from './Navbar.module.css'
 import { useRef } from "react";
+import { StylesProvider } from "@material-ui/core";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -195,8 +196,9 @@ const FormMiddle = styled.div`
   margin: auto;
   margin-top: 50px;
   background-color: white;
-div{
-border:2px solid blue;
+div>input{
+
+/* margin-left:250px */
 
 }
  
@@ -307,7 +309,7 @@ const Inner = styled.div`
     border: none;
     border-bottom: 1px solid blue;
     outline: none;
-    margin-top: 20px;
+    margin-top: 20px
   }
 `;
 
@@ -551,13 +553,19 @@ const Donation = () => {
             <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
         </FormInner>
+
+
+
+
+
+
         <FormMiddle>
           <h4>
             You're Logged in as {finalData.name} ({finalData.email})).
           </h4>
           <h4> Not {finalData.name}? Log out.</h4>
 
-          <div>
+          <div className={styles.Some_change}>
          
             <label>
               
