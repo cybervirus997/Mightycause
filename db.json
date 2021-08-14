@@ -1,57 +1,25 @@
 {
   "login": [
     {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
       "id": 1
     }
   ],
   "userData": [
     {
-      "googleId": "112267376158770995959",
-      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GihkWvJkeQA35_BIZyMjWaLxUwAe2plvQs7Kgby=s96-c",
-      "email": "ravishukla86044@gmail.com",
-      "name": "ravi shukla",
-      "givenName": "ravi",
-      "familyName": "shukla",
-      "events": [
-        {
-          "title": "Your Event Name",
-          "price": 25,
-          "donationTarget": 100,
-          "goal": 0,
-          "deadline": 0,
-          "category": "Category"
-        },
-        {
-          "title": "run for health",
-          "price": 75,
-          "donationTarget": "200",
-          "goal": 0,
-          "deadline": 0,
-          "category": "Health",
-          "img": "http://res.cloudinary.com/masai-nj2045/image/upload/v1627227448/rt8ghbkfaokdkrrny0st.jpg",
-          "hide": false,
-          "dedication": false,
-          "hidename": false,
-          "card": "",
-          "cardnumber": "",
-          "year": "",
-          "cvv": "",
-          "bill": "",
-          "city": "",
-          "pin": "",
-          "donation": "",
-          "country": "",
-          "state": ""
-        }
-      ],
-      "id": 1,
-      "currentTitle": "run for health"
+      "googleId": "114200217091714058997",
+      "imageUrl": "https://lh3.googleusercontent.com/a-/AOh14GgSt9ZZGEJzEkURPZ4Um1cx8rbH3uMp0ly5CzdKtA=s96-c",
+      "email": "pawanpatidar21@gmail.com",
+      "name": "Pawan Patidar",
+      "givenName": "Pawan",
+      "familyName": "Patidar",
+      "events": {},
+      "id": 1
     }
   ]
 }

@@ -20,8 +20,9 @@ const WholeDiv = styled.div`
 
   .List_div > ul > li {
     list-style: none;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
+     color:#364C8E;
   }
   .Icon-size {
     width: 20%;
@@ -35,7 +36,8 @@ const WholeDiv = styled.div`
   }
   .para_1 > p {
     font-size: 20px;
-    font-size: 22px;
+    font-size: 18px;
+    color:#01158C;
   }
 
   .para_2 {
@@ -44,7 +46,9 @@ const WholeDiv = styled.div`
     margin-top: 22px;
   }
   .para_2 > p {
-    font-size: 20px;
+    font-size: 18px;
+       color:#01158C;
+   
   }
 
   .Card_div {
@@ -97,7 +101,7 @@ const WholeDiv = styled.div`
     padding: 0 2%;
   }
   .Down_panel > ul > li {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .fund_raise_btn > button {
