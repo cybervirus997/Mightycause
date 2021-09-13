@@ -173,7 +173,7 @@ function Nav() {
               <span class="material-icons-round">search</span>
               <form action="">
                 <input onChange={handlechange} type="text" className={styles.input} />
-                <Link to="/search">
+                <Link to="/">
                   <input className={styles.hideinp} type="submit" name="" id="" />
                 </Link>
               </form>
