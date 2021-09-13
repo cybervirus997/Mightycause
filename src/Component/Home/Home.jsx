@@ -3,10 +3,14 @@ import styles from "./Home.module.css";
 import { Product } from "./Product";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import mightycause1 from "../../photo/mightycause1.png";
 
 function Home() {
   return (
     <div className={styles.header}>
+      <div className={styles.backImage}>
+        <img src={mightycause1} alt="" />
+      </div>
       <div className={styles.background}></div>
       <Nav />
       <div className={styles.afterNav}>
