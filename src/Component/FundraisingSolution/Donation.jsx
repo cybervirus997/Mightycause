@@ -10,9 +10,7 @@ import axios from "axios";
 import HelpIcon from "@material-ui/icons/Help";
 import { DataUsage, FreeBreakfastOutlined } from "@material-ui/icons";
 import { useRef } from "react";
-const INPUT = styled.input`
-
-`
+const INPUT = styled.input``;
 const Wrapper = styled.div`
   width: 100%;
   top: 0;
@@ -199,15 +197,15 @@ const Input = styled.div`
 `;
 const CHECKBOX = styled.div`
   margin-top: 15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   label {
     line-height: 18px;
   }
   input {
-    margin-bottom:0;
-   width:15px
+    margin-bottom: 0;
+    width: 15px;
   }
 `;
 
@@ -380,12 +378,11 @@ const Donation = () => {
   // const [check, setCheck] = useState()
   // console.log(mydata, "mydata");
 
-
   const onPriceChange = (e) => {
-    setButtonClick(e.target.value)
-  }
+    setButtonClick(e.target.value);
+  };
   const LogingFun = async () => {
-    let { data } = await axios.get("http://localhost:3002/login/1");
+    let { data } = await axios.get("https://ravi-mightycause-server.herokuapp.com/login/1");
     myemail.current = data.email;
     setFinalData(data);
   };
@@ -447,11 +444,14 @@ const Donation = () => {
     let details = { ...mydata };
     details.events = a;
 
-    await axios.patch(`http://localhost:3002/userData/${Myid.current}`, details);
+    await axios.patch(
+      `https://ravi-mightycause-server.herokuapp.com/userData/${Myid.current}`,
+      details
+    );
   };
 
   const getData = async () => {
-    let { data } = await axios.get(`http://localhost:3002/userData`);
+    let { data } = await axios.get(`https://ravi-mightycause-server.herokuapp.com/userData`);
 
     setMyData(data);
     // console.log(data, "this is the real onlle");
@@ -538,10 +538,10 @@ const Donation = () => {
           <div>
             <span>
               {" "}
-              <input onChange={handleOnchange1} type="radio" name="one" />
+              <input /* onChange={handleOnchange1}*/ type="radio" name="one" />
               One-time donation
             </span>
-            <input onChange={handleOnchange1} type="radio" name="one" />
+            <input /*onChange={handleOnchange1}*/ type="radio" name="one" />
             <span>Monthly donation</span>
           </div>
           {slide ? (
@@ -566,9 +566,7 @@ const Donation = () => {
             <label>month</label>
           </Input>
 
-
           <CHECKBOX>
-
             <input onChange={handleOnchange} type="checkbox" name="hide" value={formdata.hide} />
             <p>Hide amount from public display</p>
 
@@ -576,16 +574,15 @@ const Donation = () => {
           </CHECKBOX>
 
           <CHECKBOX>
-           
-              <input
-                onChange={handleOnchange}
-                type="checkbox"
-                name="dedication"
-                value={formdata.dedication}
-              />
-        
+            <input
+              onChange={handleOnchange}
+              type="checkbox"
+              name="dedication"
+              value={formdata.dedication}
+            />
+
             <p>Add a dedication</p>
-            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }}/>
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
         </FormInner>
         <FormMiddle>
@@ -601,10 +598,8 @@ const Donation = () => {
               name="hidename"
               value={formdata.hidename}
             />
-            <p>
-              Hide my name from public display
-            </p>
-            <HelpIcon style={{fontSize:"20px",marginLeft:"2px"}} />
+            <p>Hide my name from public display</p>
+            <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
         </FormMiddle>
 
@@ -714,15 +709,14 @@ const Donation = () => {
           <h1>Total</h1>
           <h1>${totalval}</h1>
           <CHECKBOX>
-          
-              <input
-                onChange={handleOnchange}
-                type="checkbox"
-                name="donation"
-                value={formdata.donation}
-              />
+            <input
+              onChange={handleOnchange}
+              type="checkbox"
+              name="donation"
+              value={formdata.donation}
+            />
             <p>Add a dedication</p>
-           
+
             <HelpIcon style={{ fontSize: "20px", marginLeft: "2px" }} />
           </CHECKBOX>
           <Link to="/">

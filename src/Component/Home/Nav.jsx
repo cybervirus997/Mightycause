@@ -7,7 +7,7 @@ import { GoogleLogout } from "react-google-login";
 
 function Nav() {
   const logoutres = () => {
-    axios.delete("http://localhost:3002/login/1").then(function (response) {
+    axios.delete("https://ravi-mightycause-server.herokuapp.com/login/1").then(function (response) {
       setauthstatus(!authstatus);
     });
     console.log("logout");
@@ -18,7 +18,7 @@ function Nav() {
   let [authstatus, setauthstatus] = useState(false);
   // let [authstatus, setauthstatus] = useState(false);
   useEffect(() => {
-    axios.get("http://localhost:3002/login").then(function (response) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/login").then(function (response) {
       setauth(response.data[0]);
       if (auth) {
         setauthstatus(true);

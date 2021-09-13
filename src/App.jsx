@@ -16,7 +16,7 @@ function App() {
   let [auth, setauth] = useState({});
   // let [authstatus, setauthstatus] = useState(false);
   useEffect(() => {
-    axios.get("http://localhost:3002/login").then(function (response) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/login").then(function (response) {
       setauth(response.data[0]);
     });
   }, []);

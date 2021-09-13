@@ -14,7 +14,7 @@ const Form = () => {
 
   const handlechange = (e) => {
     let email = e.target.value;
-    if (e.target.name === 'password') {
+    if (e.target.name === "password") {
       let password = e.target.value;
       if (password.length >= 8) {
         setdisable(false);
@@ -22,8 +22,8 @@ const Form = () => {
         setdisable(true);
       }
     }
-    if (e.target.name === 'email') {
-      if (email.includes('@') && email.includes('.')) {
+    if (e.target.name === "email") {
+      if (email.includes("@") && email.includes(".")) {
         setstatus(true);
       } else {
         setstatus(false);
@@ -34,7 +34,7 @@ const Form = () => {
   };
   const handlesubmit = (e) => {
     e.preventDefault();
-    axios.get('http://localhost:3002/userData').then(function (response) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/userData").then(function (response) {
       let allusers = response.data;
       let status = false;
       console.log(allusers);
@@ -45,11 +45,11 @@ const Form = () => {
       });
       if (status) {
         axios
-          .post('http://localhost:3002/login', formdata)
+          .post("https://ravi-mightycause-server.herokuapp.com/login", formdata)
           .then(function (response) {});
-        history.push('/');
+        history.push("/");
       } else {
-        history.push('/sign-up');
+        history.push("/sign-up");
       }
     });
   };
@@ -58,7 +58,7 @@ const Form = () => {
     console.log(res);
     let data = { ...res.profileObj, events: {} };
 
-    axios.get('http://localhost:3002/userData').then(function (response) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/userData").then(function (response) {
       let allusers = response.data;
       let status = false;
       console.log(allusers);
@@ -69,19 +69,19 @@ const Form = () => {
       });
       if (!status) {
         axios
-          .post('http://localhost:3002/userData', data)
+          .post("https://ravi-mightycause-server.herokuapp.com/userData", data)
           .then(function (response) {});
       }
     });
 
-    axios.get('http://localhost:3002/login').then(function (resp) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/login").then(function (resp) {
       if (resp.data.length === 0) {
         axios
-          .post('http://localhost:3002/login', res.profileObj)
+          .post("https://ravi-mightycause-server.herokuapp.com/login", res.profileObj)
           .then(function (resp) {});
-        history.push('/');
+        history.push("/");
       } else {
-        history.push('/');
+        history.push("/");
       }
     });
   };
@@ -140,9 +140,7 @@ const Form = () => {
                 id="input1"
                 placeholder="Password"
               />
-              <p className={styles.pwd}>
-                Password Should be minimum of 8-Characters
-              </p>
+              <p className={styles.pwd}>Password Should be minimum of 8-Characters</p>
             </div>
           ) : null}
           <div>
@@ -151,16 +149,16 @@ const Form = () => {
                 disabled={disable}
                 className={styles.disable}
                 onClick={handlesubmit}
-                type='submit'
-                value='Continue'
+                type="submit"
+                value="Continue"
               />
             ) : (
               <input
                 disabled={disable}
                 className={styles.enable}
                 onClick={handlesubmit}
-                type='submit'
-                value='Continue'
+                type="submit"
+                value="Continue"
               />
             )}
           </div>

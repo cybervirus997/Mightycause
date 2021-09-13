@@ -78,7 +78,7 @@ function LiveEdit() {
     console.log(data);
   };
   async function handleAuth() {
-    let res = await axios.get("http://localhost:3002/login/1");
+    let res = await axios.get("https://ravi-mightycause-server.herokuapp.com/login/1");
     console.log(res.data, "in th auth");
     Email.current = res.data.email;
     setData({ ...data, ...res.data });
@@ -94,7 +94,7 @@ function LiveEdit() {
     });
   }
   const getEmail = async () => {
-    let res = await axios.get("http://localhost:3002/userData");
+    let res = await axios.get("https://ravi-mightycause-server.herokuapp.com/userData");
 
     Promise.all([res]).then((response) => {
       console.log(response, "insie getEmail promise");
@@ -146,9 +146,11 @@ function LiveEdit() {
 
     console.log(original, "patch");
     console.log(evt.current, "evt");
-    axios.patch(`http://localhost:3002/userData/${id.current}`, original).then((res) => {
-      console.log(res.data, "this is patch");
-    });
+    axios
+      .patch(`https://ravi-mightycause-server.herokuapp.com/userData/${id.current}`, original)
+      .then((res) => {
+        console.log(res.data, "this is patch");
+      });
     console.log(data, "inside submit");
     setPopC(false);
     setPopValue(0);

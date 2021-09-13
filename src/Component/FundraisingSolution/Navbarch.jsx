@@ -42,11 +42,10 @@ const Icons = styled.div`
 
 const Logo = styled.div`
   justify-items: center;
- /* border:2px solid black; */
- 
+  /* border:2px solid black; */
 
   img {
-   margin-left: 300px;
+    margin-left: 300px;
     height: 11vw;
   }
 `;

@@ -1,10 +1,10 @@
-import { Email, Facebook, Lock, PeopleAltOutlined } from '@material-ui/icons';
-import React, { useState } from 'react';
-import styles from './Form.module.css';
-import { Link, Redirect } from 'react-router-dom';
-import GoogleLogin from 'react-google-login';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Email, Facebook, Lock, PeopleAltOutlined } from "@material-ui/icons";
+import React, { useState } from "react";
+import styles from "./Form.module.css";
+import { Link, Redirect } from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const SignUpForm = () => {
   const [disable, setdisable] = useState(true);
@@ -14,7 +14,7 @@ const SignUpForm = () => {
 
   const handlechange = (e) => {
     let email = e.target.value;
-    if (e.target.name === 'password') {
+    if (e.target.name === "password") {
       let password = e.target.value;
       if (password.length >= 8) {
         setdisable(false);
@@ -22,8 +22,8 @@ const SignUpForm = () => {
         setdisable(true);
       }
     }
-    if (e.target.name === 'email') {
-      if (email.includes('@') && email.includes('.')) {
+    if (e.target.name === "email") {
+      if (email.includes("@") && email.includes(".")) {
         setstatus(true);
       } else {
         setstatus(false);
@@ -34,7 +34,7 @@ const SignUpForm = () => {
   };
   const handlesubmit = (e) => {
     e.preventDefault();
-    axios.get('http://localhost:3002/userData').then(function (response) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/userData").then(function (response) {
       let allusers = response.data;
       let status = false;
       console.log(allusers);
@@ -45,42 +45,42 @@ const SignUpForm = () => {
       });
       if (!status) {
         axios
-          .post('http://localhost:3002/userData', formdata)
+          .post("https://ravi-mightycause-server.herokuapp.com/userData", formdata)
           .then(function (response) {});
       }
     });
-    history.push('/login');
+    history.push("/login");
   };
-  let iconStyles = { color: 'rgb(54, 52, 52)', position: 'absolute' };
+  let iconStyles = { color: "rgb(54, 52, 52)", position: "absolute" };
   const responseGoogle = (res) => {
     console.log(res);
     let data = { ...res.profileObj, events: {} };
-    axios.get('http://localhost:3002/userData').then(function (response) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/userData").then(function (response) {
       console.log(response);
       let allusers = response.data;
       let status = false;
-      console.log('aaaa', allusers);
+      console.log("aaaa", allusers);
       allusers.forEach((el) => {
         if (el.email === res.profileObj.email) {
           status = true;
         }
       });
-      console.log('ssss', status);
+      console.log("ssss", status);
       if (!status) {
         axios
-          .post('http://localhost:3002/userData', data)
+          .post("https://ravi-mightycause-server.herokuapp.com/userData", data)
           .then(function (respons) {});
       }
     });
 
-    axios.get('http://localhost:3002/login').then(function (resp) {
+    axios.get("https://ravi-mightycause-server.herokuapp.com/login").then(function (resp) {
       if (resp.data.length === 0) {
         axios
-          .post('http://localhost:3002/login', res.profileObj)
+          .post("https://ravi-mightycause-server.herokuapp.com/login", res.profileObj)
           .then(function (ress) {});
-        history.push('/');
+        history.push("/");
       } else {
-        history.push('/');
+        history.push("/");
       }
     });
   };
@@ -95,21 +95,22 @@ const SignUpForm = () => {
           </button> */}
 
           <GoogleLogin
-            className='google'
-            clientId='378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com'
+            className="google"
+            clientId="378817930652-26drd8dhlmr4qet0ilu2qts92m12mpdr.apps.googleusercontent.com"
             render={(renderProps) => (
               <button
                 className={styles.google}
                 onClick={renderProps.onClick}
-                disabled={renderProps.disabled}>
+                disabled={renderProps.disabled}
+              >
                 <span>G</span> Use Google
               </button>
             )}
-            buttonText='Login'
+            buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             isSignedIn={true}
-            cookiePolicy={'single_host_origin'}
+            cookiePolicy={"single_host_origin"}
           />
         </div>
         <div className={styles.befaft}>
@@ -119,21 +120,15 @@ const SignUpForm = () => {
         </div>
         <div className={styles.myform}>
           <PeopleAltOutlined style={iconStyles} />
-          <input
-            onChange={handlechange}
-            type='text'
-            name='name'
-            id='input'
-            placeholder='Name'
-          />
+          <input onChange={handlechange} type="text" name="name" id="input" placeholder="Name" />
           <div>
             <Email style={iconStyles} />
             <input
               onChange={handlechange}
-              type='email'
-              name='email'
-              id='input'
-              placeholder='Email'
+              type="email"
+              name="email"
+              id="input"
+              placeholder="Email"
             />
           </div>
           {status ? (
@@ -141,14 +136,12 @@ const SignUpForm = () => {
               <Lock style={iconStyles} />
               <input
                 onChange={handlechange}
-                type='password'
-                name='password'
-                id='input1'
-                placeholder='Password'
+                type="password"
+                name="password"
+                id="input1"
+                placeholder="Password"
               />
-              <p className={styles.pwd}>
-                Password Should be minimum of 8-Characters
-              </p>
+              <p className={styles.pwd}>Password Should be minimum of 8-Characters</p>
             </div>
           ) : null}
           <div>
@@ -157,16 +150,16 @@ const SignUpForm = () => {
                 disabled={disable}
                 className={styles.disable}
                 onClick={handlesubmit}
-                type='submit'
-                value='Continue'
+                type="submit"
+                value="Continue"
               />
             ) : (
               <input
                 disabled={disable}
                 className={styles.enable}
                 onClick={handlesubmit}
-                type='submit'
-                value='Continue'
+                type="submit"
+                value="Continue"
               />
             )}
           </div>
